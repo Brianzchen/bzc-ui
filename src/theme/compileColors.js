@@ -15,10 +15,10 @@ export default (colors: ColorsT): {| [id: string]: ColorFuncT |} => {
       const curColor = colors[key];
 
       if (shade && Math.sign(shade) === -1) {
-        return Color(curColor).lighten(shade);
+        return Color(curColor).lighten(shade).hex();
       }
       if (shade && Math.sign(shade) === 1) {
-        return Color(curColor).darken(shade);
+        return Color(curColor).darken(shade).hex();
       }
 
       if (opacity) {
