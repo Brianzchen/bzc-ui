@@ -1,0 +1,24 @@
+{
+  "name": "starfall",
+  "version": "0.1.0",
+  "description": "Collection of atomic react components falling through the night sky",
+  "main": "index.js",
+  "repository": "https://github.com/Brianzchen/starfall.git",
+  "author": "Brian Chen",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^6.0.0-alpha.7",
+    "aphrodite": "^2.4.0",
+    "color": "^4.2.1",
+    "hex-to-rgb": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-flow": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "flow-bin": "^0.172.0",
+    "jest": "^27.5.1"
+  }
+}

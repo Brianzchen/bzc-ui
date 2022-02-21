@@ -1,0 +1,25 @@
+# folders
+.github
+assets
+coverage
+flow-coverage
+flow-typed
+public
+scripts
+server
+src
+testUtils
+website
+
+# files
+.eslintignore
+.eslintrc.js
+.flowconfig
+.nvmrc
+babel.config.js
+CONTRIBUTING.md
+dangerfile.js
+Dockerfile*
+GOVERNANCE.md
+jest.config.js
+yarn.lock
