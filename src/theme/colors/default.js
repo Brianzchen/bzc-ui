@@ -1,5 +1,5 @@
 // @flow
-import type { ColorT } from '../../types';
+import type { ColorsT } from '../../types';
 
 export default ({
   primary: '#1D2F5E',
@@ -17,4 +17,4 @@ export default ({
   grey5: '#e5e5e5',
   grey6: '#f2f2f2',
   grey7: '#ffffff',
-}: { [key: ColorT]: string });
+}: $ObjMapConst<ColorsT, string>);

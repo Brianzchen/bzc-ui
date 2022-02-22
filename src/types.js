@@ -5,31 +5,28 @@ import type { FontFamily } from 'aphrodite';
 // Only types coming from this file should be exposed to consumers
 // Once build is complete it can be imported as
 // `import type { ColorFuncT } from 'starfall';`
-export type ColorT =
-  | 'primary'
-  | 'secondary'
-  | 'highlight'
-  | 'error'
-  | 'successBackground'
-  | 'infoBackground'
-  | 'warningBackground'
-  | 'errorBackground'
-  | 'grey1'
-  | 'grey2'
-  | 'grey2'
-  | 'grey3'
-  | 'grey4'
-  | 'grey5'
-  | 'grey6'
-  | 'grey7';
 
-export type ColorFuncT = (shade?: number) => string;
+export type ColorFuncT = (shade?: number, opacity?: number) => string;
 
-export type ColorsT = {
-  [key: ColorT]: ColorFuncT,
-};
+export type ColorsT = {|
+  primary: ColorFuncT,
+  secondary: ColorFuncT,
+  highlight: ColorFuncT,
+  error: ColorFuncT,
+  successBackground: ColorFuncT,
+  infoBackground: ColorFuncT,
+  warningBackground: ColorFuncT,
+  errorBackground: ColorFuncT,
+  grey1: ColorFuncT,
+  grey2: ColorFuncT,
+  grey3: ColorFuncT,
+  grey4: ColorFuncT,
+  grey5: ColorFuncT,
+  grey6: ColorFuncT,
+  grey7: ColorFuncT,
+|};
 
-export type CornersT = '00' | '10' | '20' | '30';
+export type CornersT = 0 | 1 | 2 | 3;
 
 export type CornerFuncT = (corner: CornersT) => string;
 
@@ -89,7 +86,7 @@ export type FontsT = {|
   [string]: FontValueT,
 |};
 
-export type LinesT = '10' | '20' | '30';
+export type LinesT = 1 | 2 | 3;
 
 export type LineFuncT = (line: LinesT) => string;
 
@@ -124,15 +121,13 @@ export type ThemeT = {
   ...
 };
 
-export type ColorsMaybeT = {|
-  [key: ColorT]: string | void,
-|};
+export type ColorsMaybeT = $ObjMapConst<ColorsT, string | void>;
 
 export type CornersMaybeT = {|
-  '00'?: string,
-  '10'?: string,
-  '20'?: string,
-  '30'?: string,
+  '0'?: string,
+  '1'?: string,
+  '2'?: string,
+  '3'?: string,
 |};
 
 export type SpacingMaybeT = {|
@@ -151,9 +146,9 @@ export type SpacingMaybeT = {|
 |};
 
 export type LinesMaybeT = {|
-  '10'?: string,
-  '20'?: string,
-  '30'?: string,
+  '1'?: string,
+  '2'?: string,
+  '3'?: string,
 |};
 
 export type FontsMaybeT = {|
@@ -170,12 +165,7 @@ export type FontsMaybeT = {|
   metadata?: FontValueT,
 |};
 
-export type ElevationsMaybeT = {|
-  sheet?: number,
-  drawer?: number,
-  modal?: number,
-  hover?: number,
-|};
+export type ElevationsMaybeT = $ObjMapConst<ElevationsT, string | void>;
 
 export type InputFormatT = 'credit-card';
 

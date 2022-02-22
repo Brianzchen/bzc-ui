@@ -163,7 +163,7 @@ snippet.json
 types.json
 utilities.json
 package-lock.json
-./types.js
+types.js
 website/storyCache.js
 
 public/css

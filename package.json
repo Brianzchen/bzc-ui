@@ -28,7 +28,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-flow": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
-    "@faker-js/faker": "^6.0.0-alpha.7",
+    "@faker-js/faker": "^5.5.3",
     "eslint": "^8.9.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-bzc": "^1.0.9",
@@ -42,6 +42,7 @@
     "eslint-plugin-testing-library": "^5.0.5",
     "flow-bin": "^0.172.0",
     "flow-copy-source": "^2.0.9",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "react": "17.0.0"
   }
 }
