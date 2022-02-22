@@ -7,8 +7,10 @@
   "author": "Brian Chen",
   "license": "MIT",
   "scripts": {
+    "clean": "rm -rf lib",
     "build:flow": "flow-copy-source --ignore '*/**/*.{stories,spec}.*' src lib",
-    "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js"
+    "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js",
+    "prepublish": "yarn clean && yarn build"
   },
   "dependencies": {
     "aphrodite": "^2.4.0",
