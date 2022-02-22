@@ -501,7 +501,7 @@ export type StyleObjT = {
   counterReset?: CSSWideKeyword | string | number,
   cue?: CSSWideKeyword | string,
   cueAfter?: CSSWideKeyword | string,
-  cursor?: CSSWideKeyword | string | number;
+  cursor?: CSSWideKeyword | string | number,
   direction?: CSSWideKeyword | 'ltr' | 'rtl',
   display?: | 'none'
     /** <display-outside> values. */
@@ -657,8 +657,8 @@ export type StyleObjT = {
   gridRow?: CSSWideKeyword | string | number,
   gridRowStart?: CSSWideKeyword | string | number,
   gridRowEnd?: CSSWideKeyword | string | number,
-  gridRowPosition?: CSSWideKeyword | string | number;
-  gridRowSpan?: CSSWideKeyword | number;
+  gridRowPosition?: CSSWideKeyword | string | number,
+  gridRowSpan?: CSSWideKeyword | number,
   gridTemplate?: string,
   gridTemplateAreas?: CSSWideKeyword | string,
   gridTemplateRows?: CSSWideKeyword | string | number,
@@ -719,7 +719,7 @@ export type StyleObjT = {
   maskOrigin?: CSSWideKeyword | string | number,
   maskType?: string,
   maxBlockSize?: string,
-  maxHeight?: CSSWideKeyword | string | number;
+  maxHeight?: CSSWideKeyword | string | number,
   maxInlineSize?: string,
   maxWidth?: CSSWideKeyword | string | number,
   minBlockSize?: string,
@@ -739,12 +739,12 @@ export type StyleObjT = {
   offsetBlockStart?: string,
   offsetInlineEnd?: string,
   offsetInlineStart?: string,
-  opacity?: CSSWideKeyword | number;
-  order?: CSSWideKeyword | number;
-  orphans?: CSSWideKeyword | number;
-  outline?: CSSWideKeyword | string | number;
-  outlineColor?: CSSWideKeyword | string | number;
-  outlineOffset?: CSSWideKeyword | string | number;
+  opacity?: CSSWideKeyword | number,
+  order?: CSSWideKeyword | number,
+  orphans?: CSSWideKeyword | number,
+  outline?: CSSWideKeyword | string | number,
+  outlineColor?: CSSWideKeyword | string | number,
+  outlineOffset?: CSSWideKeyword | string | number,
   outlineStyle?: string,
   outlineWidth?: string | number,
   overflow?: CSSWideKeyword | 'auto' | 'hidden' | 'scroll' | 'visible',
