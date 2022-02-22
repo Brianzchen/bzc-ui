@@ -11,7 +11,6 @@
     "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js"
   },
   "dependencies": {
-    "@faker-js/faker": "^6.0.0-alpha.7",
     "aphrodite": "^2.4.0",
     "color": "^4.2.1",
     "hex-to-rgb": "^1.0.1"
@@ -23,6 +22,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-flow": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
+    "@faker-js/faker": "^6.0.0-alpha.7",
     "flow-bin": "^0.172.0",
     "flow-copy-source": "^2.0.9",
     "jest": "^27.5.1"
