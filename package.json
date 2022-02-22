@@ -2,10 +2,14 @@
   "name": "starfall",
   "version": "0.1.0",
   "description": "Collection of atomic react components falling through the night sky",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/Brianzchen/starfall.git",
   "author": "Brian Chen",
   "license": "MIT",
+  "scripts": {
+    "build:flow": "flow-copy-source --ignore '*/**/*.{stories,spec}.*' src lib",
+    "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js"
+  },
   "dependencies": {
     "@faker-js/faker": "^6.0.0-alpha.7",
     "aphrodite": "^2.4.0",
@@ -13,12 +17,14 @@
     "hex-to-rgb": "^1.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-flow": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
     "flow-bin": "^0.172.0",
+    "flow-copy-source": "^2.0.9",
     "jest": "^27.5.1"
   }
 }
