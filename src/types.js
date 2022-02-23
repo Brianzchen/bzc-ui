@@ -121,13 +121,8 @@ export type ThemeT = {
   ...
 };
 
-export type ColorsMaybeT = $ObjMapConst<ColorsT, string | void>;
-
 export type CornersMaybeT = {|
-  '0'?: string,
-  '1'?: string,
-  '2'?: string,
-  '3'?: string,
+  [key: CornersT]: string | void,
 |};
 
 export type SpacingMaybeT = {|
@@ -146,9 +141,7 @@ export type SpacingMaybeT = {|
 |};
 
 export type LinesMaybeT = {|
-  '1'?: string,
-  '2'?: string,
-  '3'?: string,
+  [key: LinesT]: string | void,
 |};
 
 export type FontsMaybeT = {|
@@ -165,7 +158,7 @@ export type FontsMaybeT = {|
   metadata?: FontValueT,
 |};
 
-export type ElevationsMaybeT = $ObjMapConst<ElevationsT, string | void>;
+export type ElevationsMaybeT = $ObjMapConst<ElevationsT, number | void>;
 
 export type InputFormatT = 'credit-card';
 
