@@ -20,7 +20,7 @@ export type ColorsT = {|
   monoPrimary: ColorFuncT,
   monoSecondary: ColorFuncT,
   monoTertiary: ColorFuncT,
-  MonoMid: ColorFuncT,
+  monoMid: ColorFuncT,
   monoHighlight: ColorFuncT,
   monoLow: ColorFuncT,
   monoInverse: ColorFuncT,

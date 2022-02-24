@@ -14,7 +14,7 @@ describe('compileColors', () => {
     monoPrimary: '#191919',
     monoSecondary: '#333333',
     monoTertiary: '#737373',
-    MonoMid: '#cccccc',
+    monoMid: '#cccccc',
     monoHighlight: '#e5e5e5',
     monoLow: '#f2f2f2',
     monoInverse: '#ffffff',

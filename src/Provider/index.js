@@ -43,7 +43,7 @@ type Props = {|
     monoPrimary?: string,
     monoSecondary?: string,
     monoTertiary?: string,
-    MonoMid?: string,
+    monoMid?: string,
     monoHighlight?: string,
     monoLow?: string,
     monoInverse?: string,

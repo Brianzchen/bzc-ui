@@ -74,8 +74,6 @@ export type BoxT = {
   className?: string,
   /** overrides styling for root element */
   style?: StyleT,
-  /** sets the component background to be transparent */
-  transparent?: boolean,
   /** assign a color directly to the component's styling.
    * Accepts theme value `color` or `color(20)` as a string
    * or alternatively accepts a hexcode
@@ -110,7 +108,6 @@ const Box: React$AbstractComponent<BoxT, HTMLElement> = React.forwardRef<BoxT, H
   as: Element = 'div',
   className = '',
   style = {},
-  transparent = true,
   color,
   getStyle,
   hideElm,
@@ -126,11 +123,6 @@ const Box: React$AbstractComponent<BoxT, HTMLElement> = React.forwardRef<BoxT, H
     container: styler(style, theme, {
       boxSizing: 'border-box',
       color: computeColor(color, theme),
-      ...transparent
-        ? { ...null }
-        : {
-          backgroundColor: theme.colors.grey7(),
-        },
       '@media print': {
         display: printHide ? 'none' : 'initial',
       },
