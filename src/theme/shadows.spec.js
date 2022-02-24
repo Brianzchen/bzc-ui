@@ -4,7 +4,7 @@ import { modal, dropdown, card } from './shadows';
 describe('shadows', () => {
   const theme = {
     colors: {
-      grey1: () => '#191919',
+      monoPrimary: () => '#191919',
     },
     spacing: (space) => {
       switch (space) {

@@ -40,13 +40,13 @@ type Props = {|
     infoBackground?: string,
     warningBackground?: string,
     errorBackground?: string,
-    grey1?: string,
-    grey2?: string,
-    grey3?: string,
-    grey4?: string,
-    grey5?: string,
-    grey6?: string,
-    grey7?: string,
+    monoPrimary?: string,
+    monoSecondary?: string,
+    monoTertiary?: string,
+    MonoMid?: string,
+    monoHighlight?: string,
+    monoLow?: string,
+    monoInverse?: string,
   |},
   /** object of corner properties to override the default values */
   corners?: CornersMaybeT,
@@ -66,12 +66,6 @@ type Props = {|
   onThemeChange?: (...args: Array<any>) => any,
   /** whether keyboard focus effects should be enabled for all child components */
   focusEffect?: boolean,
-  /**
-   * override all `Anchor` components to render as the component passed in
-   * instead of the default.
-   * Accepts an html semantic tag as a string or component
-   */
-  anchorAs?: any,
   /**
    * A multiplier value to increase the scale of all starfall components,
    * spacing, and fonts by a given amount
@@ -155,7 +149,6 @@ const Provider = (props: Props): React.Node => {
       dropdown: '',
       card: '',
     },
-    anchorAs: props.anchorAs,
     scale: props.scale ?? 1,
   };
 

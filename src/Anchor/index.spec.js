@@ -4,7 +4,6 @@ import { render, screen } from '@testing-library/react';
 import { lorem } from '@faker-js/faker';
 
 import BaseButton from '../BaseButton';
-import Provider from '../Provider';
 
 import Anchor from '.';
 
@@ -75,50 +74,5 @@ describe('<Anchor />', () => {
 
     expect(screen.getByTestId('test').getAttribute('target')).toBe(target);
     expect(screen.getByTestId('test').getAttribute('rel')).toBe(rel);
-  });
-
-  it('render anchorAs from provider', () => {
-    const text = lorem.sentence();
-    render(
-      <Provider anchorAs={BaseButton}>
-        <Anchor data-testid="test" newTab>
-          {text}
-        </Anchor>
-      </Provider>,
-    );
-
-    expect(screen.getByTestId('test').tagName).toBe('BUTTON');
-    expect(screen.getByTestId('test').getAttribute('target')).toBe('_blank');
-    expect(screen.getByTestId('test').getAttribute('rel')).toBe('noreferrer noopener');
-  });
-
-  it('renders override as prop even if anchorAs is provided', () => {
-    const text = lorem.sentence();
-    render(
-      <Provider anchorAs={BaseButton}>
-        <Anchor data-testid="test" newTab as="section">
-          {text}
-        </Anchor>
-      </Provider>,
-    );
-
-    expect(screen.getByTestId('test').tagName).toBe('SECTION');
-    expect(screen.getByTestId('test').getAttribute('target')).toBe('_blank');
-    expect(screen.getByTestId('test').getAttribute('rel')).toBe('noreferrer noopener');
-  });
-
-  it('renders override back to a tag even if anchorAs is provided', () => {
-    const text = lorem.sentence();
-    render(
-      <Provider anchorAs={BaseButton}>
-        <Anchor data-testid="test" newTab as="a">
-          {text}
-        </Anchor>
-      </Provider>,
-    );
-
-    expect(screen.getByTestId('test').tagName).toBe('A');
-    expect(screen.getByTestId('test').getAttribute('target')).toBe('_blank');
-    expect(screen.getByTestId('test').getAttribute('rel')).toBe('noreferrer noopener');
   });
 });

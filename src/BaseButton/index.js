@@ -91,7 +91,7 @@ const BaseButton: React$AbstractComponent<BaseButtonT, HTMLElement> = React.forw
                 right: 0,
                 bottom: 0,
                 left: 0,
-                outline: `${innerLineWidth}px solid ${theme.colors.grey7()}`,
+                outline: `${innerLineWidth}px solid ${theme.colors.monoInverse()}`,
                 outlineOffset: -innerLineWidth,
               },
             }

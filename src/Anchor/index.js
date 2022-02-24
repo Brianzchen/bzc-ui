@@ -69,7 +69,7 @@ const Anchor: React$AbstractComponent<AnchorT, HTMLElement> = React.forwardRef<A
             right: 0,
             bottom: 0,
             left: 0,
-            outline: `${innerLineWidth}px solid ${theme.colors.grey7()}`,
+            outline: `${innerLineWidth}px solid ${theme.colors.monoInverse()}`,
             outlineOffset: -innerLineWidth,
           },
         }
@@ -81,7 +81,7 @@ const Anchor: React$AbstractComponent<AnchorT, HTMLElement> = React.forwardRef<A
     <Box
       {...otherProps}
       ref={activeRef}
-      as={typeof as === 'undefined' ? theme.anchorAs || 'a' : as}
+      as={typeof as === 'undefined' ? 'a' : as}
       style={styles.container}
       {...newTab
         ? {

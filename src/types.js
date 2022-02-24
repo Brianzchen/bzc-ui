@@ -17,13 +17,13 @@ export type ColorsT = {|
   infoBackground: ColorFuncT,
   warningBackground: ColorFuncT,
   errorBackground: ColorFuncT,
-  grey1: ColorFuncT,
-  grey2: ColorFuncT,
-  grey3: ColorFuncT,
-  grey4: ColorFuncT,
-  grey5: ColorFuncT,
-  grey6: ColorFuncT,
-  grey7: ColorFuncT,
+  monoPrimary: ColorFuncT,
+  monoSecondary: ColorFuncT,
+  monoTertiary: ColorFuncT,
+  MonoMid: ColorFuncT,
+  monoHighlight: ColorFuncT,
+  monoLow: ColorFuncT,
+  monoInverse: ColorFuncT,
 |};
 
 export type CornersT = 0 | 1 | 2 | 3;
@@ -116,7 +116,6 @@ export type ThemeT = {
   mobileWidth: number,
   tabletWidth: number,
   focusEffect: boolean,
-  anchorAs?: any,
   scale: number,
   ...
 };
