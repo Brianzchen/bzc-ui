@@ -30,7 +30,7 @@ export type BaseButtonT = {
   setFocus?: (boolean, Event) => void,
   /**
    * assign a color directly to the component's styling.
-   * Accepts theme value `color` or `color(20)` as a string
+   * Accepts theme value `color` or `color(0.5)` as a string
    * or alternatively accepts a hexcode
    */
   color?: string,

@@ -22,19 +22,19 @@ type Props = {
   variant?: 'label' | 'number',
   /**
    * Assign a color directly to the badge text.
-   * Accepts theme value `color` or `color(20)` as a string
+   * Accepts theme value `color` or `color(0.5)` as a string
    * or alternatively accepts a hexcode.
    */
   color?: string,
   /**
    * Assign a color directly to the badge border.
-   * Accepts theme value `color` or `color(20)` as a string
+   * Accepts theme value `color` or `color(0.5)` as a string
    * or alternatively accepts a hexcode.
    */
   borderColor?: string,
   /**
    * Assign a color directly to the badge background.
-   * Accepts theme value `color` or `color(20)` as a string
+   * Accepts theme value `color` or `color(0.5)` as a string
    * or alternatively accepts a hexcode.
    */
   backgroundColor?: string,
