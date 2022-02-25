@@ -72,6 +72,10 @@ type Props = {|
    */
   scale?: number,
   /**
+   * override the default `Icon` component prefix which by default is `icon-`
+   */
+  iconPrefix?: string,
+  /**
    * To configure different presets of color schemes such as default, dark mode, etc
    */
   // theme?: 'default',
@@ -150,6 +154,7 @@ const Provider = (props: Props): React.Node => {
       card: '',
     },
     scale: props.scale ?? 1,
+    iconPrefix: props.iconPrefix,
   };
 
   theme.shadows = {

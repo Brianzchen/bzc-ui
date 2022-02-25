@@ -117,6 +117,7 @@ export type ThemeT = {
   tabletWidth: number,
   focusEffect: boolean,
   scale: number,
+  iconPrefix?: string,
   ...
 };
 
