@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import compileSpace from '../internal/compileSpace';
+import useComponentTestId from '../internal/hooks/useComponentTestId';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
@@ -42,6 +43,8 @@ const Stack: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Prop
   itemProps = {},
   ...otherProps
 }: Props, ref) => {
+  const compTestId = useComponentTestId('Stack');
+
   const styles = {
     item: (firstEle) => (theme, styler) => styler(itemStyle, theme, {
       ...space && !firstEle
@@ -64,7 +67,7 @@ const Stack: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Prop
         const createItem = (child, firstEle) => (
           <Box
             {...itemProps}
-            data-testid="sf-stack-item"
+            data-testid={compTestId('item')}
             style={styles.item(firstEle)}
           >
             {[child]}

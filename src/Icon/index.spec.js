@@ -93,8 +93,8 @@ describe('<Icon />', () => {
     );
 
     expect(screen.getByTestId('test'));
-    expect(screen.getByTestId('sf-background-icon'));
-    expect(screen.queryByTestId('sf-foreground-icon')).toBe(null);
+    expect(screen.getByTestId('sf-icon-background-icon'));
+    expect(screen.queryByTestId('sf-icon-foreground-icon')).toBe(null);
   });
 
   it('renders the foreground icon', () => {
@@ -107,8 +107,8 @@ describe('<Icon />', () => {
     );
 
     expect(screen.getByTestId('test'));
-    expect(screen.getByTestId('sf-foreground-icon'));
-    expect(screen.queryByTestId('sf-background-icon')).toBe(null);
+    expect(screen.getByTestId('sf-icon-foreground-icon'));
+    expect(screen.queryByTestId('sf-icon-background-icon')).toBe(null);
   });
 
   it('generates with displayName', () => {

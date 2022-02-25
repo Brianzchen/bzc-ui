@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import Close from '../internal/components/Close';
+import useComponentTestId from '../internal/hooks/useComponentTestId';
 
 import BaseButton from '../BaseButton';
 import Box from '../Box';
@@ -24,6 +25,7 @@ const Header = ({
   onClose,
 }: Props): React.Node => {
   const theme = useTheme();
+  const compTestId = useComponentTestId('BottomSheet');
 
   const createTitleMargin = (): string => {
     const base = (left: number, right: number) => `0 ${right}px ${theme.spacing(4)}px ${left}px`;
@@ -53,7 +55,7 @@ const Header = ({
     <Box style={styles.container}>
       {title && (
         <Typography
-          data-testid="sf-bottom-sheet-title"
+          data-testid={compTestId('title')}
           style={styles.title}
           type="heading1"
         >
@@ -62,7 +64,7 @@ const Header = ({
       )}
       {onClose && (
         <BaseButton
-          data-testid="sf-bottom-sheet-close"
+          data-testid={compTestId('close')}
           style={styles.close}
           onClick={onClose}
         >

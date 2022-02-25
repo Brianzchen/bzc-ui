@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import type { Node } from 'react';
 
 import hexToRgba from '../internal/hexToRgba';
+import useComponentTestId from '../internal/hooks/useComponentTestId';
 
 import BaseButton from '../BaseButton';
 import Box from '../Box';
@@ -84,6 +85,8 @@ const Button: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
   const internalRef = useRef();
   const activeRef = ref || internalRef;
   const theme = useTheme();
+  const compTestId = useComponentTestId('Button');
+
   const [focused, setFocus] = useState(false);
 
   const buttonDisabled: boolean = disabled || loading;
@@ -231,7 +234,7 @@ const Button: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
       {loading
         ? (
           <LoadingSpinner
-            data-testid="sf-box-button-loading-spinner"
+            data-testid={compTestId('loading-spinner')}
             color={spinnerColor[variant]}
             size={`${theme.fonts.button.px}px`}
             style={styles.spinner}
@@ -241,14 +244,14 @@ const Button: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
           <>
             {prefixIcon && (
               <Icon
-                data-testid="sf-box-button-prefix-icon"
+                data-testid={compTestId('prefix-icon')}
                 icon={prefixIcon}
                 size={theme.fonts.heading1.px}
                 style={styles.prefixIcon}
               />
             )}
             <Typography
-              data-testid="sf-box-button-child"
+              data-testid={compTestId('child')}
               inline
               type="button"
               style={styles.text}
@@ -257,7 +260,7 @@ const Button: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
             </Typography>
             {suffixIcon && (
               <Icon
-                data-testid="sf-box-button-suffix-icon"
+                data-testid={compTestId('suffix-icon')}
                 icon={suffixIcon}
                 size={theme.fonts.heading1.px}
                 style={styles.suffixIcon}
@@ -265,7 +268,9 @@ const Button: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
             )}
           </>
         )}
-      {theme.focusEffect && <Box data-testid="sf-box-button-focus-effect" style={styles.focusEffect} />}
+      {theme.focusEffect && (
+        <Box data-testid={compTestId('focus-effect')} style={styles.focusEffect} />
+      )}
     </BaseButton>
   );
 });

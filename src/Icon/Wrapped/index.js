@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
 
+import useComponentTestId from '../../internal/hooks/useComponentTestId';
+
 import styler from '../../styler';
 import useTheme from '../../useTheme';
 import type { StyleT } from '../../types';
@@ -31,6 +33,7 @@ const Wrapped = React.forwardRef<Props, HTMLElement>(({
   ...otherProps
 }: Props, ref) => {
   const theme = useTheme();
+  const compTestId = useComponentTestId('Icon');
 
   const styles = {
     icon: styler(style, theme, {
@@ -66,7 +69,7 @@ const Wrapped = React.forwardRef<Props, HTMLElement>(({
     >
       {backgroundIcon && (
         <BaseIcon
-          data-testid="sf-background-icon"
+          data-testid={compTestId('background-icon')}
           icon={backgroundIcon}
           style={styles.backgroundIcon}
           color={backgroundColor}
@@ -74,7 +77,7 @@ const Wrapped = React.forwardRef<Props, HTMLElement>(({
       )}
       {foregroundIcon && (
         <BaseIcon
-          data-testid="sf-foreground-icon"
+          data-testid={compTestId('foreground-icon')}
           icon={foregroundIcon}
           style={styles.foregroundIcon}
           color={foregroundColor}

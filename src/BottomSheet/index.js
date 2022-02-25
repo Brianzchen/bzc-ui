@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import useEsc from '../internal/hooks/useEsc';
+import useComponentTestId from '../internal/hooks/useComponentTestId';
 
 import Box from '../Box';
 import Overlay from '../Overlay';
@@ -68,6 +69,7 @@ const BottomSheet: React$AbstractComponent<Props, HTMLElement> = React.forwardRe
   ...otherProps
 }: Props, ref) => {
   const theme = useTheme();
+  const compTestId = useComponentTestId('BottomSheet');
 
   useEsc(open, onClose);
 
@@ -107,7 +109,7 @@ const BottomSheet: React$AbstractComponent<Props, HTMLElement> = React.forwardRe
 
   return open && (
     <Overlay
-      data-testid="sf-bottom-sheet-overlay"
+      data-testid={compTestId('overlay')}
       style={overlayStyle}
       onClick={onClose}
       hideElm={hideElm}
@@ -125,7 +127,7 @@ const BottomSheet: React$AbstractComponent<Props, HTMLElement> = React.forwardRe
           onClose={onClose}
         />
         <Box
-          data-testid="sf-bottom-sheet-body"
+          data-testid={compTestId('body')}
           style={styles.body}
         >
           {children}
