@@ -1,9 +1,16 @@
 // @flow
+export { default as Accordion } from './Accordion';
 export { default as Anchor } from './Anchor';
+export { default as Badge } from './Badge';
 export { default as BaseButton } from './BaseButton';
+export { default as BaseInput } from './BaseInput';
+export { default as BaseSelect } from './BaseSelect';
+export { default as BottomSheet } from './BottomSheet';
 export { default as Box } from './Box';
 export { default as Icon } from './Icon';
 export { default as Link } from './Link';
+export { default as Overlay } from './Overlay';
+export { default as Paper } from './Paper';
 export { default as Provider } from './Provider';
 export { default as Stack } from './Stack';
 export { default as ToggleButton } from './ToggleButton';

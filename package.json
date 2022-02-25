@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "aphrodite": "^2.4.0",
+    "body-scroll-lock": "^4.0.0-beta.0",
     "color": "^4.2.1",
     "deepmerge": "^4.2.2",
     "hex-to-rgb": "^1.0.1"
