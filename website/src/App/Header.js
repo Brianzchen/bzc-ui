@@ -1,14 +1,34 @@
 // @flow
 import * as React from 'react';
 
-import { AppBar, Icon, Typography } from 'starfall';
+import pkgJson from 'pkgJson';
 
-const Header = (): React.Node => (
-  <AppBar>
-    <Icon />
-    <Typography type="heading1">
-      starfall
-    </Typography>
+import { Anchor, AppBar, Icon } from 'starfall';
+
+type Props = {|
+  onMenuClick: () => void,
+|};
+
+const Header = ({
+  onMenuClick,
+}: Props): React.Node => (
+  <AppBar
+    style={{
+      justifyContent: 'space-between',
+    }}
+  >
+    <Icon
+      icon="menu"
+      size={32}
+      withButton
+      onClick={onMenuClick}
+    />
+    <Anchor
+      href={pkgJson.repository}
+      newTab
+    >
+      <Icon icon="github" size={32} />
+    </Anchor>
   </AppBar>
 );
 

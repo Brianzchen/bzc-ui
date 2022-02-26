@@ -1,17 +1,29 @@
 // @flow
 import * as React from 'react';
-
-import { Typography } from 'starfall';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from './Header';
+import Home from './Home';
 
-const App = (): React.Node => (
-  <>
-    <Header />
-    <Typography>
-      TBD
-    </Typography>
-  </>
-);
+const App = (): React.Node => {
+  const [, setMenuOpen] = React.useState(false);
+
+  return (
+    <>
+      <Header
+        onMenuClick={() => {
+          setMenuOpen(true);
+        }}
+      />
+      <Routes>
+        <Route
+          path="/"
+          exact
+          element={<Home />}
+        />
+      </Routes>
+    </>
+  );
+};
 
 export default App;

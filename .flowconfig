@@ -29,6 +29,7 @@ format.single_quotes=true
 exact_by_default=true
 include_warnings=true
 module.name_mapper='^starfall$' -> '<PROJECT_ROOT>/src/index.js'
+module.name_mapper='^pkgJson$' -> '<PROJECT_ROOT>/package.json'
 
 [strict]
 

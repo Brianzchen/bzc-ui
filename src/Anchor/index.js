@@ -8,8 +8,14 @@ import styler from '../styler';
 import useTheme from '../useTheme';
 import type { StyleT } from '../types';
 
-export type AnchorT = {
+type HTMLAnchorElementT = {
   ...BoxT,
+  href?: string,
+  ...
+};
+
+export type AnchorT = {
+  ...HTMLAnchorElementT,
   /** child element inside the a tag */
   children?: React.Node,
   /** pass in an html semantic tag as a string or component to override the default rendered tag */

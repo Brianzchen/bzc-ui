@@ -72,7 +72,12 @@ type Props = {|
    */
   scale?: number,
   /**
-   * override the default `Icon` component prefix which by default is `icon-`
+   * Sometimes font sets need a particular base className applied to render the icons.
+   * You can use this prop to apply that to all `Icon` components
+   */
+  iconBase?: string,
+  /**
+   * Override the default `Icon` component prefix which by default is `icon-`
    */
   iconPrefix?: string,
   /**
@@ -154,6 +159,7 @@ const Provider = (props: Props): React.Node => {
       card: '',
     },
     scale: props.scale ?? 1,
+    iconBase: props.iconBase,
     iconPrefix: props.iconPrefix,
   };
 

@@ -24,7 +24,7 @@ const BaseIcon = React.forwardRef<Props, HTMLElement>(({
       {...otherProps}
       ref={ref}
       as="i"
-      className={`${icon ? `${theme.iconPrefix ?? 'icon-'}${icon}` : ''} ${className}`}
+      className={`${icon ? `${theme.iconPrefix ?? 'icon'}-${icon}` : ''} ${theme.iconBase ? `${theme.iconBase} ` : ''}${className}`}
     >
       {children}
     </Box>

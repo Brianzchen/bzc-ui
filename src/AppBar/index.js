@@ -29,6 +29,7 @@ const AppBar: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
   useGlobalStyles({
     body: {
       marginTop: height,
+      height: `calc(100% - ${height}px)`,
     },
   });
 
