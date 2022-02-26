@@ -4,9 +4,7 @@ assets
 coverage
 flow-coverage
 flow-typed
-public
 scripts
-server
 src
 testUtils
 website
