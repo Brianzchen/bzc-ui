@@ -22,4 +22,14 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js'],
   },
+  devServer: {
+    devMiddleware: {
+      writeToDisk: true,
+    },
+    port: 3000,
+    open: true,
+    static: {
+      directory: (path.resolve(__dirname)/*: string */),
+    },
+  },
 };

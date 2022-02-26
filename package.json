@@ -11,7 +11,8 @@
     "build:flow": "flow-copy-source --ignore '*/**/*.{stories,spec}.*' src lib",
     "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js",
     "prepublish": "yarn clean && yarn build",
-    "website:build": "NODE_ENV=production yarn webpack --config website/webpack.config.js"
+    "website:build": "NODE_ENV=production yarn webpack --config website/webpack.config.js",
+    "website:start": "rm -rf website/dist && yarn webpack serve --config website/webpack.config.js"
   },
   "dependencies": {
     "aphrodite": "^2.4.0",
@@ -52,6 +53,7 @@
     "react-dom": "17.0.0",
     "react-syntax-highlighter": "^15.4.5",
     "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }

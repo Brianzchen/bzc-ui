@@ -7,7 +7,7 @@ const ele = document.getElementById('root');
 if (ele) {
   ReactDOM.render(
     <div>
-      hihi
+      Starfall!
     </div>,
     ele,
   );
