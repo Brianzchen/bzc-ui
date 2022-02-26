@@ -1,20 +1,24 @@
 // @flow
 const path = require('path');
 
+/*::
+import type { WebpackOptions } from 'webpack';
+*/
+
 const { NODE_ENV } = process.env;
 
-module.exports = {
-  mode: (NODE_ENV === 'production' ? 'production' : 'development'/*: string */),
+module.exports = ({
+  mode: NODE_ENV === 'production' ? 'production' : 'development',
   entry: './website/src/index.js',
   output: {
     filename: 'main.js',
-    path: (path.resolve(__dirname, 'dist')/*: string */),
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
       {
-        test: (/\.(js)$//*: RegExp */),
-        exclude: (/node_modules//*: RegExp */),
+        test: /\.(js)$/,
+        exclude: /node_modules/,
         use: ['babel-loader'],
       },
     ],
@@ -29,7 +33,7 @@ module.exports = {
     port: 3000,
     open: true,
     static: {
-      directory: (path.resolve(__dirname)/*: string */),
+      directory: path.resolve(__dirname),
     },
   },
-};
+}/*: WebpackOptions */);
