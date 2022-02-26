@@ -18,7 +18,6 @@ const App = (): React.Node => {
       <Routes>
         <Route
           path="/"
-          exact
           element={<Home />}
         />
       </Routes>

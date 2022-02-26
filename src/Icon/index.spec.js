@@ -36,12 +36,22 @@ describe('<Icon />', () => {
 
   it('uses the provider icon prefix when available', () => {
     render(
-      <Provider iconPrefix="foo-">
+      <Provider iconPrefix="foo">
         <Icon data-testid="test" icon="bar" />
       </Provider>,
     );
 
     expect(screen.getByTestId('test').className.includes('foo-bar')).toEqual(true);
+  });
+
+  it('adds the provider icon base when available', () => {
+    render(
+      <Provider iconPrefix="foo" iconBase="foo">
+        <Icon data-testid="test" icon="bar" />
+      </Provider>,
+    );
+
+    expect(screen.getByTestId('test').className.includes('foo-bar foo')).toEqual(true);
   });
 
   it('renders icon into icon class if icon prop is not empty', () => {
