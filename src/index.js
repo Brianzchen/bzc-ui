@@ -13,6 +13,7 @@ export { default as Card } from './Card';
 export { default as CardButton } from './CardButton';
 export { default as CardTitle } from './CardTitle';
 export { default as Checkbox } from './Checkbox';
+export { default as Circle } from './Circle';
 export { default as Form } from './Form';
 export { default as Icon } from './Icon';
 export { default as Link } from './Link';
