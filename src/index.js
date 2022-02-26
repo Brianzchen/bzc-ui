@@ -8,6 +8,7 @@ export { default as BaseSelect } from './BaseSelect';
 export { default as BottomSheet } from './BottomSheet';
 export { default as Box } from './Box';
 export { default as Button } from './Button';
+export { default as Calendar } from './Calendar';
 export { default as Icon } from './Icon';
 export { default as Link } from './Link';
 export { default as LoadingSpinner } from './LoadingSpinner';
