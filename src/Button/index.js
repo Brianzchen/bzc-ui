@@ -197,7 +197,7 @@ const Button: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
       bottom: focusedEffect,
       transition: 'left 0.2s linear, top 0.2s linear, right 0.2s linear, bottom 0.2s linear',
       backgroundColor: variant === 'primary'
-        ? theme.colors.secondary(0.45)
+        ? theme.colors.secondary(0.2)
         : theme.colors.monoLow(),
       borderRadius: '100%',
     }),

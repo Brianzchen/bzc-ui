@@ -1,9 +1,17 @@
 // @flow
 import * as React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 import pkgJson from 'pkgJson';
 
-import { Box, Link, Typography } from 'starfall';
+import {
+  Box,
+  Button,
+  Link,
+  Typography,
+} from 'starfall';
+
+import routes from './routes';
 
 const Home = (): React.Node => (
   <Box
@@ -15,31 +23,44 @@ const Home = (): React.Node => (
       backgroundColor: theme.colors.monoSecondary(),
     })}
   >
-    <Typography
-      type="displayTitle1"
+    <Box
       style={{
-        fontFamily: '\'Comfortaa\', cursive',
         position: 'absolute',
         top: '40%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
+        textAlign: 'center',
       }}
     >
-      starfall
-    </Typography>
-    <Link
-      href={`${pkgJson.repository.substring(0, pkgJson.repository.indexOf('.git'))}/releases/tag/v${pkgJson.version}`}
-      newTab
-      variant="underline"
+      <Typography
+        type="displayTitle1"
+        style={{
+          fontFamily: '\'Comfortaa\', cursive',
+        }}
+      >
+        starfall
+      </Typography>
+      <Link
+        href={`${pkgJson.repository.substring(0, pkgJson.repository.indexOf('.git'))}/releases/tag/v${pkgJson.version}`}
+        newTab
+        variant="underline"
+      >
+        {`v${pkgJson.version}`}
+      </Link>
+    </Box>
+    <Button
+      as={RouterLink}
       style={(theme) => ({
         position: 'absolute',
-        bottom: theme.spacing(3),
+        bottom: theme.spacing(5),
         left: '50%',
         transform: 'translate(-50%, 0)',
+        width: 'auto',
       })}
+      to={routes.gettingStarted}
     >
-      {`v${pkgJson.version}`}
-    </Link>
+      Get Started
+    </Button>
   </Box>
 );
 

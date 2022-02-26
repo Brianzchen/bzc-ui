@@ -152,7 +152,7 @@ const Provider = (props: Props): React.Node => {
     elevations,
     tabletWidth,
     mobileWidth,
-    focusEffect: props.focusEffect || false,
+    focusEffect: props.focusEffect ?? true,
     shadows: {
       modal: '',
       dropdown: '',

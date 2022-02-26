@@ -34,6 +34,9 @@ module.exports = ({
     devMiddleware: {
       writeToDisk: true,
     },
+    historyApiFallback: {
+      index: 'index.html',
+    },
     port: 3000,
     open: true,
     static: {
