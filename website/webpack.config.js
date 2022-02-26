@@ -35,7 +35,7 @@ module.exports = ({
       writeToDisk: true,
     },
     historyApiFallback: {
-      index: 'index.html',
+      index: '200.html',
     },
     port: 3000,
     open: true,

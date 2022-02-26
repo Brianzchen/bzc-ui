@@ -1,7 +1,7 @@
-name: build
+name: pull-request
 
 on:
-  push:
+  pull_request:
     branches: [ master ]
 
 jobs:
@@ -32,9 +32,3 @@ jobs:
     - run: yarn jest
     - run: yarn build
     - run: yarn website:build
-
-    - name: Install Surge
-      run: npm install -g surge
-
-    - name: Deploy to Surge
-      run:  surge ./website https://starfall.surge.sh/ --token ${{secrets.SURGE}}
