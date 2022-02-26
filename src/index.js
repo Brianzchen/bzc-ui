@@ -1,6 +1,7 @@
 // @flow
 export { default as Accordion } from './Accordion';
 export { default as Anchor } from './Anchor';
+export { default as AppBar } from './AppBar';
 export { default as Badge } from './Badge';
 export { default as BaseButton } from './BaseButton';
 export { default as BaseInput } from './BaseInput';
@@ -29,4 +30,5 @@ export { default as ToggleButton } from './ToggleButton';
 export { default as Typography } from './Typography';
 export { default as styler } from './styler';
 export { default as useFormValues } from './useFormValues';
+export { default as useGlobalStyles } from './useGlobalStyles';
 export { default as useTheme } from './useTheme';

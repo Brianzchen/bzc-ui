@@ -25,6 +25,9 @@ module.exports = ({
   },
   resolve: {
     extensions: ['*', '.js'],
+    alias: {
+      starfall: path.resolve(__dirname, '..', 'src', 'index.js'),
+    },
   },
   devServer: {
     devMiddleware: {
