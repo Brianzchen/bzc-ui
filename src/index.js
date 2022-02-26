@@ -18,6 +18,8 @@ export { default as Circle } from './Circle';
 export { default as ClickAwayListener } from './ClickAwayListener';
 export { default as Delay } from './Delay';
 export { default as Divider } from './Divider';
+export { default as Draggable } from './Draggable';
+export { default as Drawer } from './Drawer';
 export { default as Form } from './Form';
 export { default as Icon } from './Icon';
 export { default as Link } from './Link';
