@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 
+import useTheme from '../useTheme';
+
 import Provider from '.';
 
 describe('<Provider />', () => {
@@ -9,6 +11,25 @@ describe('<Provider />', () => {
 
   beforeEach(() => {
     onThemeChange.mockClear();
+  });
+
+  it('has focusEffect as true by default', (done) => {
+    const Test = () => {
+      const theme = useTheme();
+
+      React.useEffect(() => {
+        expect(theme.focusEffect).toBe(true);
+        done();
+      }, []);
+
+      return null;
+    };
+
+    render(
+      <Provider>
+        <Test />
+      </Provider>,
+    );
   });
 
   describe('onThemeChange', () => {

@@ -1,0 +1,4 @@
+// @flow
+beforeEach(() => {
+  expect.hasAssertions();
+});
