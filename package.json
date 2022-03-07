@@ -47,7 +47,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-testing-library": "^5.0.5",
-    "flow-bin": "^0.172.0",
+    "flow-bin": "^0.173.0",
     "flow-copy-source": "^2.0.9",
     "jest": "^27.5.1",
     "react": "17.0.0",
