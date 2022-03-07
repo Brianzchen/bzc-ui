@@ -1,3 +1,6 @@
+// flow-typed signature: 54fe9a482868200b16b1af93b162cd40
+// flow-typed version: 71d4530d1e/color_v4.x.x/flow_>=v0.83.x
+
 declare module 'color' {
   declare type ColorParam =
     | Color
