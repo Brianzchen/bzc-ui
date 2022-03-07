@@ -25,6 +25,8 @@ export { default as FileUpload } from './FileUpload';
 export { default as Form } from './Form';
 export { default as FormFieldContainer } from './FormFieldContainer';
 export { default as FormSpy } from './FormSpy';
+export { default as Gap } from './Gap';
+export { default as GroupedToggleButtons } from './GroupedToggleButtons';
 export { default as Icon } from './Icon';
 export { default as Link } from './Link';
 export { default as LoadingSpinner } from './LoadingSpinner';

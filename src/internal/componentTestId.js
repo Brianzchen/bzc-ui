@@ -4,7 +4,7 @@ import toKebabCase from './toKebabCase';
 /**
  * Create a standardized testid format
  */
-export default (componentName: string, suffix: string): string => {
+export default (componentName: string, suffix: string | number): string => {
   const componentKebab = componentName.split('').map((o, i) => {
     if (o.toUpperCase() === o) {
       if (i === 0) {
@@ -14,5 +14,5 @@ export default (componentName: string, suffix: string): string => {
     }
     return o;
   }).join('');
-  return `sf-${componentKebab}-${toKebabCase(suffix)}`;
+  return `sf-${componentKebab}-${toKebabCase(`${suffix}`)}`;
 };
