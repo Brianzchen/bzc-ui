@@ -30,6 +30,7 @@ export { default as GroupedToggleButtons } from './GroupedToggleButtons';
 export { default as Icon } from './Icon';
 export { default as Image } from './Image';
 export { default as Inline } from './Inline';
+export { default as Input } from './Input';
 export { default as Link } from './Link';
 export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as Overlay } from './Overlay';
