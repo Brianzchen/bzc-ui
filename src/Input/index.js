@@ -38,7 +38,7 @@ type Props = {
    */
   name?: string,
   /**
-   * optional string that updates the prefix of data-testid's across each element of the Input
+   * optional string that overrides the root level element `data-testid`
    */
   rootTestId?: string,
   /**

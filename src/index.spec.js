@@ -21,4 +21,12 @@ describe('starfall', () => {
       }
     });
   });
+
+  it('can import types', () => {
+    const color: starfall.types.StyleObjT = {
+      ...null,
+    };
+
+    expect(color.display).toBe(undefined);
+  });
 });

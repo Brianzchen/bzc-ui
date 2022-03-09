@@ -1,4 +1,10 @@
 // @flow
+import * as types from './types';
+
+export {
+  types,
+};
+
 export { default as Accordion } from './Accordion';
 export { default as Anchor } from './Anchor';
 export { default as AppBar } from './AppBar';
@@ -41,6 +47,7 @@ export { default as Notification } from './Notification';
 export { default as Overlay } from './Overlay';
 export { default as Paper } from './Paper';
 export { default as Provider } from './Provider';
+export { default as RadioButton } from './RadioButton';
 export { default as Sheet } from './Sheet';
 export { default as Stack } from './Stack';
 export { default as ToggleButton } from './ToggleButton';

@@ -267,6 +267,7 @@ declare module '@testing-library/react' {
     | HTMLInputElement
     | HTMLAnchorElement
     | HTMLButtonElement
+    | HTMLLabelElement
     | HTMLSelectElement;
 
   declare export type IntersectionHTMLElement =
@@ -274,6 +275,7 @@ declare module '@testing-library/react' {
     & HTMLInputElement
     & HTMLAnchorElement
     & HTMLButtonElement
+    & HTMLLabelElement
     & HTMLSelectElement;
   // End mixed html types
 
