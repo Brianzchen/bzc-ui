@@ -4673,6 +4673,11 @@ kefir@^3.7.3:
   resolved "https://registry.yarnpkg.com/kefir/-/kefir-3.8.8.tgz#235932ddfbed422acebf5d7cba503035e9ea05c5"
   integrity sha512-xWga7QCZsR2Wjy2vNL3Kq/irT+IwxwItEWycRRlT5yhqHZK2fmEhziP+LzcJBWSTAMranGKtGTQ6lFpyJS3+jA==
 
+key-commander@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/key-commander/-/key-commander-0.1.1.tgz#28d36bf067925f245f9f7d60e842f694976b0108"
+  integrity sha512-UdKWdf5ThE9s2hFIxb/n6cNojTBbxUaAiGhK58DoId553j0FbPbY5hUJYJD22bD5i/L8OnZpDP543b/NQA8r8g==
+
 kind-of@^6.0.2:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
