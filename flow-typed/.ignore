@@ -1,5 +1,6 @@
 @babel/
 babel-loader
+babel-plugin-transform-flow-enums
 eslint
 eslint-config-airbnb
 eslint-config-bzc
@@ -13,5 +14,6 @@ eslint-plugin-react
 eslint-plugin-react-hooks
 eslint-plugin-testing-library
 flow-copy-source
+flow-enums-runtime
 webpack-cli
 webpack-dev-server
