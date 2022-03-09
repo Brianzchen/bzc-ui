@@ -11,6 +11,7 @@ const config = {
   ],
   plugins: [
     '@babel/plugin-transform-modules-commonjs',
+    'babel-plugin-transform-flow-enums',
   ],
 };
 

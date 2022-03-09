@@ -28,7 +28,7 @@ type Props = {
   /**
    * maps the id to the underlying label and input which allows clicking
    * on the text to select the radio button
-  */
+   */
   id: string,
   /**
    * optional string that overrides the root level element `data-testid`

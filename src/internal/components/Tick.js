@@ -5,19 +5,22 @@ import Box from '../../Box';
 import useTheme from '../../useTheme';
 import type { StyleT } from '../../types';
 
-type Props = {|
+type Props = {
   selected?: boolean,
   style?: StyleT,
-|};
+  ...
+};
 
 const Tick = ({
   selected = true,
   style = {},
+  ...otherProps
 }: Props): React.Node => {
   const theme = useTheme();
 
   return (
     <Box
+      {...otherProps}
       as="svg"
       style={style}
       width={`${16 * theme.scale}px`}
