@@ -120,13 +120,13 @@ const Home = (): React.Node => {
       </Box>
       <Button
         as={RouterLink}
-        style={(theme) => ({
+        style={{
           position: 'absolute',
           bottom: theme.spacing(5),
           left: '50%',
           transform: 'translate(-50%, 0)',
           width: 'auto',
-        })}
+        }}
         to={routes.gettingStarted}
       >
         Get Started
