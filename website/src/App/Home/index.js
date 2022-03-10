@@ -66,7 +66,7 @@ const Home = (): React.Node => {
                 <Star
                   left={24 * 4}
                   top={104}
-                  lineLength={24}
+                  lineLength={40}
                 />
                 {!matches.small && (
                   <Star

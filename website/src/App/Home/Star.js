@@ -25,7 +25,7 @@ const Star = ({
       opacity: 1,
     },
     '100%': {
-      opacity: 0.5,
+      opacity: 0.45,
     },
   };
 
