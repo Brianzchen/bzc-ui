@@ -7,4 +7,7 @@
   </a>
 </p>
 
-Collection of atomic react components falling through the night sky
+<!-->description-start<-->
+A collection of atomic, composable react components falling through the night sky
+<!-->description-end<-->
+
