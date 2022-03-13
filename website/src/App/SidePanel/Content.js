@@ -2,10 +2,11 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
+import { routes } from 'utils';
+
 import { CardButton } from 'starfall';
 
 import sidePanelContent from '../Pages/side-panel.json';
-import routes from '../routes';
 
 type Props = {|
   onClose?: () => void,

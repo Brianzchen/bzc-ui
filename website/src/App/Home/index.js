@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Media from 'react-media';
 
 import pkgJson from 'pkgJson';
+import { routes } from 'utils';
 
 import {
   Badge,
@@ -13,8 +14,6 @@ import {
   Typography,
   useTheme,
 } from 'starfall';
-
-import routes from '../routes';
 
 import Star from './Star';
 

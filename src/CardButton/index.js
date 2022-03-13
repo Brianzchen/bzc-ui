@@ -86,7 +86,7 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
       bottom: focusedEffect,
       transition: 'left 0.2s linear, top 0.2s linear, right 0.2s linear, bottom 0.2s linear',
       borderRadius: '100%',
-      backgroundColor: theme.colors.successBackground(),
+      backgroundColor: theme.colors.secondary(undefined, 0.5),
     },
     text: styler(textStyle, theme, {
       zIndex: 1,

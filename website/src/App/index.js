@@ -4,10 +4,12 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Box, useTheme } from 'starfall';
 
+import { routes } from 'utils';
+
 import Header from './Header';
 import Home from './Home';
+import Pages from './Pages';
 import SidePanel from './SidePanel';
-import routes from './routes';
 
 const App = (): React.Node => {
   const theme = useTheme();
@@ -36,6 +38,10 @@ const App = (): React.Node => {
           <Route
             path={routes.home}
             element={<Home />}
+          />
+          <Route
+            path={routes.page}
+            element={<Pages />}
           />
         </Routes>
       </Box>
