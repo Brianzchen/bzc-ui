@@ -6,6 +6,7 @@ import { Box, useTheme } from 'starfall';
 
 import { routes } from 'utils';
 
+import ComponentApi from './ComponentApi';
 import Header from './Header';
 import Home from './Home';
 import Pages from './Pages';
@@ -38,6 +39,10 @@ const App = (): React.Node => {
           <Route
             path={routes.home}
             element={<Home />}
+          />
+          <Route
+            path={routes.componentApi}
+            element={<ComponentApi />}
           />
           <Route
             path={routes.page}

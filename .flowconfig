@@ -31,7 +31,6 @@ include_warnings=true
 module.name_mapper='^starfall$' -> '<PROJECT_ROOT>/src/index.js'
 module.name_mapper='^pkgJson$' -> '<PROJECT_ROOT>/package.json'
 module.name_mapper='^utils$' -> '<PROJECT_ROOT>/website/src/utils'
-module.name_mapper.extension='md' -> '<PROJECT_ROOT>/flow-mocks/md.js'
 
 [strict]
 

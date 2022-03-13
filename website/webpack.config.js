@@ -21,14 +21,6 @@ module.exports = ({
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-      {
-        test: /\.md$/,
-        use: [
-          {
-            loader: 'remark-loader',
-          },
-        ],
-      },
     ],
   },
   resolve: {

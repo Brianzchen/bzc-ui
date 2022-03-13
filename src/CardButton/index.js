@@ -35,8 +35,6 @@ type Props = {
   textStyle?: StyleT,
   /** overrides styling for chevron element */
   chevronStyle?: StyleT,
-  /** whether the text should wrap into multi lines when the text gets too long */
-  multiline?: boolean,
   ...
 };
 
@@ -51,7 +49,6 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
   style = {},
   textStyle = {},
   chevronStyle = {},
-  multiline = false,
   ...otherProps
 }: Props, ref) => {
   const theme: ThemeT = useTheme();
@@ -64,7 +61,7 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
   const styles = {
     button: styler(style, theme, {
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       alignItems: 'center',
       position: 'relative',
       width: '100%',
@@ -90,13 +87,6 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
     },
     text: styler(textStyle, theme, {
       zIndex: 1,
-      ...multiline
-        ? { ...null }
-        : {
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-        },
     }),
     chevron: styler(chevronStyle, theme, {
       flexShrink: 0,

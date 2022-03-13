@@ -23,6 +23,11 @@ const Pages = (): React.Node => {
   const page = sidePanelContent.find((o) => toKebabCase(o[0]) === params.currentPage);
 
   React.useEffect(() => {
+    if (!page) {
+      setCurrentContent(null);
+      return;
+    }
+
     axios.get(`/pages/${page[1]}`).then(({ data }) => {
       setCurrentContent(data);
     }).catch(() => {
