@@ -42,6 +42,7 @@ export { default as LinkButton } from './LinkButton';
 export { default as LoadingBlock } from './LoadingBlock';
 export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as LoadingSpinnerOverlay } from './LoadingSpinnerOverlay';
+export { default as Markdown } from './Markdown';
 export { default as Modal } from './Modal';
 export { default as Notification } from './Notification';
 export { default as Overlay } from './Overlay';
