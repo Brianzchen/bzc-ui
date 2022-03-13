@@ -8,7 +8,7 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import type { StyleT } from '../types';
 
-type Props = {
+export type StackT = {
   ...BoxT,
   /** elements to stack */
   children?: React.Node,
@@ -35,14 +35,14 @@ type Props = {
 /**
  * A layout component to easily stack multiple components together with even spacing.
  */
-const Stack: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Stack: React$AbstractComponent<StackT, HTMLElement> = React.forwardRef<StackT, HTMLElement>(({
   children = null,
   space,
   style = {},
   itemStyle = {},
   itemProps = {},
   ...otherProps
-}: Props, ref) => {
+}: StackT, ref) => {
   const compTestId = useComponentTestId('Stack');
 
   const styles = {
