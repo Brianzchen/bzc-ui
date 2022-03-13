@@ -61,6 +61,7 @@ const Badge: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Prop
   const styles = {
     badge: styler(style, theme, {
       display: 'inline',
+      color: theme.colors.monoPrimary(),
       backgroundColor: backgroundColor ? computeColor(backgroundColor, theme) : defaultColor,
       border: `${theme.line(1)} solid ${borderRenderedColor ? computeColor(borderRenderedColor, theme) : defaultColor}`,
       ...variant === 'label'

@@ -18,6 +18,7 @@ const Header = ({
     }}
   >
     <Icon
+      id="menu-button"
       icon="menu"
       size={32}
       withButton

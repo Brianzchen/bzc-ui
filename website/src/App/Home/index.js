@@ -6,6 +6,7 @@ import Media from 'react-media';
 import pkgJson from 'pkgJson';
 
 import {
+  Badge,
   Box,
   Button,
   Link,
@@ -46,6 +47,15 @@ const Home = (): React.Node => {
           }}
         >
           starfall
+          <Badge
+            style={{
+              position: 'absolute',
+              top: '-20%',
+              left: '100%',
+            }}
+          >
+            WIP
+          </Badge>
           <Media
             queries={{
               small: `(max-width: ${theme.mobileWidth}px)`,
