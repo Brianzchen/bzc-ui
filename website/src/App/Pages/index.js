@@ -3,20 +3,15 @@ import * as React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import axios from 'axios';
 
-import { routes, toKebabCase } from 'utils';
+import { PageWrapper, routes, toKebabCase } from 'utils';
 
 import {
-  Box,
-  Gap,
   Markdown,
-  Typography,
-  useTheme,
 } from 'starfall';
 
 import sidePanelContent from './side-panel.json';
 
 const Pages = (): React.Node => {
-  const theme = useTheme();
   const params = useParams();
   const [currentContent, setCurrentContent] = React.useState();
 
@@ -46,20 +41,14 @@ const Pages = (): React.Node => {
   }
 
   return (
-    <Box
-      style={{
-        margin: theme.spacing(5),
-      }}
+    <PageWrapper
+      title={page[0]}
     >
-      <Typography type="heading1">
-        {page[0]}
-      </Typography>
-      <Gap height="spacing(5)" />
       <Markdown
         space="spacing(4)"
         content={currentContent}
       />
-    </Box>
+    </PageWrapper>
   );
 };
 

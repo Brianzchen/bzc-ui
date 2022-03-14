@@ -1,6 +1,12 @@
 // @flow
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import {
+  Link,
+  generatePath,
+  matchPath,
+  useLocation,
+} from 'react-router-dom';
+import axios from 'axios';
 
 import { routes } from 'utils';
 
@@ -15,7 +21,19 @@ type Props = {|
 const Content = ({
   onClose,
 }: Props): React.Node => {
-  const [componentsOpen, setComponentsOpen] = React.useState(false);
+  const location = useLocation();
+
+  const [componentsOpen, setComponentsOpen] = React.useState(!!matchPath(
+    routes.componentApi,
+    location.pathname,
+  ));
+  const [components, setComponents] = React.useState();
+
+  React.useEffect(() => {
+    axios.get('/components.json').then(({ data }) => {
+      setComponents(data);
+    });
+  }, []);
 
   return (
     <>
@@ -44,7 +62,24 @@ const Content = ({
         Components
       </CardButton>
       <Accordion open={componentsOpen}>
-        stuff
+        {components && Object.keys(components).map((key) => {
+          const comp = components[key];
+          return (
+            <CardButton
+              key={comp.displayName}
+              as={Link}
+              to={generatePath(routes.componentApi, {
+                component: key.split('/')[1],
+              })}
+              onClick={onClose}
+              style={(theme) => ({
+                paddingLeft: theme.spacing(5),
+              })}
+            >
+              {comp.displayName}
+            </CardButton>
+          );
+        })}
       </Accordion>
     </>
   );

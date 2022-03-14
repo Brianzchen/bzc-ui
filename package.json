@@ -11,6 +11,7 @@
     "build:flow": "flow-copy-source --ignore '*/**/*.{stories,spec}.*' src lib",
     "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js",
     "prepublish": "yarn clean && yarn build",
+    "docgen": "react-docgen src --out=website/components.json --pretty --exclude='/.*[^(index\\.js$)]/'",
     "website:build": "rm -rf website/dist && NODE_ENV=production yarn webpack --config website/webpack.config.js",
     "website:start": "rm -rf website/dist && yarn webpack serve --config website/webpack.config.js"
   },
@@ -58,6 +59,7 @@
     "flow-enums-runtime": "^0.0.6",
     "jest": "^27.5.1",
     "react": "17.0.0",
+    "react-docgen": "^5.4.0",
     "react-dom": "17.0.0",
     "react-media": "^1.10.0",
     "react-router-dom": "^6.2.1",

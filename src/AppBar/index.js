@@ -38,6 +38,7 @@ const AppBar: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
       position: 'fixed',
       top: 0,
       left: 0,
+      zIndex: theme.elevations.sheet,
       height,
       width: '100%',
       display: 'flex',

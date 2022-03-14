@@ -42,6 +42,8 @@ const SidePanel = ({
           <Box
             style={{
               minWidth: '300px',
+              height: '100%',
+              overflow: 'auto',
             }}
           >
             <Content />
