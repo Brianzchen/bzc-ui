@@ -24,6 +24,10 @@ const Pages = (): React.Node => {
     }
 
     axios.get(`/pages/${page[1]}`).then(({ data }) => {
+      if (data.startsWith('<!DOCTYPE html>')) {
+        setCurrentContent(null);
+        return;
+      }
       setCurrentContent(data);
     }).catch(() => {
       setCurrentContent(null);

@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import { PageWrapper } from 'utils';
+import { routes, PageWrapper } from 'utils';
 
 import { Stack, Typography } from 'starfall';
 
@@ -29,7 +29,7 @@ type ComponentT = {|
 const ComponentApi = (): React.Node => {
   const params = useParams();
   const [components, setComponents] = React.useState();
-  const [currComponent, setCurrComponent] = React.useState<ComponentT | void>();
+  const [currComponent, setCurrComponent] = React.useState<ComponentT | void | null>();
 
   React.useEffect(() => {
     axios.get('/components.json').then(({ data }) => {
@@ -44,10 +44,18 @@ const ComponentApi = (): React.Node => {
 
     if (component) {
       setCurrComponent(components[`src/${component}/index.js`]);
+    } else {
+      setCurrComponent(null);
     }
   }, [params.component, components]);
 
-  if (!currComponent) return null;
+  if (typeof currComponent === 'undefined') return null;
+
+  if (currComponent === null) {
+    return (
+      <Navigate to={routes.home} replace />
+    );
+  }
 
   console.log(currComponent);
 
