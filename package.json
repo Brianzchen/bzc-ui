@@ -13,8 +13,8 @@
     "prepublish": "yarn clean && yarn build",
     "docgen": "react-docgen src --out=website/components.json --pretty --exclude='/.*[^(index\\.js$)]/'",
     "website:prep": "rm -rf website/dist && yarn docgen",
-    "website:build": "yarn prep && NODE_ENV=production yarn webpack --config website/webpack.config.js",
-    "website:start": "yarn prep && yarn webpack serve --config website/webpack.config.js"
+    "website:build": "yarn website:prep && NODE_ENV=production yarn webpack --config website/webpack.config.js",
+    "website:start": "yarn website:prep && yarn webpack serve --config website/webpack.config.js"
   },
   "dependencies": {
     "aphrodite": "^2.4.0",
