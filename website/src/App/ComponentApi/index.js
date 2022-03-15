@@ -7,6 +7,8 @@ import { PageWrapper } from 'utils';
 
 import { Stack, Typography } from 'starfall';
 
+import Table from './Table';
+
 type ComponentT = {|
   composes: Array<string>,
   description: string,
@@ -55,6 +57,7 @@ const ComponentApi = (): React.Node => {
         <Typography>
           {currComponent.description}
         </Typography>
+        <Table />
       </Stack>
     </PageWrapper>
   );

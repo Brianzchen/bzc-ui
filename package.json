@@ -12,8 +12,9 @@
     "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js",
     "prepublish": "yarn clean && yarn build",
     "docgen": "react-docgen src --out=website/components.json --pretty --exclude='/.*[^(index\\.js$)]/'",
-    "website:build": "rm -rf website/dist && NODE_ENV=production yarn webpack --config website/webpack.config.js",
-    "website:start": "rm -rf website/dist && yarn webpack serve --config website/webpack.config.js"
+    "website:prep": "rm -rf website/dist && yarn docgen",
+    "website:build": "yarn prep && NODE_ENV=production yarn webpack --config website/webpack.config.js",
+    "website:start": "yarn prep && yarn webpack serve --config website/webpack.config.js"
   },
   "dependencies": {
     "aphrodite": "^2.4.0",
