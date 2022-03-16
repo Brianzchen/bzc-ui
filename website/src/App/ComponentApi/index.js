@@ -7,7 +7,7 @@ import { routes, PageWrapper } from 'utils';
 
 import { Stack, Typography } from 'starfall';
 
-import Table from './Table';
+import Props from './Props';
 
 type ComponentT = {|
   composes: Array<string>,
@@ -65,7 +65,7 @@ const ComponentApi = (): React.Node => {
         <Typography>
           {currComponent.description}
         </Typography>
-        <Table />
+        <Props />
       </Stack>
     </PageWrapper>
   );

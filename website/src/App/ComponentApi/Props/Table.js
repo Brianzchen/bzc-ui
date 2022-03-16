@@ -8,27 +8,25 @@ type Props = {
   ...
 };
 
-const TableRow = ({
+const Table = ({
   children = null,
-  ...otherProps
 }: Props): React.Node => {
   const theme = useTheme();
 
   const styles = {
-    row: {
-      borderBottom: `${theme.line(1)} solid ${theme.colors.monoPrimary()}`,
+    table: {
+      fontSize: theme.fonts.body.px,
     },
   };
 
   return (
     <Box
-      {...otherProps}
-      as="tr"
-      style={styles.row}
+      as="table"
+      style={styles.table}
     >
       {children}
     </Box>
   );
 };
 
-export default TableRow;
+export default Table;

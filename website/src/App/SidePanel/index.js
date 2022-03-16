@@ -44,6 +44,7 @@ const SidePanel = ({
               minWidth: '300px',
               height: '100%',
               overflow: 'auto',
+              borderRight: `${theme.line(1)} solid ${theme.colors.monoMid()}`,
             }}
           >
             <Content />
