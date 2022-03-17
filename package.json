@@ -11,7 +11,7 @@
     "build:flow": "flow-copy-source --ignore '*/**/*.{stories,spec}.*' src lib",
     "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js",
     "prepublish": "yarn clean && yarn build",
-    "docgen": "react-docgen src --out=website/components.json --pretty --exclude='/.*[^(index\\.js$)]/'",
+    "docgen": "react-docgen src --out=website/components.json --pretty --exclude='/.*[^(index\\.js$)]/' && node ./scripts/post-docgen.js",
     "website:prep": "rm -rf website/dist && yarn docgen",
     "website:build": "yarn website:prep && NODE_ENV=production yarn webpack --config website/webpack.config.js",
     "website:start": "yarn website:prep && yarn webpack serve --config website/webpack.config.js"
@@ -40,6 +40,7 @@
     "@babel/preset-react": "^7.16.7",
     "@faker-js/faker": "^5.5.3",
     "@testing-library/react": "^12.1.3",
+    "app-root-path": "^3.0.0",
     "axios": "^0.26.1",
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-flow-enums": "^0.0.2",
