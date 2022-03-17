@@ -82,7 +82,7 @@ const ComponentApi = (): React.Node => {
     <PageWrapper title={currComponent.displayName}>
       <Stack space="spacing(4)">
         <Typography>
-          {currComponent.description}
+          {currComponent.description.replace(/\n/g, ' ')}
         </Typography>
         <PropsTable
           props={{

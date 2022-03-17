@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Box, Checkbox } from 'starfall';
 
 import Table from './Table';
+import TableData from './TableData';
 import TableRow from './TableRow';
 import type { ComponentPropsT } from '..';
 
@@ -17,15 +18,15 @@ const PropsTable = ({
   <Table>
     <Box as="thead">
       <TableRow>
-        <Box as="th">
+        <TableData variant="th">
           Name
-        </Box>
-        <Box as="th">
+        </TableData>
+        <TableData variant="th">
           Description
-        </Box>
-        <Box as="th">
+        </TableData>
+        <TableData variant="th">
           Required
-        </Box>
+        </TableData>
       </TableRow>
     </Box>
     <Box as="tbody">
@@ -34,17 +35,17 @@ const PropsTable = ({
 
         return (
           <TableRow key={key}>
-            <Box as="td">
+            <TableData>
               {key}
-            </Box>
-            <Box as="td">
+            </TableData>
+            <TableData>
               {prop.description}
-            </Box>
-            <Box as="td">
+            </TableData>
+            <TableData>
               <Checkbox
                 value={prop.required}
               />
-            </Box>
+            </TableData>
           </TableRow>
         );
       })}
