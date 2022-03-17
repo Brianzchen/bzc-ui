@@ -7,28 +7,30 @@ import { routes, PageWrapper } from 'utils';
 
 import { Stack, Typography } from 'starfall';
 
-import Props from './Props';
+import PropsTable from './PropsTable';
+
+export type ComponentPropsT = {
+  [key: string]: {|
+    description: string,
+    flowType: {|
+      name: string,
+      raw?: string,
+    |},
+    required: boolean,
+  |},
+};
 
 type ComponentT = {|
   composes: Array<string>,
   description: string,
   displayName: string,
   methods: Array<void>,
-  props: {
-    [key: string]: {|
-      description: string,
-      flowType: {|
-        name: string,
-        raw?: string,
-      |},
-      required: boolean,
-    |},
-  },
+  props: ComponentPropsT,
 |};
 
 const ComponentApi = (): React.Node => {
   const params = useParams();
-  const [components, setComponents] = React.useState();
+  const [components, setComponents] = React.useState<{ [key: string]: ComponentT } | void>();
   const [currComponent, setCurrComponent] = React.useState<ComponentT | void | null>();
 
   React.useEffect(() => {
@@ -49,13 +51,30 @@ const ComponentApi = (): React.Node => {
     }
   }, [params.component, components]);
 
-  if (typeof currComponent === 'undefined') return null;
+  if (typeof currComponent === 'undefined' || !components) return null;
 
   if (currComponent === null) {
     return (
       <Navigate to={routes.home} replace />
     );
   }
+
+  const findComposedProps = (comp): ComponentPropsT => {
+    if (!comp.composes) return {};
+
+    return comp.composes.reduce((acc, cur) => {
+      const compName = cur.substring(0, cur.length - 1);
+      const composedComp = components[`src/${compName}/index.js`];
+
+      if (!composedComp) return acc;
+
+      return {
+        ...acc,
+        ...composedComp.composes ? findComposedProps(composedComp) : {},
+        ...composedComp.props,
+      };
+    }, ({}: ComponentPropsT));
+  };
 
   console.log(currComponent);
 
@@ -65,7 +84,12 @@ const ComponentApi = (): React.Node => {
         <Typography>
           {currComponent.description}
         </Typography>
-        <Props />
+        <PropsTable
+          props={{
+            ...findComposedProps(currComponent),
+            ...currComponent.props,
+          }}
+        />
       </Stack>
     </PageWrapper>
   );
