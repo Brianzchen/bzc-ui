@@ -38,4 +38,6 @@ const Delay = ({
   );
 };
 
+Delay.displayName = 'Delay';
+
 export default Delay;

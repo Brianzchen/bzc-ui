@@ -29,4 +29,14 @@ describe('starfall', () => {
 
     expect(color.display).toBe(undefined);
   });
+
+  Object.keys(starfall).forEach((key) => {
+    const module = starfall[key];
+
+    if (key.charAt(0).toUpperCase() === key.charAt(0)) {
+      it(`${key} has a displayName`, () => {
+        expect((module: any).displayName).toBeDefined();
+      });
+    }
+  });
 });

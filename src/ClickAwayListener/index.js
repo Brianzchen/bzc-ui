@@ -96,4 +96,6 @@ const ClickAwayListener = ({
   });
 };
 
+ClickAwayListener.displayName = 'ClickAwayListener';
+
 export default ClickAwayListener;

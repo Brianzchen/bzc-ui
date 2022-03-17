@@ -60,4 +60,6 @@ const AppBar: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
   );
 });
 
+AppBar.displayName = 'AppBar';
+
 export default AppBar;

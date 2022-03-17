@@ -58,4 +58,6 @@ const FormSpy = ({
   );
 };
 
+FormSpy.displayName = 'FormSpy';
+
 export default FormSpy;

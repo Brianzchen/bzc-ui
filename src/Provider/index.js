@@ -178,4 +178,6 @@ const Provider = (props: Props): React.Node => {
   );
 };
 
+Provider.displayName = 'Provider';
+
 export default Provider;
