@@ -17,6 +17,10 @@ export type ComponentPropsT = {
       raw?: string,
     |},
     required: boolean,
+    defaultValue?: {|
+      value: string,
+      computed: boolean,
+    |},
   |},
 };
 

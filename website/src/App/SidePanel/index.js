@@ -17,6 +17,8 @@ const SidePanel = ({
 }: Props): React.Node => {
   const theme = useTheme();
 
+  const offset = 50;
+
   return (
     <Media
       queries={{
@@ -28,7 +30,7 @@ const SidePanel = ({
           return (
             <Drawer
               open={open}
-              offsetTop={50}
+              offsetTop={offset}
               onClose={onClose}
               exclusions={[document.getElementById('menu-button')]}
             >
@@ -43,11 +45,20 @@ const SidePanel = ({
             style={{
               minWidth: '300px',
               height: '100%',
-              overflow: 'auto',
-              borderRight: `${theme.line(1)} solid ${theme.colors.monoMid()}`,
             }}
           >
-            <Content />
+            <Box
+              style={{
+                position: 'fixed',
+                top: offset,
+                bottom: 0,
+                minWidth: '300px',
+                overflow: 'auto',
+                borderRight: `${theme.line(1)} solid ${theme.colors.monoMid()}`,
+              }}
+            >
+              <Content />
+            </Box>
           </Box>
         );
       }}

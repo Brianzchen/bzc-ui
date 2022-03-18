@@ -27,6 +27,9 @@ const PropsTable = ({
         <TableData variant="th">
           Required
         </TableData>
+        <TableData variant="th">
+          Default
+        </TableData>
       </TableRow>
     </Box>
     <Box as="tbody">
@@ -45,6 +48,9 @@ const PropsTable = ({
               <Checkbox
                 value={prop.required}
               />
+            </TableData>
+            <TableData>
+              {prop.defaultValue?.value ?? null}
             </TableData>
           </TableRow>
         );
