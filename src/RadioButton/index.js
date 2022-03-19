@@ -67,6 +67,9 @@ type Props = {
   ...
 };
 
+/**
+ * Used to render a set of radio buttons for single selection in a form.
+ */
 const RadioButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   children = null,
   name = '',

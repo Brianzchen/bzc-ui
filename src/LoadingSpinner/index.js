@@ -10,7 +10,6 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 const rotateKeyframe = {
   '100%': {
@@ -35,8 +34,6 @@ const dashKeyframe = {
 
 export type LoadingSpinnerT = {
   ...BoxT,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** The size of the spinner as pixels or a percentage */
   size?: string,
   /** assign a color to the spinner.

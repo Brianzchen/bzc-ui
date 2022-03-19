@@ -6,7 +6,7 @@ import isOnlyNumbers from '../internal/isOnlyNumbers';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
-import type { InputFormatT, StyleT, ThemeT } from '../types';
+import type { InputFormatT, ThemeT } from '../types';
 
 import findCharDifference from './findCharDifference';
 import findReplacedDifference from './findReplacedDifference';
@@ -44,12 +44,8 @@ const getBaseType = (type: InputTypeT): InputTypeT => {
 
 export type BaseInputT = {
   ...BoxT,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** will prevent the input from being pre-populated by user settings in modern browsers */
   disableAutofill?: boolean,
-  /** pass in an html semantic tag as a string or component to override the default rendered tag */
-  as?: any,
   /** specifies that an input field is read-only */
   readOnly?: boolean,
   /** specifies the type of <input> element to display */

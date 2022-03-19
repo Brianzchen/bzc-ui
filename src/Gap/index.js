@@ -3,14 +3,12 @@ import React from 'react';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
-import type { StyleT, ThemeT } from '../types';
+import type { ThemeT } from '../types';
 
 import compileSpace from '../internal/compileSpace';
 
 type Props = {
   ...BoxT,
-  /** overrides styling for root element */
-  style?: StyleT,
   /**
    * height of the gap if placed vertically,
    * can accept px or percentages as a string.

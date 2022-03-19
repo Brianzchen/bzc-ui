@@ -16,16 +16,13 @@ type Props = {
   open?: boolean,
   /** overrides styling for overlay element */
   backgroundStyle?: StyleT,
-  /** The size of the spinner as pixels or a percentage */
-  size?: string,
-  /** assign a color to the spinner.
-   * Accepts theme value `color` or `color(0.5)` as a string
-   * or alternatively accepts a hexcode
-   */
-  color?: string,
   ...
 };
 
+/**
+ * A type of loading that puts an overlay over the top of all other elements.
+ * Useful if you want to block user interaction during the loading phase.
+ */
 const LoadingSpinnerOverlay: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   open = true,
   backgroundStyle = {},

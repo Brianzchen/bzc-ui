@@ -2,7 +2,6 @@
 import * as React from 'react';
 
 import Box, { type BoxT } from '../Box';
-import type { StyleT } from '../types';
 
 type ValueT = any;
 
@@ -20,8 +19,6 @@ type Props = {
   onDrop?: (details: {|
     value: ValueT, x: number, y: number,
   |}) => void,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** trigged when mousedown occurs on the root element */
   onMouseDown?: (...args: Array<any>) => any,
   ...

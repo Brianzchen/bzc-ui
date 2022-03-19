@@ -36,11 +36,15 @@ type Props = {
     'data-testid'?: string,
     ...
   }>,
-  /** overrides styling for root element */
-  style?: StyleT,
   ...
 };
 
+/**
+ * List of buttons rendered either together or separately to give users
+ * context of related selections.
+ *
+ * Handles usage of single or multi selection buttons.
+ */
 const GroupedToggleButtons: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   variant = 'single',
   onSelect,

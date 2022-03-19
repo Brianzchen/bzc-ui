@@ -8,7 +8,7 @@ import Paper from '../Paper';
 import type { PaperT } from '../Paper';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { RefObjT, StyleT } from '../types';
+import type { RefObjT } from '../types';
 
 import Child from './Child';
 import type { RenderT } from './Child';
@@ -26,8 +26,6 @@ type Props = {
    * (onClose: Function, attachRef: RefObjT, sheetRef: RefObjT) => React.Node
    */
   children?: RenderT,
-  /** overrides styling for root element */
-  style?: StyleT,
   /**
    * Function to be called when the user presses esc key
    * or outside of the sheet while it's rendered

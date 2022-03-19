@@ -19,8 +19,6 @@ const getBodyMaxHeight = (headerHeight, paddingHeight) => (
 
 type Props = {
   ...PaperT,
-  /** child element inside the body of the modal */
-  children?: React.Node,
   /** title for the modal, omitting this will hide the title bar */
   title?: string,
   /** whether or not the modal should be shown or hidden */
@@ -34,8 +32,6 @@ type Props = {
   variant?: 'message' | 'form',
   /** specifies the height of the header */
   headerHeight?: number,
-  /** overrides styling for root modal element */
-  style?: StyleT,
   /** overrides mobile styling for root modal element */
   mobileStyle?: StyleT,
   /** overrides styling for the body content, the white space */
@@ -54,6 +50,9 @@ type Props = {
   ...
 };
 
+/**
+ * A general purpose popup with many configurations available.
+ */
 const Modal: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   children = null,
   title = '',

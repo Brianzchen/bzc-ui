@@ -11,11 +11,6 @@ type Props = {
   ...BaseButtonT,
   /** the name of the icon */
   icon?: string,
-  /** assign a color directly to the component's styling.
-   * Accepts theme value `color` or `color(0.5)` as a string
-   * or alternatively accepts a hexcode
-   */
-  color?: string,
   /** define an icon to appear under the main icon */
   backgroundIcon?: string,
   /** specifies the color of the background icon supporting Box's color syntax */
@@ -24,8 +19,6 @@ type Props = {
   foregroundIcon?: string,
   /** specifies the color of the foreground icon supporting Box's color syntax */
   foregroundColor?: string,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for icon element */
   iconStyle?: StyleT,
   /** convenience prop to apply fontSize to the icon */

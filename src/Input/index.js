@@ -29,10 +29,6 @@ const calcCalendarDate = (value) => {
 
 type Props = {
   ...BaseInputT,
-  /**
-   * id attribute of the underlying input tag
-   */
-  id?: string,
   /** unique identifier for the field, this is necessary
    * when used with the starfall `Form` component
    */
@@ -45,8 +41,6 @@ type Props = {
    * prefix of all data-testid values for the component
    */
   prefixTestId?: string,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for the field container element */
   fieldStyle?: StyleT,
   /** overrides styling for the input element */

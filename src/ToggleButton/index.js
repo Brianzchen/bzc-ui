@@ -7,14 +7,9 @@ import BaseButton from '../BaseButton';
 import type { BaseButtonT } from '../BaseButton';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 export type ToggleButtonT = {
   ...BaseButtonT,
-  /** child element inside the button */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** whether the toggle is enabled */
   selected?: boolean,
   /**
@@ -25,6 +20,9 @@ export type ToggleButtonT = {
   ...
 };
 
+/**
+ * A tertiary button with a selected or unselected state.
+ */
 const ToggleButton: React$AbstractComponent<ToggleButtonT, HTMLElement> = React.forwardRef<ToggleButtonT, HTMLElement>(({
   children = null,
   style = {},

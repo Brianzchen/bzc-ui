@@ -16,10 +16,6 @@ import type { StyleT } from '../types';
 
 type Props = {
   ...BaseSelectT,
-  /**
-   * id attribute of the underlying select tag
-   */
-  id?: string,
   /** unique identifier for the field, this is necessary
    * when used with the starfall `Form` component
    */
@@ -56,8 +52,6 @@ type Props = {
   valid?: boolean,
   /** whether the select should render disabled and unusable */
   disabled?: boolean,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for the field container element */
   fieldStyle?: StyleT,
   /** overrides styling for select element */
@@ -90,6 +84,9 @@ type Props = {
   ...
 };
 
+/**
+ * A fully styled select field to handle all basic single selection needs.
+ */
 const Select: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   id,
   name = '',

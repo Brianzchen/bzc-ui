@@ -42,7 +42,7 @@ const PropsTable = ({
               {key}
             </TableData>
             <TableData>
-              {prop.description}
+              {prop.description ?? ''}
             </TableData>
             <TableData>
               <Checkbox

@@ -1,6 +1,5 @@
 // @flow
-import React, { useRef } from 'react';
-import type { Node } from 'react';
+import * as React from 'react';
 import { createPortal } from 'react-dom';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
@@ -10,7 +9,7 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { RefObjT, StyleT } from '../types';
+import type { RefObjT } from '../types';
 
 // On a mobile device that has an address bar. When the user scrolls down
 // the address bar will scroll away, but as the user is scrolling the frame is
@@ -22,14 +21,16 @@ export const mobileLowerPadding = '100px';
 type Props = {
   ...BoxT,
   /** anything you want to render on top of the background */
-  children?: Node,
-  /** overrides styling for root element */
-  style?: StyleT,
+  children?: React.Node,
   /** callback function which will trigger when the background is clicked */
   onClick?: (...args: Array<any>) => any,
   ...
 };
 
+/**
+ * Render a semi transparent overlay on top of all other elements.
+ * Usually complemented by an additional element rendered on top of the Overlay
+ */
 const Overlay: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   children = null,
   style = {},
@@ -38,7 +39,7 @@ const Overlay: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pr
 }: Props, ref: RefObjT) => {
   const theme = useTheme();
 
-  const backgroundRef = useRef();
+  const backgroundRef = React.useRef();
   const activeRef = ref || backgroundRef;
 
   React.useEffect(() => {

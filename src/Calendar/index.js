@@ -5,7 +5,6 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 import DaysHeader from './DaysHeader';
 import YearAndDateSection from './YearAndDateSection';
@@ -43,13 +42,15 @@ type Props = {
       formatNewValue: string,
     |},
   ) => void,
-  /** specify selected date with valid Date object */
-  style?: StyleT,
   /** overrides styling for root element */
   value?: Date,
   ...
 };
 
+/**
+ * A fully styled calendar component to replace the standard date calendar from html
+ * that may differ in style and implementation across browsers.
+ */
 const Calendar: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   dateButtonProps = () => ({}),
   minDate,

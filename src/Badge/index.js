@@ -6,26 +6,15 @@ import computeColor from '../internal/computeColor';
 import Typography, { type TypographyT } from '../Typography';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 type Props = {
   ...TypographyT,
-  /** child element inside the badge */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /**
    * Badges can be rendered in two ways depending on what it's used for
    * and what you plan to put it in. Label is standard and default but numbered
    * values have their own rendition
    */
   variant?: 'label' | 'number',
-  /**
-   * Assign a color directly to the badge text.
-   * Accepts theme value `color` or `color(0.5)` as a string
-   * or alternatively accepts a hexcode.
-   */
-  color?: string,
   /**
    * Assign a color directly to the badge border.
    * Accepts theme value `color` or `color(0.5)` as a string

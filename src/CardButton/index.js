@@ -35,6 +35,11 @@ type Props = {
   textStyle?: StyleT,
   /** overrides styling for chevron element */
   chevronStyle?: StyleT,
+  /**
+   * If used as a button that can be selected, this props will indicate
+   * whether this button should be highlighted
+   */
+  highlight?: boolean,
   ...
 };
 
@@ -49,6 +54,7 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
   style = {},
   textStyle = {},
   chevronStyle = {},
+  highlight = false,
   ...otherProps
 }: Props, ref) => {
   const theme: ThemeT = useTheme();
@@ -68,7 +74,7 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
       padding: theme.spacing(3),
       borderTop: `${theme.line(1)} solid ${theme.colors.monoHighlight()}`,
       color: theme.colors.secondary(),
-      backgroundColor: theme.colors.monoInverse(),
+      backgroundColor: highlight ? theme.colors.monoHighlight() : theme.colors.monoInverse(),
       outline: 'none',
       overflow: 'hidden',
       ':hover': {

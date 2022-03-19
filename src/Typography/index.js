@@ -7,7 +7,6 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 import type { TypePropT } from './types';
 import compileSizeType from './compileSizeType';
@@ -16,10 +15,6 @@ import getAsTag from './getAsTag';
 
 export type TypographyT = {
   ...BoxT,
-  /** text to be rendered, can accept elements */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** accepts either a string or an object that will
    * set the size, leading and weight of the text.
    * Using an object will allow for more fine grained control
@@ -30,17 +25,10 @@ export type TypographyT = {
   type?: TypePropT,
   /** set the default display style property to `inline`. Default is `block` */
   inline?: boolean,
-  /** assign a color directly to the component's styling.
-   * Accepts theme value `color` or `color(0.5)` as a string
-   * or alternatively accepts a hexcode
-   */
-  color?: string,
   /**
    * disable Typography's dynamic text rendering
    */
   stringParse?: boolean,
-  /** pass in an html semantic tag as a string or component to override the default rendered tag */
-  as?: any,
   /**
    * Internal prop passed from `Tooltip` to let `Typography`
    * know it should render aligning to tooltip design standards.

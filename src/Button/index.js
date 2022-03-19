@@ -1,13 +1,11 @@
 // @flow
 import React, { useState, useEffect, useRef } from 'react';
-import type { Node } from 'react';
 
 import hexToRgba from '../internal/hexToRgba';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
 
-import BaseButton from '../BaseButton';
+import BaseButton, { type BaseButtonT } from '../BaseButton';
 import Box from '../Box';
-import type { BoxT } from '../Box';
 import Icon from '../Icon';
 import LoadingSpinner from '../LoadingSpinner';
 import Typography from '../Typography';
@@ -24,11 +22,7 @@ type VariantStylesT = {|
 |};
 
 type Props = {
-  ...BoxT,
-  /** child element inside the button */
-  children?: Node,
-  /** overrides styling for root element */
-  style?: StyleT,
+  ...BaseButtonT,
   /** overrides styling for focus highlight element */
   focusEffectStyle?: StyleT,
   /** overrides styling for text element */
@@ -36,19 +30,10 @@ type Props = {
   /** the look and feel of the button */
   variant?: 'primary' | 'secondary' | 'tertiary' | 'destructive' | 'destructive-tertiary',
   /**
-   * whether the button is disabled, which would apply disabled
-   * styling and not trigger onClick when clicked
-  */
-  disabled?: boolean,
-  /**
    * To indicate that the button action is submitting.
    * The button will be disabled
    */
   loading?: boolean,
-  /**
-   * HTML button type
-   */
-  type?: 'button' | 'reset' | 'submit',
   /**
    * Icon to render along side the left of the text within the button
    */

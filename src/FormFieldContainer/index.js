@@ -13,10 +13,6 @@ import type { StyleT, ThemeT } from '../types';
 
 type Props = {
   ...BoxT,
-  /** child element inside the container */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for inner element */
   innerStyle?: StyleT,
   /** overrides styling for the title element */
@@ -58,6 +54,9 @@ type Props = {
   ...
 };
 
+/**
+ * Reusable container to create consistent form fields
+ */
 const FormFieldContainer: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   children = null,
   style = {},

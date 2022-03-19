@@ -12,8 +12,6 @@ import useComponentTestId from '../internal/hooks/useComponentTestId';
 
 type Props = {
   ...BoxT,
-  /** elements to stack */
-  children?: React.Node,
   /** space between each child element,
    * can accept px or percentages as a string.
    * Alternatively spacing from the theme engine
@@ -21,8 +19,6 @@ type Props = {
    * "spacing([space])" as a string
    */
   space?: string | number,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for each child wrapper element */
   itemStyle?: StyleT,
   /** object of props that will be passed into

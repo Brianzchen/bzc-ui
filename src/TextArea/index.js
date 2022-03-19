@@ -22,8 +22,6 @@ type Props = {
    * when used with the starfall `Form` component
    */
   name?: string,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for the title element */
   titleStyle?: StyleT,
   /**
@@ -54,6 +52,9 @@ type Props = {
   ...
 };
 
+/**
+ * A fully styled multi line text field to handle longer input needs.
+ */
 const TextArea: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   name,
   style = {},

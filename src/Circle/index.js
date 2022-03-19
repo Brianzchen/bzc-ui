@@ -4,7 +4,7 @@ import * as React from 'react';
 import Typography from '../Typography';
 
 import type { TypographyT } from '../Typography';
-import type { StyleT, ThemeT } from '../types';
+import type { ThemeT } from '../types';
 
 import compileSpace from '../internal/compileSpace';
 
@@ -12,10 +12,6 @@ import computeColor from '../internal/computeColor';
 
 type Props = {
   ...TypographyT,
-  /** child element inside the circle */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** pass size of circle */
   size: string | number,
   /** color that will override fill color and outline color  */

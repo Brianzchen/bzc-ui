@@ -19,8 +19,6 @@ const AccordionContext = React.createContext<AccordionContextT>({
 
 type Props = {
   ...BoxT,
-  /** child element inside the accordion */
-  children?: React.Node,
   /**
    * render function that can be used in replacement to children
    * for more complicated child use cases where the child will dynamically change
@@ -33,8 +31,6 @@ type Props = {
   |}) => React.Node,
   /** whether or not the accordion should be showing it's content */
   open?: boolean,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for inner element */
   innerStyle?: StyleT,
   ...

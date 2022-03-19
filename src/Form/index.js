@@ -8,15 +8,11 @@ import { Provider } from './FormContext';
 
 type Props = {
   ...BoxT,
-  /** child element inside the form */
-  children?: React.Node,
-  /** pass in an html semantic tag as a string or component to override the default rendered tag */
-  onSubmit?: (...args: Array<any>) => any,
   /**
    * function to call when form is submitted.
    * (event, values) => void
    */
-  as?: any,
+  onSubmit?: (...args: Array<any>) => any,
   ...
 };
 

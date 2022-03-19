@@ -6,7 +6,6 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 type HTMLAnchorElementT = {
   ...BoxT,
@@ -16,14 +15,8 @@ type HTMLAnchorElementT = {
 
 export type AnchorT = {
   ...HTMLAnchorElementT,
-  /** child element inside the a tag */
-  children?: React.Node,
-  /** pass in an html semantic tag as a string or component to override the default rendered tag */
-  as?: any,
   /** attaches target="_blank" attribute to the component */
   newTab?: boolean,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** specifies where to open the linked document */
   target?: string,
   /** specifies the relationship between the current document and the linked document */

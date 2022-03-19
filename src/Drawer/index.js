@@ -7,14 +7,10 @@ import useEsc from '../internal/hooks/useEsc';
 import Paper from '../Paper';
 import type { PaperT } from '../Paper';
 import ClickAwayListener from '../ClickAwayListener';
-import type { RefObjT, StyleT, ThemeT } from '../types';
+import type { RefObjT, ThemeT } from '../types';
 
 type Props = {
   ...PaperT,
-  /** child element inside the component */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** renders the drawer's opened width */
   width?: number | string,
   /** set the top offset */

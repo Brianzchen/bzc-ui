@@ -17,10 +17,6 @@ import Header from './Header';
 type Props = {
   ...PaperT,
   /**
-   * content to render in the component
-   */
-  children?: React.Node,
-  /**
    * the title to render
    */
   title?: React.Node,
@@ -37,10 +33,6 @@ type Props = {
    */
   onClose?: () => void,
   /**
-   * overrides styling for root element
-   */
-  style?: StyleT,
-  /**
    * overrides styling for overlay element
    */
   overlayStyle?: StyleT,
@@ -55,6 +47,11 @@ type Props = {
   ...
 };
 
+/**
+ * A popup style component that will slide from the bottom up.
+ * Can be useful in replacement of a `Modal` and generally used with mobile
+ * applications.
+ */
 const BottomSheet: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   children = null,
   title = null,

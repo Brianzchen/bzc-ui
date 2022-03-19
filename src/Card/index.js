@@ -3,14 +3,10 @@ import * as React from 'react';
 
 import Paper from '../Paper';
 import type { PaperT } from '../Paper';
-import type { StyleT, ThemeT } from '../types';
+import type { ThemeT } from '../types';
 
 type Props = {
   ...PaperT,
-  /** child element inside the component */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** specify the style variant of the card */
   variant?: 'primary' | 'secondary',
   ...

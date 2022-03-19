@@ -3,21 +3,11 @@ import * as React from 'react';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
-import type { StyleT } from '../types';
 
 export type PaperT = {
   ...BoxT,
-  /** child element inside the component */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** changes the depth corresponding to shadows from theme */
   elevation?: 'modal' | 'dropdown' | 'card',
-  /** assign a color directly to the component's styling.
-   * Accepts theme value `color` or `color(0.5)` as a string
-   * or alternatively accepts a hexcode
-   */
-  color?: string,
   ...
 };
 

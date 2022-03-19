@@ -30,18 +30,10 @@ type Props = {
     'data-testid'?: string,
     ...
   }>,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for element wrapping the tabs */
   tabContainerStyle?: StyleT,
   /** sets the height of the tabs for design feature requirements */
   variant?: 'md' | 'lg',
-  /** assign a color directly to the component's styling. After assigning a color
-   * the texts and indicator in the tab will be overridden with the assigned color.
-   * Accepts theme value `color` or `color(0.5)` as a string
-   * or alternatively accepts a hexcode
-   */
-  color?: string,
   /**
    * spreads the tabs spaced evenly across the container
    */

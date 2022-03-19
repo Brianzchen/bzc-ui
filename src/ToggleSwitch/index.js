@@ -9,14 +9,11 @@ import Box from '../Box';
 import Circle from '../Circle';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 type ToggleSwitchT = {
   ...BaseButtonT,
   /** overrides styling for root element */
   disabled?: boolean,
-  /** whether the toggle switch is enabled */
-  style?: StyleT,
   /**
    * whether the toggle switch is disabled, which would apply disabled
    * styling and not trigger onClick when clicked
@@ -25,6 +22,10 @@ type ToggleSwitchT = {
   ...
 };
 
+/**
+ * A switch component as an alternative to `Checkbox` and good when used
+ * for auto save actions.
+ */
 const ToggleSwitch: React$AbstractComponent<ToggleSwitchT, HTMLElement> = React.forwardRef<ToggleSwitchT, HTMLElement>(({
   disabled = false,
   style = {},

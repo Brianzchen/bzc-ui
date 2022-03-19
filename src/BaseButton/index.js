@@ -7,18 +7,9 @@ import computeColor from '../internal/computeColor';
 import useInternallyFocused from '../internal/hooks/useInternallyFocused';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 export type BaseButtonT = {
   ...BoxT,
-  /** child element inside the button */
-  children?: React.Node,
-  /** function that fires when button is clicked if not disabled */
-  onClick?: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  /** overrides styling for root element */
-  style?: StyleT,
-  /** pass in an html semantic tag as a string or component to override the default rendered tag */
-  as?: any,
   /** specifies the type of html button */
   type?: 'button' | 'reset' | 'submit',
   /** whether the button should be clickable */
@@ -28,12 +19,6 @@ export type BaseButtonT = {
    * keyboard focused or blurred
    */
   setFocus?: (boolean, Event) => void,
-  /**
-   * assign a color directly to the component's styling.
-   * Accepts theme value `color` or `color(0.5)` as a string
-   * or alternatively accepts a hexcode
-   */
-  color?: string,
   /**
    * Define how you'd like the default focus effect to render. Sometimes you
    * may want it rendered within the element as opposed to around the element

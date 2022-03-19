@@ -14,8 +14,6 @@ import useComponentTestId from '../internal/hooks/useComponentTestId';
 
 type Props = {
   ...ToggleButtonT,
-  /** child to render in the button */
-  children?: React.Node,
   /**
    * render props function that is passed
    * an object containing, { onClose } and should return
@@ -27,18 +25,11 @@ type Props = {
     sheetRef: RefObjT,
   |}) => React.Node,
   /**
-   * any extra functionality that should be called when
-   * the button is clicked
-   */
-  onClick?: (...args: Array<any>) => any,
-  /**
    * opening and closing of the dropdown sheet is usually
    * handled automatically, but this prop can be passed as
    * a direct override and make it a fully controlled component
    */
   open?: boolean,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for the opened sheet */
   sheetStyle?: StyleT,
   /** overrides styling for toggle button */
@@ -58,7 +49,7 @@ type Props = {
 const Dropdown: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   children = null,
   sheet,
-  onClick = (e) => e,
+  onClick = () => {},
   open,
   style = {},
   sheetStyle = {},

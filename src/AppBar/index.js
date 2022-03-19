@@ -8,7 +8,6 @@ import useTheme from '../useTheme';
 
 type Props = {
   ...BoxT,
-  children: React.Node,
   ...
 };
 

@@ -5,16 +5,11 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 export type BaseSelectT = {
   ...BoxT,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** whether the select should render disabled and unusable */
   disabled?: boolean,
-  /** pass in an html semantic tag as a string or component to override the default rendered tag */
-  as?: any,
   ...
 };
 

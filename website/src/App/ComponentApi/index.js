@@ -11,7 +11,7 @@ import PropsTable from './PropsTable';
 
 export type ComponentPropsT = {
   [key: string]: {|
-    description: string,
+    description?: string,
     flowType: {|
       name: string,
       raw?: string,
@@ -63,10 +63,8 @@ const ComponentApi = (): React.Node => {
     );
   }
 
-  const findComposedProps = (comp): ComponentPropsT => {
-    if (!comp.composes) return {};
-
-    return comp.composes.reduce((acc, cur) => {
+  const findComposedProps = (comp): ComponentPropsT => ({
+    ...comp.composes ? comp.composes.reduce((acc, cur) => {
       const compName = cur.substring(0, cur.length - 1);
       const composedComp = components[`src/${compName}/index.js`];
 
@@ -74,11 +72,16 @@ const ComponentApi = (): React.Node => {
 
       return {
         ...acc,
-        ...composedComp.composes ? findComposedProps(composedComp) : {},
-        ...composedComp.props,
+        ...findComposedProps(composedComp),
       };
-    }, ({}: ComponentPropsT));
-  };
+    }, ({}: ComponentPropsT)) : {},
+    ...Object.keys(comp.props).filter((key) => (
+      comp.props[key].description
+    )).reduce((acc, cur) => ({
+      ...acc,
+      [cur]: comp.props[cur],
+    }), ({}: ComponentPropsT)),
+  });
 
   console.log(currComponent);
 
@@ -89,10 +92,7 @@ const ComponentApi = (): React.Node => {
           {currComponent.description.replace(/\n/g, ' ')}
         </Typography>
         <PropsTable
-          props={{
-            ...findComposedProps(currComponent),
-            ...currComponent.props,
-          }}
+          props={findComposedProps(currComponent)}
         />
       </Stack>
     </PageWrapper>

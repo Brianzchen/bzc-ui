@@ -5,7 +5,6 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 type Props = {
   ...BoxT,
@@ -13,8 +12,6 @@ type Props = {
   src: string,
   /** Specifies an alternate text for an image */
   alt: string,
-  /** overrides styling for root element */
-  style?: StyleT,
   height?: string | number,
   width?: string | number,
   ...

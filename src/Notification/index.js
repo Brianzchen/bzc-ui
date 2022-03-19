@@ -4,17 +4,13 @@ import * as React from 'react';
 import Typography, { type TypographyT } from '../Typography';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { NotificationT, StyleT } from '../types';
+import type { NotificationT } from '../types';
 
 import CloseButton from './CloseButton';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
 
 type Props = {
   ...TypographyT,
-  /** render inside the notification box */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** defines the colors of the notification */
   variant?: NotificationT,
   /**
@@ -24,6 +20,9 @@ type Props = {
   ...
 };
 
+/**
+ * Provide users with a visual feedback through various states
+ */
 const Notification: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   children = null,
   style = {},

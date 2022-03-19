@@ -11,13 +11,14 @@ type Props = {
   curr?: number,
   /** the total number of steps */
   steps?: number,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides the styling for the fill bar */
   barStyle?: StyleT,
   ...
 };
 
+/**
+ * A linear horizontal progress indicator.
+ */
 const StepBar: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   curr = 0,
   steps = 0,

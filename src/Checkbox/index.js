@@ -25,8 +25,6 @@ type Props = {
   name?: string,
   /** element to show next to checkbox */
   children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for the element surrounding the checkbox and children element */
   clickableStyle?: StyleT,
   /** whether or not the checkbox is checked */
@@ -57,6 +55,9 @@ type Props = {
   ...
 };
 
+/**
+ * Accessible checkbox component great as a form field, alternative to a `Switch`
+ */
 const Checkbox: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   name = '',
   children = null,

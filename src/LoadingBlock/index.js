@@ -26,8 +26,6 @@ type Props = {
    * "spacing([space])" as a string
    */
   width?: string | number,
-  /** overrides styling for root element */
-  style?: StyleT,
   /** overrides styling for inner element */
   innerStyle?: StyleT,
   ...

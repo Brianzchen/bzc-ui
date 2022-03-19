@@ -3,7 +3,6 @@ import React, { Fragment } from 'react';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
-import type { StyleT } from '../types';
 
 import Step from './Step';
 import Line from './Line';
@@ -16,11 +15,13 @@ type Props = {
   curr?: number,
   /** the total number of steps */
   steps?: number,
-  /** overrides styling for root element */
-  style?: StyleT,
   ...
 };
 
+/**
+ * A horizontal progression indicator with visible steps.
+ * Best when used with a small number of steps.
+ */
 const Stepper: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   curr = 0,
   steps = 0,

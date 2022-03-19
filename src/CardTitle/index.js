@@ -6,17 +6,16 @@ import type { BoxT } from '../Box';
 import Typography from '../Typography';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
 
 type Props = {
   ...BoxT,
-  /** child element inside the header */
-  children?: React.Node,
-  /** overrides styling for root element */
-  style?: StyleT,
   ...
 };
 
+/**
+ * A header component styled with the intention of rendering within a card as
+ * the root element
+ */
 const CardTitle: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   children = null,
   style = {},

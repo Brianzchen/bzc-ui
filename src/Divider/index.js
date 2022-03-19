@@ -6,12 +6,10 @@ import computeColor from '../internal/computeColor';
 import Box from '../Box';
 import type { BoxT } from '../Box';
 import compileSpace from '../internal/compileSpace';
-import type { StyleT, ThemeT } from '../types';
+import type { ThemeT } from '../types';
 
 type Props = {
   ...BoxT,
-  /** overrides styling for root element */
-  style?: StyleT,
   /**
    * override the color of the divider.
    * Accepts theme value `color` or `color(0.5)` as a string
@@ -53,6 +51,9 @@ type Props = {
   ...
 };
 
+/**
+ * Horizontal rule used to separate blocks of content on a page.
+ */
 const Divider: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
   style = {},
   color = 'boundary',

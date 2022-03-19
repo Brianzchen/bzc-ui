@@ -10,7 +10,7 @@ import axios from 'axios';
 
 import { routes } from 'utils';
 
-import { Accordion, CardButton } from 'starfall';
+import { Accordion, CardButton, useTheme } from 'starfall';
 
 import sidePanelContent from '../Pages/side-panel.json';
 
@@ -21,6 +21,7 @@ type Props = {|
 const Content = ({
   onClose,
 }: Props): React.Node => {
+  const theme = useTheme();
   const location = useLocation();
 
   const [componentsOpen, setComponentsOpen] = React.useState(!!matchPath(
@@ -41,19 +42,27 @@ const Content = ({
         as={Link}
         to={routes.home}
         onClick={onClose}
+        highlight={location.pathname === routes.home}
       >
         Home
       </CardButton>
-      {sidePanelContent.map((o: [string, string]) => (
-        <CardButton
-          key={o[1]}
-          as={Link}
-          to={o[0].toLowerCase().replace(/ /g, '-')}
-          onClick={onClose}
-        >
-          {o[0]}
-        </CardButton>
-      ))}
+      {sidePanelContent.map((o: [string, string]) => {
+        const path = generatePath(routes.page, {
+          currentPage: o[0].toLowerCase().replace(/ /g, '-'),
+        });
+
+        return (
+          <CardButton
+            key={o[1]}
+            as={Link}
+            to={path}
+            onClick={onClose}
+            highlight={location.pathname === path}
+          >
+            {o[0]}
+          </CardButton>
+        );
+      })}
       <CardButton
         onClick={() => {
           setComponentsOpen((pComponentsOpen) => !pComponentsOpen);
@@ -64,17 +73,20 @@ const Content = ({
       <Accordion open={componentsOpen}>
         {components && Object.keys(components).map((key) => {
           const comp = components[key];
+          const path = generatePath(routes.componentApi, {
+            component: key.split('/')[1],
+          });
+
           return (
             <CardButton
               key={comp.displayName}
               as={Link}
-              to={generatePath(routes.componentApi, {
-                component: key.split('/')[1],
-              })}
+              to={path}
               onClick={onClose}
-              style={(theme) => ({
+              style={{
                 paddingLeft: theme.spacing(5),
-              })}
+              }}
+              highlight={location.pathname === path}
             >
               {comp.displayName}
             </CardButton>
