@@ -1,11 +1,12 @@
 // @flow
 import * as React from 'react';
 
-import { Box, Checkbox } from 'starfall';
+import { Box } from 'starfall';
 
 import Table from './Table';
 import TableData from './TableData';
 import TableRow from './TableRow';
+import getType from './getType';
 import type { ComponentPropsT } from '..';
 
 type Props = {|
@@ -25,7 +26,7 @@ const PropsTable = ({
           Description
         </TableData>
         <TableData variant="th">
-          Required
+          Type
         </TableData>
         <TableData variant="th">
           Default
@@ -40,14 +41,13 @@ const PropsTable = ({
           <TableRow key={key}>
             <TableData>
               {key}
+              {prop.required ? '*' : null}
             </TableData>
             <TableData>
               {prop.description ?? ''}
             </TableData>
             <TableData>
-              <Checkbox
-                value={prop.required}
-              />
+              {getType(prop.flowType)}
             </TableData>
             <TableData>
               {prop.defaultValue?.value ?? null}

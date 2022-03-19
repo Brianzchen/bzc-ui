@@ -9,13 +9,28 @@ import { Stack, Typography } from 'starfall';
 
 import PropsTable from './PropsTable';
 
+export type FlowTypeT =
+  | {|
+    name: 'literal',
+    value: string,
+  |}
+  | {|
+    name: 'signature',
+    raw: string,
+    type: 'function',
+  |}
+  | {|
+    name: 'union',
+    raw: string,
+  |}
+  | {|
+    name: 'string' | 'number' | 'boolean',
+  |};
+
 export type ComponentPropsT = {
   [key: string]: {|
     description?: string,
-    flowType: {|
-      name: string,
-      raw?: string,
-    |},
+    flowType: FlowTypeT,
     required: boolean,
     defaultValue?: {|
       value: string,
