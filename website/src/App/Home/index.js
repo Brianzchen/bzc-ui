@@ -27,7 +27,6 @@ const Home = (): React.Node => {
         height: '100%',
         width: '100%',
         color: theme.colors.monoInverse(),
-        backgroundColor: theme.colors.monoSecondary(),
       }}
     >
       <Box
@@ -140,6 +139,28 @@ const Home = (): React.Node => {
       >
         Get Started
       </Button>
+      <Box
+        style={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: theme.colors.monoSecondary(),
+          zIndex: -1,
+        }}
+      />
+      <Box
+        style={{
+          position: 'absolute',
+          top: '50%',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: theme.colors.monoPrimary(),
+          zIndex: -1,
+        }}
+      />
     </Box>
   );
 };
