@@ -1,3 +1,6 @@
+// flow-typed signature: 68c9acc3526acab4e9129dedc6480b1a
+// flow-typed version: e645615e7c/jsx/flow_>=v0.83.x
+
 /**
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#list_of_global_attributes
  */
