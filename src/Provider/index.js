@@ -67,7 +67,7 @@ type Props = {|
   /** whether keyboard focus effects should be enabled for all child components */
   focusEffect?: boolean,
   /**
-   * A multiplier value to increase the scale of all starfall components,
+   * A multiplier value to increase the scale of all startown components,
    * spacing, and fonts by a given amount
    */
   scale?: number,
@@ -87,7 +87,7 @@ type Props = {|
 |};
 
 /**
- * Use the provider to override default values and apply changes across across starfall
+ * Use the provider to override default values and apply changes across across startown
  * components such as colors, scale and more.
  */
 const Provider = (props: Props): React.Node => {

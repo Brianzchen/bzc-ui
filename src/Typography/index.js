@@ -18,7 +18,7 @@ export type TypographyT = {
   /** accepts either a string or an object that will
    * set the size, leading and weight of the text.
    * Using an object will allow for more fine grained control
-   * over the font type at various starfall defined breakpoints.
+   * over the font type at various startown defined breakpoints.
    * Each object property accepts one of the predefined font
    * types as a string
    */
@@ -40,7 +40,7 @@ export type TypographyT = {
 /**
  * An atomic component that allows you to easily implement the typography patterns defined in the system,
  * which includes `font-size`, `font-weight`, and `line-height`.
- * While still exposing the starfall styling solution to easily position or color your text.
+ * While still exposing the startown styling solution to easily position or color your text.
  */
 const Typography: React$AbstractComponent<TypographyT, HTMLElement> = React.forwardRef<TypographyT, HTMLElement>(({
   children = null,
@@ -78,7 +78,7 @@ const Typography: React$AbstractComponent<TypographyT, HTMLElement> = React.forw
         fontWeight: lg.style,
         lineHeight: lg.leading,
         margin: 0,
-        ':sf-max(sm)': {
+        ':st-max(sm)': {
           ...sm
             ? {
               fontSize: sm.px,
@@ -87,7 +87,7 @@ const Typography: React$AbstractComponent<TypographyT, HTMLElement> = React.forw
             }
             : {},
         },
-        ':sf-max(md)': {
+        ':st-max(md)': {
           ...md
             ? {
               fontSize: md.px,

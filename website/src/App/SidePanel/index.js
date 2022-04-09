@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Media from 'react-media';
 
-import { Box, Drawer, useTheme } from 'starfall';
+import { Box, Drawer, useTheme } from 'startown';
 
 import Content from './Content';
 

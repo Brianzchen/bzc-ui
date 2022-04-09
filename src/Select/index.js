@@ -17,7 +17,7 @@ import type { StyleT } from '../types';
 type Props = {
   ...BaseSelectT,
   /** unique identifier for the field, this is necessary
-   * when used with the starfall `Form` component
+   * when used with the startown `Form` component
    */
   name?: string,
   /**

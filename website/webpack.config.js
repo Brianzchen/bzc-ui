@@ -26,7 +26,7 @@ module.exports = ({
   resolve: {
     extensions: ['*', '.js'],
     alias: {
-      starfall: path.resolve(__dirname, '..', 'src', 'index.js'),
+      startown: path.resolve(__dirname, '..', 'src', 'index.js'),
       pkgJson: path.resolve(__dirname, '..', 'package.json'),
       utils: path.resolve(__dirname, 'src', 'utils', 'index.js'),
     },

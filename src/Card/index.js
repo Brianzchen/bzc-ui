@@ -36,7 +36,7 @@ const Card: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props
       borderRadius: theme.corner(2),
       overflow: 'hidden',
       backgroundColor: getBackgroundColor(theme),
-      ':sf-max(sm)': {
+      ':st-max(sm)': {
         borderRadius: theme.corner(0),
       },
     }),

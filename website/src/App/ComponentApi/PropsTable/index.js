@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { Box } from 'starfall';
+import { Box } from 'startown';
 
 import Table from './Table';
 import TableData from './TableData';

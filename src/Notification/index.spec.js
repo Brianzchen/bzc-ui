@@ -26,7 +26,7 @@ describe('<Notification />', () => {
       </Notification>,
     );
 
-    expect(screen.queryByTestId('sf-notification-close-button')).toBe(null);
+    expect(screen.queryByTestId('st-notification-close-button')).toBe(null);
   });
 
   it('renders close button when passing in onClose', () => {
@@ -39,7 +39,7 @@ describe('<Notification />', () => {
       </Notification>,
     );
 
-    fireEvent.click(screen.getByTestId('sf-notification-close-button'));
+    fireEvent.click(screen.getByTestId('st-notification-close-button'));
 
     expect(onClose).toHaveBeenCalled();
   });

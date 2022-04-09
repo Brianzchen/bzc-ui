@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import { routes, PageWrapper } from 'utils';
 
-import { Stack, Typography } from 'starfall';
+import { Stack, Typography } from 'startown';
 
 import PropsTable from './PropsTable';
 

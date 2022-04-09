@@ -50,7 +50,7 @@ describe('<FormFieldContainer />', () => {
 
     render(<FormFieldContainer title={title} />);
 
-    expect(screen.getByTestId('sf-form-field-container-title').textContent).toBe(title);
+    expect(screen.getByTestId('st-form-field-container-title').textContent).toBe(title);
   });
 
   it('renders the sub label if passed in', () => {
@@ -58,7 +58,7 @@ describe('<FormFieldContainer />', () => {
 
     render(<FormFieldContainer subLabel={subLabel} />);
 
-    expect(screen.getByTestId('sf-form-field-container-sublabel').textContent).toBe(subLabel);
+    expect(screen.getByTestId('st-form-field-container-sublabel').textContent).toBe(subLabel);
   });
 
   it('renders the label and sub label in the right order', () => {
@@ -72,8 +72,8 @@ describe('<FormFieldContainer />', () => {
       />,
     );
 
-    expect(screen.getByTestId('sf-form-field-container-title').textContent).toBe(title);
-    expect(screen.getByTestId('sf-form-field-container-sublabel').textContent).toBe(subLabel);
+    expect(screen.getByTestId('st-form-field-container-title').textContent).toBe(title);
+    expect(screen.getByTestId('st-form-field-container-sublabel').textContent).toBe(subLabel);
   });
 
   it('does not render optional label by default', () => {
@@ -83,7 +83,7 @@ describe('<FormFieldContainer />', () => {
       />,
     );
 
-    expect(screen.queryByTestId('sf-form-field-container-optional-label')).toBe(null);
+    expect(screen.queryByTestId('st-form-field-container-optional-label')).toBe(null);
   });
 
   it('renders optional label only if optional is passed', () => {
@@ -94,7 +94,7 @@ describe('<FormFieldContainer />', () => {
       />,
     );
 
-    expect(screen.getByTestId('sf-form-field-container-optional-label').textContent).toBe('(Optional)');
+    expect(screen.getByTestId('st-form-field-container-optional-label').textContent).toBe('(Optional)');
   });
 
   it('does not render optional label if there is no title', () => {
@@ -104,7 +104,7 @@ describe('<FormFieldContainer />', () => {
       />,
     );
 
-    expect(screen.queryByTestId('sf-form-field-container-optional-label')).toBe(null);
+    expect(screen.queryByTestId('st-form-field-container-optional-label')).toBe(null);
   });
 
   it('renders no error state by default', () => {

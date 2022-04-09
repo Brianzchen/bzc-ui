@@ -15,7 +15,7 @@ describe('<Select />', () => {
       />,
     );
 
-    expect(screen.getByTestId('sf-select-error').textContent).toBe(expectText);
+    expect(screen.getByTestId('st-select-error').textContent).toBe(expectText);
   });
 
   it('renders auto generated id when title is passed', () => {
@@ -24,7 +24,7 @@ describe('<Select />', () => {
     );
 
     expect(screen.getByTestId('my-select-field').getAttribute('id')).toBe('select-test');
-    expect(screen.getByTestId('sf-select-title').getAttribute('for')).toBe('select-test');
+    expect(screen.getByTestId('st-select-title').getAttribute('for')).toBe('select-test');
   });
 
   it('renders id when there is no title', () => {
@@ -41,6 +41,6 @@ describe('<Select />', () => {
     );
 
     expect(screen.getByTestId('my-select-field').getAttribute('id')).toBe('test-id');
-    expect(screen.getByTestId('sf-select-title').getAttribute('for')).toBe('test-id');
+    expect(screen.getByTestId('st-select-title').getAttribute('for')).toBe('test-id');
   });
 });

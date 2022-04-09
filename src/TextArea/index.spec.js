@@ -25,6 +25,6 @@ describe('<TextArea />', () => {
 
     render(<TextArea title={title} />);
 
-    expect(screen.getByTestId('sf-text-area-title').textContent).toBe(title);
+    expect(screen.getByTestId('st-text-area-title').textContent).toBe(title);
   });
 });

@@ -14,5 +14,5 @@ export default (componentName: string, suffix: string | number): string => {
     }
     return o;
   }).join('');
-  return `sf-${componentKebab}-${toKebabCase(`${suffix}`)}`;
+  return `st-${componentKebab}-${toKebabCase(`${suffix}`)}`;
 };

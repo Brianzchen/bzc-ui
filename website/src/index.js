@@ -3,7 +3,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import { Provider } from 'starfall';
+import { Provider } from 'startown';
 
 import App from './App';
 

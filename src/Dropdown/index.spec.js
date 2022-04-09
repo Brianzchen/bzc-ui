@@ -27,11 +27,11 @@ describe('<Dropdown', () => {
         data-testid="button"
       />,
     );
-    expect(screen.queryByTestId('sf-dropdown-sheet')).toBe(null);
+    expect(screen.queryByTestId('st-dropdown-sheet')).toBe(null);
 
     fireEvent.click(screen.getByTestId('button'));
 
-    expect(screen.getByTestId('sf-dropdown-sheet')).not.toBe(null);
+    expect(screen.getByTestId('st-dropdown-sheet')).not.toBe(null);
   });
 
   it('can override the open state', () => {
@@ -44,6 +44,6 @@ describe('<Dropdown', () => {
       />,
     );
 
-    expect(screen.getByTestId('sf-dropdown-sheet')).not.toBe(null);
+    expect(screen.getByTestId('st-dropdown-sheet')).not.toBe(null);
   });
 });

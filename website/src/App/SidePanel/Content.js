@@ -10,7 +10,7 @@ import axios from 'axios';
 
 import { routes } from 'utils';
 
-import { Accordion, CardButton, useTheme } from 'starfall';
+import { Accordion, CardButton, useTheme } from 'startown';
 
 import sidePanelContent from '../Pages/side-panel.json';
 

@@ -28,7 +28,7 @@ format.bracket_spacing=true
 format.single_quotes=true
 exact_by_default=true
 include_warnings=true
-module.name_mapper='^starfall$' -> '<PROJECT_ROOT>/src/index.js'
+module.name_mapper='^startown$' -> '<PROJECT_ROOT>/src/index.js'
 module.name_mapper='^pkgJson$' -> '<PROJECT_ROOT>/package.json'
 module.name_mapper='^utils$' -> '<PROJECT_ROOT>/website/src/utils'
 

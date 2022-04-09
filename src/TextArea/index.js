@@ -19,7 +19,7 @@ type Props = {
   ...BoxT,
   /**
    * unique identifier for the field, this is necessary
-   * when used with the starfall `Form` component
+   * when used with the startown `Form` component
    */
   name?: string,
   /** overrides styling for the title element */

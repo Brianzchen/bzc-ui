@@ -29,7 +29,7 @@ export type BaseButtonT = {
 };
 
 /**
- * A basic button element with all styles removed and support starfall's styling api.
+ * A basic button element with all styles removed and support startown's styling api.
  */
 const BaseButton: React$AbstractComponent<BaseButtonT, HTMLElement> = React.forwardRef<BaseButtonT, HTMLElement>(({
   children = null,

@@ -139,7 +139,7 @@ describe('styler', () => {
   });
 
   describe('media shorthands', () => {
-    it('accepts a starfall shorthand max sm', () => {
+    it('accepts a startown shorthand max sm', () => {
       const fakeTheme = {
         mobileWidth: datatype.number(),
         tabletWidth: datatype.number(),
@@ -150,7 +150,7 @@ describe('styler', () => {
         [`@media (max-width: ${theme.mobileWidth}px)`]: {
           color: 'black',
         },
-        ':sf-max(sm)': {
+        ':st-max(sm)': {
           backgroundColor: 'blue',
         },
       });
@@ -165,7 +165,7 @@ describe('styler', () => {
       });
     });
 
-    it('accepts a starfall shorthand min sm', () => {
+    it('accepts a startown shorthand min sm', () => {
       const fakeTheme = {
         mobileWidth: datatype.number(),
         tabletWidth: datatype.number(),
@@ -176,7 +176,7 @@ describe('styler', () => {
         [`@media (min-width: ${theme.mobileWidth + 1}px)`]: {
           color: 'black',
         },
-        ':sf-min(sm)': {
+        ':st-min(sm)': {
           backgroundColor: 'blue',
         },
       });
@@ -191,7 +191,7 @@ describe('styler', () => {
       });
     });
 
-    it('accepts a starfall shorthand max md', () => {
+    it('accepts a startown shorthand max md', () => {
       const fakeTheme = {
         mobileWidth: datatype.number(),
         tabletWidth: datatype.number(),
@@ -202,7 +202,7 @@ describe('styler', () => {
         [`@media (max-width: ${theme.tabletWidth}px)`]: {
           color: 'black',
         },
-        ':sf-max(md)': {
+        ':st-max(md)': {
           backgroundColor: 'blue',
         },
       });
@@ -217,7 +217,7 @@ describe('styler', () => {
       });
     });
 
-    it('accepts a starfall shorthand min md', () => {
+    it('accepts a startown shorthand min md', () => {
       const fakeTheme = {
         mobileWidth: datatype.number(),
         tabletWidth: datatype.number(),
@@ -228,7 +228,7 @@ describe('styler', () => {
         [`@media (min-width: ${theme.tabletWidth + 1}px)`]: {
           color: 'black',
         },
-        ':sf-min(md)': {
+        ':st-min(md)': {
           backgroundColor: 'blue',
         },
       });
@@ -251,14 +251,14 @@ describe('styler', () => {
 
       const style = {
         test: '123',
-        ':sf-min(md)': {
+        ':st-min(md)': {
           backgroundColor: 'blue',
         },
       };
 
       // $FlowExpectedError[prop-missing] missing theme props
       expect(styler(style, fakeTheme, {
-        ':sf-min(md)': {
+        ':st-min(md)': {
           color: 'black',
         },
       })).toEqual({

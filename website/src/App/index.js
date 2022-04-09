@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { Box, useTheme } from 'starfall';
+import { Box, useTheme } from 'startown';
 
 import { routes } from 'utils';
 

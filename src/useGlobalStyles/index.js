@@ -15,7 +15,7 @@ type StylesT = {|
  *
  * Object of style objects that accept the same structure as typical style
  * objects in other components. Properties of `styles` can accept either an object or
- * function just like typical starfall style props.
+ * function just like typical startown style props.
  *
  * Currently has minimal support of document.body, ids and first element of classes.
  * Styling will only apply to elements that are currently on the DOM, as new elements

@@ -14,7 +14,7 @@ const Title = ({
 }: Props): React.Node => (
   <Box
     as="span"
-    id="sf-modal-title"
+    id="st-modal-title"
     data-testid={compTestId('title')}
   >
     {children}

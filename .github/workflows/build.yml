@@ -37,4 +37,4 @@ jobs:
       run: npm install -g surge
 
     - name: Deploy to Surge
-      run:  surge ./website https://starfall.surge.sh/ --token ${{secrets.SURGE}}
+      run:  surge ./website https://startown.surge.sh/ --token ${{secrets.SURGE}}

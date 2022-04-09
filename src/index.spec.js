@@ -2,9 +2,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import * as starfall from '.';
+import * as startown from '.';
 
-describe('starfall', () => {
+describe('startown', () => {
   const exclusions = ['internal', 'theme'];
 
   it('exports all top level functions and components', () => {
@@ -13,8 +13,8 @@ describe('starfall', () => {
     dirs.forEach((dir) => {
       const stat = fs.lstatSync(path.join(__dirname, dir));
       if (stat.isDirectory() && !exclusions.includes(dir)) {
-        if (starfall[dir]) {
-          expect(starfall[dir]).toBeDefined();
+        if (startown[dir]) {
+          expect(startown[dir]).toBeDefined();
         } else {
           throw new Error(`\`${dir}\` is missing a top level export`);
         }
@@ -23,15 +23,15 @@ describe('starfall', () => {
   });
 
   it('can import types', () => {
-    const color: starfall.types.StyleObjT = {
+    const color: startown.types.StyleObjT = {
       ...null,
     };
 
     expect(color.display).toBe(undefined);
   });
 
-  Object.keys(starfall).forEach((key) => {
-    const module = starfall[key];
+  Object.keys(startown).forEach((key) => {
+    const module = startown[key];
 
     if (key.charAt(0).toUpperCase() === key.charAt(0)) {
       it(`${key} has a displayName`, () => {

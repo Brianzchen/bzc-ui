@@ -22,7 +22,7 @@ type Props = {
   /** the text that shows next to the radio button */
   children?: React.Node,
   /** unique identifier for the field, this is necessary
-   * when used with the starfall `Form` component
+   * when used with the startown `Form` component
    */
   name?: string,
   /**
@@ -37,7 +37,7 @@ type Props = {
   /** whether or not radio button is selected */
   checked?: boolean,
   /**
-   * used with the form context when wrapped in a starfall `Form` component
+   * used with the form context when wrapped in a startown `Form` component
    * to define the initial checked value of a radio button group
    */
   initialChecked?: boolean,
@@ -120,7 +120,7 @@ const RadioButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRe
         },
       );
     } else if (initialChecked) {
-      console.error('`initialChecked` should only be used in RadioButton when wrapped in a starfall Form component');
+      console.error('`initialChecked` should only be used in RadioButton when wrapped in a startown Form component');
     }
   }, [id, error]);
 

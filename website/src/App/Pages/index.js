@@ -7,7 +7,7 @@ import { PageWrapper, routes, toKebabCase } from 'utils';
 
 import {
   Markdown,
-} from 'starfall';
+} from 'startown';
 
 import sidePanelContent from './side-panel.json';
 

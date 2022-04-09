@@ -1,9 +1,9 @@
 {
-  "name": "starfall",
+  "name": "startown",
   "version": "0.1.0",
-  "description": "Collection of atomic react components falling through the night sky",
+  "description": "Home to a collection of superstar atomic react components",
   "main": "lib/index.js",
-  "repository": "https://github.com/Brianzchen/starfall.git",
+  "repository": "https://github.com/Brianzchen/startown.git",
   "author": "Brian Chen",
   "license": "MIT",
   "scripts": {

@@ -258,7 +258,7 @@ const Modal: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Prop
       ...isLarge
         ? {
           [mediaMobile]: {
-            ':sf-min(sm)': {
+            ':st-min(sm)': {
               flexDirection: 'column',
             },
           },
@@ -335,7 +335,7 @@ const Modal: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Prop
         {...otherProps}
         ref={activeRef}
         role="dialog"
-        aria-labelledby="sf-modal-title"
+        aria-labelledby="st-modal-title"
         style={styles.container}
       >
         {

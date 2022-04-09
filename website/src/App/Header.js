@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import pkgJson from 'pkgJson';
 
-import { Anchor, AppBar, Icon } from 'starfall';
+import { Anchor, AppBar, Icon } from 'startown';
 
 type Props = {|
   onMenuClick: () => void,

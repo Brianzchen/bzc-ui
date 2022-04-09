@@ -17,7 +17,7 @@ describe('<Inline />', () => {
       </Inline>,
     );
 
-    expect(screen.getAllByTestId('sf-inline-item').length).toBe(4);
+    expect(screen.getAllByTestId('st-inline-item').length).toBe(4);
   });
 
   it('does not render falsy elements', () => {
@@ -31,7 +31,7 @@ describe('<Inline />', () => {
       </Inline>,
     );
 
-    expect(screen.getAllByTestId('sf-inline-item').length).toBe(1);
+    expect(screen.getAllByTestId('st-inline-item').length).toBe(1);
     expect(screen.getByTestId('container').textContent).toBe('test');
   });
 
@@ -49,6 +49,6 @@ describe('<Inline />', () => {
       </Inline>,
     );
 
-    expect(screen.getAllByTestId('sf-inline-item').length).toBe(4);
+    expect(screen.getAllByTestId('st-inline-item').length).toBe(4);
   });
 });

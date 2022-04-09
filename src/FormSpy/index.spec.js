@@ -31,7 +31,7 @@ describe('<FormSpy />', () => {
     );
 
     expect(screen.queryByTestId('test')).toBe(null);
-    expect(mockLog).toHaveBeenCalledWith('`FormSpy` must be a child of the starfall `Form` component');
+    expect(mockLog).toHaveBeenCalledWith('`FormSpy` must be a child of the startown `Form` component');
     (console: any).error = originalLog;
   });
 

@@ -14,7 +14,7 @@ describe('<BottomSheet', () => {
       />,
     );
 
-    expect(screen.queryByTestId('sf-bottom-sheet-overlay')).toBe(null);
+    expect(screen.queryByTestId('st-bottom-sheet-overlay')).toBe(null);
   });
 
   it('closes if clicking the background', () => {
@@ -26,7 +26,7 @@ describe('<BottomSheet', () => {
       />,
     );
 
-    fireEvent.click(screen.getByTestId('sf-bottom-sheet-overlay'));
+    fireEvent.click(screen.getByTestId('st-bottom-sheet-overlay'));
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -40,7 +40,7 @@ describe('<BottomSheet', () => {
       />,
     );
 
-    fireEvent.click(screen.getByTestId('sf-bottom-sheet-close'));
+    fireEvent.click(screen.getByTestId('st-bottom-sheet-close'));
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -54,7 +54,7 @@ describe('<BottomSheet', () => {
       />,
     );
 
-    expect(screen.getByTestId('sf-bottom-sheet-title').textContent).toBe(title);
+    expect(screen.getByTestId('st-bottom-sheet-title').textContent).toBe(title);
   });
 
   it('does not render title element if not passed', () => {
@@ -64,6 +64,6 @@ describe('<BottomSheet', () => {
       />,
     );
 
-    expect(screen.queryByTestId('sf-bottom-sheet-title')).toBe(null);
+    expect(screen.queryByTestId('st-bottom-sheet-title')).toBe(null);
   });
 });

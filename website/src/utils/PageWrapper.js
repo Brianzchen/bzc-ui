@@ -6,7 +6,7 @@ import {
   Typography,
   Gap,
   useTheme,
-} from 'starfall';
+} from 'startown';
 
 type Props = {|
   title: React.Node,

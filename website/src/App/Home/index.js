@@ -13,7 +13,7 @@ import {
   Link,
   Typography,
   useTheme,
-} from 'starfall';
+} from 'startown';
 
 import Star from './Star';
 
@@ -44,7 +44,7 @@ const Home = (): React.Node => {
             fontFamily: '\'Comfortaa\', cursive',
           }}
         >
-          starfall
+          startown
           <Badge
             style={{
               position: 'absolute',

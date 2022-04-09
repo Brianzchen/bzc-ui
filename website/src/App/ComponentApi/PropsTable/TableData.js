@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { Box, useTheme } from 'starfall';
+import { Box, useTheme } from 'startown';
 
 type Props = {
   children: React.Node,
