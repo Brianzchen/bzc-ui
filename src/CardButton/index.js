@@ -40,6 +40,10 @@ type Props = {
    * whether this button should be highlighted
    */
   highlight?: boolean,
+  /**
+   * Whether the button should render the chevron
+   */
+  chevron?: boolean,
   ...
 };
 
@@ -55,6 +59,7 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
   textStyle = {},
   chevronStyle = {},
   highlight = false,
+  chevron = true,
   ...otherProps
 }: Props, ref) => {
   const theme: ThemeT = useTheme();
@@ -126,11 +131,14 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
       >
         {children}
       </Typography>
-      <Chevron
-        style={styles.chevron}
-        direction="right"
-        color={theme.colors.secondary()}
-      />
+      {chevron && (
+        <Chevron
+          data-testid={compTestId('chevron')}
+          style={styles.chevron}
+          direction="right"
+          color={theme.colors.secondary()}
+        />
+      )}
     </Element>
   );
 });

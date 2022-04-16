@@ -32,4 +32,20 @@ describe('<CardButton />', () => {
 
     expect(screen.getByTestId('test').tagName).toBe('A');
   });
+
+  it('renders an anchor normally', () => {
+    render(
+      <CardButton />,
+    );
+
+    expect(screen.getByTestId('st-card-button-chevron')).toBeDefined();
+  });
+
+  it('renders an anchor normally', () => {
+    render(
+      <CardButton chevron={false} />,
+    );
+
+    expect(screen.queryByTestId('st-card-button-chevron')).toBe(null);
+  });
 });
