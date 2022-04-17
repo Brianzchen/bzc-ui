@@ -1,11 +1,13 @@
 // @flow
 import * as React from 'react';
 
-import { Box } from 'startown';
+import {
+  Box,
+  Table,
+  TableData,
+  TableRow,
+} from 'startown';
 
-import Table from './Table';
-import TableData from './TableData';
-import TableRow from './TableRow';
 import getType from './getType';
 import type { ComponentPropsT } from '..';
 
