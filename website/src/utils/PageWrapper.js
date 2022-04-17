@@ -25,7 +25,14 @@ const PageWrapper = ({
         margin: theme.spacing(5),
       }}
     >
-      <Typography type="heading1">
+      <Typography
+        type="heading1"
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         {title}
       </Typography>
       <Gap height="spacing(5)" />

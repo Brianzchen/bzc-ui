@@ -5,8 +5,13 @@ import axios from 'axios';
 
 import { routes, PageWrapper } from 'utils';
 
-import { Stack, Typography } from 'startown';
+import {
+  Button,
+  Stack,
+  Typography,
+} from 'startown';
 
+import ExamplesModal from './ExamplesModal';
 import PropsTable from './PropsTable';
 
 export type FlowTypeT =
@@ -51,6 +56,7 @@ const ComponentApi = (): React.Node => {
   const params = useParams();
   const [components, setComponents] = React.useState<{ [key: string]: ComponentT } | void>();
   const [currComponent, setCurrComponent] = React.useState<ComponentT | void | null>();
+  const [examplesModal, setExamplesModal] = React.useState(false);
 
   React.useEffect(() => {
     axios.get('/components.json').then(({ data }) => {
@@ -101,16 +107,42 @@ const ComponentApi = (): React.Node => {
   console.log(currComponent);
 
   return (
-    <PageWrapper title={currComponent.displayName}>
-      <Stack space="spacing(4)">
-        <Typography>
-          {currComponent.description.replace(/\n/g, ' ')}
-        </Typography>
-        <PropsTable
-          props={findComposedProps(currComponent)}
+    <>
+      <PageWrapper
+        title={(
+          <>
+            {currComponent.displayName}
+            <Button
+              onClick={() => {
+                setExamplesModal(true);
+              }}
+              style={{
+                width: 'auto',
+              }}
+            >
+              Examples
+            </Button>
+          </>
+        )}
+      >
+        <Stack space="spacing(4)">
+          <Typography>
+            {currComponent.description.replace(/\n/g, ' ')}
+          </Typography>
+          <PropsTable
+            props={findComposedProps(currComponent)}
+          />
+        </Stack>
+      </PageWrapper>
+      {examplesModal && (
+        <ExamplesModal
+          component={currComponent.displayName}
+          onClose={() => {
+            setExamplesModal(false);
+          }}
         />
-      </Stack>
-    </PageWrapper>
+      )}
+    </>
   );
 };
 
