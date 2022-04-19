@@ -175,7 +175,7 @@ const FormFieldContainer: React$AbstractComponent<Props, HTMLElement> = React.fo
         <Typography
           data-testid={compTestId('error')}
           type="description"
-          color="action"
+          color="error"
         >
           {errorMessage}
         </Typography>
