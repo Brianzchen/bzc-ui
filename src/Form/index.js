@@ -12,7 +12,15 @@ type Props = {
    * function to call when form is submitted.
    * (event, values) => void
    */
-  onSubmit?: (...args: Array<any>) => any,
+  onSubmit?: (
+    event: any,
+    values: {
+      [key: string]: {|
+        valid: false,
+        error: false,
+        value: '',
+      |},
+    }) => any,
   ...
 };
 
