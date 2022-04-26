@@ -17,7 +17,7 @@ const AccordionContext = React.createContext<AccordionContextT>({
   heightChanged: () => {},
 });
 
-type Props = {
+export type AccordionT = {
   ...BoxT,
   /**
    * render function that can be used in replacement to children
@@ -39,14 +39,14 @@ type Props = {
 /**
  * An atomic component that provides a smooth opening and closing effect.
  */
-const Accordion: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Accordion: React$AbstractComponent<AccordionT, HTMLElement> = React.forwardRef<AccordionT, HTMLElement>(({
   children = null,
   render,
   open = true,
   style = {},
   innerStyle = {},
   ...otherProps
-}: Props, ref) => {
+}: AccordionT, ref) => {
   const containerRef = React.useRef<HTMLElement | null>(null);
   const activeRef = ref || containerRef;
 

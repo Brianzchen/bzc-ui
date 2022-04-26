@@ -17,7 +17,10 @@ type Props = {
   style?: StyleT,
   innerStyle?: StyleT,
   indicatorStyle?: StyleT,
-  onClick?: (...args: Array<any>) => any,
+  onClick?: (event: SyntheticEvent<HTMLButtonElement>, {|
+    value: string | number,
+    children: React.Node,
+  |}) => any,
   selected?: boolean,
   variant: 'md' | 'lg',
   proportion?: number,
