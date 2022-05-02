@@ -132,7 +132,7 @@ const TextArea: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<P
       {title && (
         <Typography
           data-testid={compTestId('title')}
-          type="heading3"
+          type="body"
           style={styles.title}
         >
           {title}

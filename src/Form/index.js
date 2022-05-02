@@ -15,7 +15,7 @@ type Props = {
   onSubmit?: (
     event: any,
     values: {
-      [key: string]: {|
+      [key: string]: ?{|
         valid: false,
         error: false,
         value: '',
