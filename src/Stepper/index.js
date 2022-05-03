@@ -9,7 +9,7 @@ import Line from './Line';
 import range from './range';
 import stepStates from './stepStates';
 
-type Props = {
+export type StepperT = {
   ...BoxT,
   /** the currently active step */
   curr?: number,
@@ -22,12 +22,12 @@ type Props = {
  * A horizontal progression indicator with visible steps.
  * Best when used with a small number of steps.
  */
-const Stepper: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Stepper: React$AbstractComponent<StepperT, HTMLElement> = React.forwardRef(({
   curr = 0,
   steps = 0,
   style = {},
   ...otherProps
-}: Props, ref) => {
+}: StepperT, ref) => {
   const styles = {
     container: (theme, styler) => styler(style, theme, {
       display: 'flex',

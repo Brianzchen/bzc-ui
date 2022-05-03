@@ -4,15 +4,15 @@ import * as React from 'react';
 import Typography, { type TypographyT } from '../Typography';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { NotificationT } from '../types';
+import type { NotificationVariantT } from '../types';
 
 import CloseButton from './CloseButton';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
 
-type Props = {
+export type NotificationT = {
   ...TypographyT,
   /** defines the colors of the notification */
-  variant?: NotificationT,
+  variant?: NotificationVariantT,
   /**
    * If you want to render a close button on the edge of the Notification
    */
@@ -23,13 +23,13 @@ type Props = {
 /**
  * Provide users with a visual feedback through various states
  */
-const Notification: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Notification: React$AbstractComponent<NotificationT, HTMLElement> = React.forwardRef<NotificationT, HTMLElement>(({
   children = null,
   style = {},
   variant = 'note',
   onClose,
   ...otherProps
-}: Props, ref) => {
+}: NotificationT, ref) => {
   const theme = useTheme();
   const compTestId = useComponentTestId('Notification');
 

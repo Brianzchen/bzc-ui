@@ -9,7 +9,7 @@ import useTheme from '../useTheme';
 import type { StyleT } from '../types';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
 
-type Props = {
+export type GroupedToggleButtonsT = {
   ...BoxT,
   /**
    * the modes will change what is returned by `onSelect`
@@ -45,14 +45,14 @@ type Props = {
  *
  * Handles usage of single or multi selection buttons.
  */
-const GroupedToggleButtons: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const GroupedToggleButtons: React$AbstractComponent<GroupedToggleButtonsT, HTMLElement> = React.forwardRef(({
   variant = 'single',
   onSelect,
   selection = [],
   buttons = [],
   style = {},
   ...otherProps
-}: Props, ref) => {
+}: GroupedToggleButtonsT, ref) => {
   const theme = useTheme();
   const compTestId = useComponentTestId('GroupedToggleButton');
 

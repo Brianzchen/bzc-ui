@@ -15,7 +15,7 @@ import type { StyleT } from '../types';
 
 import Wrapped from './Wrapped';
 
-type Props = {
+export type TextAreaT = {
   ...BoxT,
   /**
    * unique identifier for the field, this is necessary
@@ -55,7 +55,7 @@ type Props = {
 /**
  * A fully styled multi line text field to handle longer input needs.
  */
-const TextArea: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardRef(({
   name,
   style = {},
   titleStyle = {},
@@ -66,7 +66,7 @@ const TextArea: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<P
   value,
   onChange,
   ...otherProps
-}: Props, ref) => {
+}: TextAreaT, ref) => {
   const theme = useTheme();
   const compTestId = useComponentTestId('TextArea');
   const { formWrapped, setFormValues } = useFormValues();

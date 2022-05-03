@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-type Props = {|
+export type DelayT = {|
   /** children to be delayed */
   children?: React.Node,
   /** the timeout prior to the child mounting in milliseconds */
@@ -14,7 +14,7 @@ type Props = {|
 const Delay = ({
   children = null,
   timeout = 200,
-}: Props): React.Node => {
+}: DelayT): React.Node => {
   const [render, setRender] = React.useState(false);
 
   React.useEffect(() => {

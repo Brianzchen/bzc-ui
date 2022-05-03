@@ -5,7 +5,7 @@ import Box, { type BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
-type Props = {
+export type TableDataT = {
   ...BoxT,
   /**
    * Whether to be rendered as a header or cell variant
@@ -17,12 +17,12 @@ type Props = {
 /**
  * Styled table cell component
  */
-const TableData: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const TableData: React$AbstractComponent<TableDataT, HTMLElement> = React.forwardRef(({
   children,
   variant = 'td',
   style = {},
   ...otherProps
-}: Props, ref): React.Node => {
+}: TableDataT, ref): React.Node => {
   const theme = useTheme();
 
   const styles = {

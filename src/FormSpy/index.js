@@ -19,7 +19,7 @@ const useSubscribedValues = (subscribers: Array<string>): FormValuesT => {
   }, {});
 };
 
-type Props = {|
+export type FormSpyT = {|
   /**
    * Render props that will return the values held in the form context
    * (values, formSubmitted) => React.Node
@@ -38,7 +38,7 @@ type Props = {|
 const FormSpy = ({
   children,
   subscribers = [],
-}: Props): React.Node => {
+}: FormSpyT): React.Node => {
   const { formWrapped, formSubmitted } = useFormValues();
   const formValues = useSubscribedValues(subscribers);
 

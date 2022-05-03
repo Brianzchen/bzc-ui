@@ -7,7 +7,7 @@ import Typography, { type TypographyT } from '../Typography';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
-type Props = {
+export type BadgeT = {
   ...TypographyT,
   /**
    * Badges can be rendered in two ways depending on what it's used for
@@ -33,7 +33,7 @@ type Props = {
 /**
  * Used to inform users of the status of an object or an action that has been taken
  */
-const Badge: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Badge: React$AbstractComponent<BadgeT, HTMLElement> = React.forwardRef<BadgeT, HTMLElement>(({
   children = null,
   style = {},
   variant = 'label',
@@ -41,7 +41,7 @@ const Badge: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Prop
   borderColor,
   backgroundColor,
   ...otherProps
-}: Props, ref) => {
+}: BadgeT, ref) => {
   const theme = useTheme();
 
   const defaultColor = theme.colors.infoBackground();

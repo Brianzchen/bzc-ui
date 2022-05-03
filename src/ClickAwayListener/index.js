@@ -26,7 +26,7 @@ const clickAwayEvents = ['mouseup', 'touchend'];
 const bind = (callback) => clickAwayEvents.forEach((event) => on(document, event, callback));
 const unbind = (callback) => clickAwayEvents.forEach((event) => off(document, event, callback));
 
-type Props = {|
+export type ClickAwayListenerT = {|
   /**
    * The element tree you want to track if the user clicks outside this element
    */
@@ -49,7 +49,7 @@ const ClickAwayListener = ({
   children,
   onClickAway,
   exclusions = [],
-}: Props): React.Node => {
+}: ClickAwayListenerT): React.Node => {
   let activeRef = React.useRef();
 
   React.useEffect(() => {

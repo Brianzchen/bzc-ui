@@ -12,7 +12,7 @@ import useTheme from '../useTheme';
 import type { RefObjT, StyleT } from '../types';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
 
-type Props = {
+export type DropdownT = {
   ...ToggleButtonT,
   /**
    * render props function that is passed
@@ -46,7 +46,7 @@ type Props = {
  *
  * The dropdown sheet has no styling inside which gives each feature the flexibility to tailor the interior as necessary.
  */
-const Dropdown: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Dropdown: React$AbstractComponent<DropdownT, HTMLElement> = React.forwardRef<DropdownT, HTMLElement>(({
   children = null,
   sheet,
   onClick = () => {},
@@ -56,7 +56,7 @@ const Dropdown: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<P
   toggleStyle = {},
   exclusions,
   ...otherProps
-}: Props, ref) => {
+}: DropdownT, ref) => {
   const buttonRef = React.useRef<HTMLElement | null>(null);
   const theme = useTheme();
   const compTestId = useComponentTestId('Dropdown');

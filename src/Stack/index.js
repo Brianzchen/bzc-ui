@@ -31,7 +31,7 @@ export type StackT = {
 /**
  * A layout component to easily stack multiple components together with even spacing.
  */
-const Stack: React$AbstractComponent<StackT, HTMLElement> = React.forwardRef<StackT, HTMLElement>(({
+const Stack: React$AbstractComponent<StackT, HTMLElement> = React.forwardRef(({
   children = null,
   space,
   style = {},

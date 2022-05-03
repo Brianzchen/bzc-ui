@@ -6,7 +6,7 @@ import type { BoxT } from '../Box';
 
 import { Provider } from './FormContext';
 
-type Props = {
+export type FormT = {
   ...BoxT,
   /**
    * function to call when form is submitted.
@@ -33,12 +33,12 @@ type Props = {
  * the form context.
  * These need to be nested within a Form component.
  */
-const Form: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Form: React$AbstractComponent<FormT, HTMLElement> = React.forwardRef<FormT, HTMLElement>(({
   children = null,
   onSubmit,
   as = 'form',
   ...otherProps
-}: Props, ref) => {
+}: FormT, ref) => {
   const [values, setValues] = React.useState({ ...null });
   const [, setSubmitted] = React.useState(false);
 

@@ -5,7 +5,7 @@ import Box, { type BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
-type Props = {
+export type TableRowT = {
   ...BoxT,
   ...
 };
@@ -13,11 +13,11 @@ type Props = {
 /**
  * Styled table row
  */
-const TableRow: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const TableRow: React$AbstractComponent<TableRowT, HTMLElement> = React.forwardRef(({
   children = null,
   style = {},
   ...otherProps
-}: Props, ref): React.Node => {
+}: TableRowT, ref): React.Node => {
   const theme = useTheme();
 
   const styles = {

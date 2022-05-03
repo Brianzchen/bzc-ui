@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-type Props = {
+export type ScrollLoadingListenerT = {
   ...jsx$HTMLElement,
   /**
    * Function that will be called whenever the component enters the viewport.
@@ -26,10 +26,10 @@ type Props = {
  * multiple times and is useful when the newly loaded content pushes the
  * `ScrollLoadingListener` further down the page.
  */
-const ScrollLoadingListener: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const ScrollLoadingListener: React$AbstractComponent<ScrollLoadingListenerT, HTMLElement> = React.forwardRef<ScrollLoadingListenerT, HTMLElement>(({
   onLoad,
   ...otherProps
-}: Props, ref) => {
+}: ScrollLoadingListenerT, ref) => {
   const internalRef = React.useRef<HTMLElement | null>(null);
   const activeRef = ref || internalRef;
 

@@ -5,7 +5,7 @@ import Box, { type BoxT } from '../Box';
 
 type ValueT = any;
 
-type Props = {
+export type DraggableT = {
   ...BoxT,
   /** rendered child to drag around */
   children?: React.Node,
@@ -31,14 +31,14 @@ type Props = {
  * allow a parent to pop the component from it's original location and render
  * it elsewhere.
  */
-const Draggable: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Draggable: React$AbstractComponent<DraggableT, HTMLElement> = React.forwardRef<DraggableT, HTMLElement>(({
   children = null,
   value,
   onDrop,
   style = {},
   onMouseDown,
   ...otherProps
-}: Props, ref) => {
+}: DraggableT, ref) => {
   const internalRef = React.useRef();
   const activeRef = ref || internalRef;
   const [dragging, setDragging] = React.useState(false);

@@ -10,7 +10,7 @@ import useTheme from '../useTheme';
 import type { StyleT } from '../types';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
 
-type Props = {
+export type InlineT = {
   ...BoxT,
   /** space between each child element,
    * can accept px or percentages as a string.
@@ -37,7 +37,7 @@ type Props = {
 /**
  * A layout component to easily space out components inline. As the components wrap, the elements will also be spaced out vertically.
  */
-const Inline: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Inline: React$AbstractComponent<InlineT, HTMLElement> = React.forwardRef<InlineT, HTMLElement>(({
   children = null,
   space = 0,
   style = {},
@@ -45,7 +45,7 @@ const Inline: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
   itemProps = {},
   horizontalOnly = false,
   ...otherProps
-}: Props, ref) => {
+}: InlineT, ref) => {
   const theme = useTheme();
   const compTestId = useComponentTestId('Inline');
   const spacing = compileSpace(space, theme.spacing);

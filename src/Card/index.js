@@ -5,7 +5,7 @@ import Paper from '../Paper';
 import type { PaperT } from '../Paper';
 import type { ThemeT } from '../types';
 
-type Props = {
+export type CardT = {
   ...PaperT,
   /** specify the style variant of the card */
   variant?: 'primary' | 'secondary',
@@ -15,12 +15,12 @@ type Props = {
 /**
  * Cards are surfaces that display content and actions on a single topic.
  */
-const Card: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Card: React$AbstractComponent<CardT, HTMLElement> = React.forwardRef<CardT, HTMLElement>(({
   children = null,
   style = {},
   variant = 'primary',
   ...otherProps
-}: Props, ref) => {
+}: CardT, ref) => {
   const getBackgroundColor = (theme: ThemeT) => {
     switch (variant) {
       case 'secondary':

@@ -9,7 +9,7 @@ import Paper, { type PaperT } from '../Paper';
 import Stack from '../Stack';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import type { NotificationT, RefObjT, StyleT } from '../types';
+import type { NotificationVariantT, RefObjT, StyleT } from '../types';
 
 import Header from './Header';
 
@@ -17,7 +17,7 @@ const getBodyMaxHeight = (headerHeight, paddingHeight) => (
   window.innerHeight - headerHeight - paddingHeight
 );
 
-type Props = {
+export type ModalT = {
   ...PaperT,
   /** title for the modal, omitting this will hide the title bar */
   title?: string,
@@ -43,7 +43,7 @@ type Props = {
   /** The text to be applies the notification above the header and also enables it */
   bannerText?: React.Node,
   /** Defines the variant of notification such as error state */
-  bannerVariant?: NotificationT,
+  bannerVariant?: NotificationVariantT,
   /** overrides styling for the notification if also enabled */
   bannerStyle?: StyleT,
   bodyStackSpacing?: string | number,
@@ -53,7 +53,7 @@ type Props = {
 /**
  * A general purpose popup with many configurations available.
  */
-const Modal: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<ModalT, HTMLElement>(({
   children = null,
   title = '',
   open: propsOpen,
@@ -71,7 +71,7 @@ const Modal: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Prop
   hideElm,
   bodyStackSpacing,
   ...otherProps
-}: Props, ref: RefObjT) => {
+}: ModalT, ref: RefObjT) => {
   const containerRef = React.useRef();
   const activeRef = ref || containerRef;
   const theme = useTheme();

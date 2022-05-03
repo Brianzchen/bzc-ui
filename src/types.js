@@ -165,7 +165,7 @@ export type InputFormatT = 'credit-card';
 
 export type HiddenT = 'sm' | 'md' | 'lg';
 
-export type NotificationT = 'success' | 'note' | 'warning' | 'error';
+export type NotificationVariantT = 'success' | 'note' | 'warning' | 'error';
 
 export type RefObjT = {|
   current: HTMLElement | null,

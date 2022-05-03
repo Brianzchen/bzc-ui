@@ -10,7 +10,7 @@ import Circle from '../Circle';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
-type ToggleSwitchT = {
+export type ToggleSwitchT = {
   ...BaseButtonT,
   /** overrides styling for root element */
   disabled?: boolean,

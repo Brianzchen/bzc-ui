@@ -16,7 +16,7 @@ import type { StyleT, ThemeT } from '../types';
 
 type CombinedT = AnchorT & BaseButtonT;
 
-type Props = {
+export type CardButtonT = {
   ...CombinedT,
   /** The element to render as the main text */
   children?: React.Node,
@@ -52,7 +52,7 @@ type Props = {
  *
  * Can render as an underlying `a` or `button` tag depending if passed an `href` or `onClick` respectively.
  */
-const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const CardButton: React$AbstractComponent<CardButtonT, HTMLElement> = React.forwardRef<CardButtonT, HTMLElement>(({
   children = null,
   href,
   style = {},
@@ -61,7 +61,7 @@ const CardButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef
   highlight = false,
   chevron = true,
   ...otherProps
-}: Props, ref) => {
+}: CardButtonT, ref) => {
   const theme: ThemeT = useTheme();
   const compTestId = useComponentTestId('CardButton');
 

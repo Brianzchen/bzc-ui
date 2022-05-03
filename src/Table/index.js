@@ -5,7 +5,7 @@ import Box, { type BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
-type Props = {
+export type TableT = {
   ...BoxT,
   ...
 };
@@ -13,11 +13,11 @@ type Props = {
 /**
  * Wrapper table component with predefined styling
  */
-const Table: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Table: React$AbstractComponent<TableT, HTMLElement> = React.forwardRef(({
   children = null,
   style = {},
   ...otherProps
-}: Props, ref): React.Node => {
+}: TableT, ref): React.Node => {
   const theme = useTheme();
 
   const styles = {

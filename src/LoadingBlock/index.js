@@ -8,7 +8,7 @@ import type { StyleT } from '../types';
 
 import compileSpace from '../internal/compileSpace';
 
-type Props = {
+export type LoadingBlockT = {
   ...BoxT,
   /**
    * height of the block,
@@ -34,13 +34,13 @@ type Props = {
 /**
  * Reusable placeholder component that renders a shimmering effect while waiting for data to load
  */
-const LoadingBlock: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const LoadingBlock: React$AbstractComponent<LoadingBlockT, HTMLElement> = React.forwardRef<LoadingBlockT, HTMLElement>(({
   height = 'spacing(4)',
   width = 'spacing(12)',
   style = {},
   innerStyle = {},
   ...otherProps
-}: Props, ref) => {
+}: LoadingBlockT, ref) => {
   const containerRef = React.useRef<HTMLElement | null>(null);
   const activeRef = ref || containerRef;
 

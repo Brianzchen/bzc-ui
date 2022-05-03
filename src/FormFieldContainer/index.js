@@ -11,7 +11,7 @@ import Typography from '../Typography';
 import styler from '../styler';
 import type { StyleT, ThemeT } from '../types';
 
-type Props = {
+export type FormFieldContainerT = {
   ...BoxT,
   /** overrides styling for inner element */
   innerStyle?: StyleT,
@@ -57,7 +57,7 @@ type Props = {
 /**
  * Reusable container to create consistent form fields
  */
-const FormFieldContainer: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const FormFieldContainer: React$AbstractComponent<FormFieldContainerT, HTMLElement> = React.forwardRef<FormFieldContainerT, HTMLElement>(({
   children = null,
   style = {},
   innerStyle = {},
@@ -74,7 +74,7 @@ const FormFieldContainer: React$AbstractComponent<Props, HTMLElement> = React.fo
   onClick,
   optional = false,
   ...otherProps
-}: Props, ref) => {
+}: FormFieldContainerT, ref) => {
   const internalRef = React.useRef();
   const activeRef = ref || internalRef;
   const compTestId = useComponentTestId(prefixTestId);

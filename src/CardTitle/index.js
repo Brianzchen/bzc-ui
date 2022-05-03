@@ -7,7 +7,7 @@ import Typography from '../Typography';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
-type Props = {
+export type CardTitleT = {
   ...BoxT,
   ...
 };
@@ -16,11 +16,11 @@ type Props = {
  * A header component styled with the intention of rendering within a card as
  * the root element
  */
-const CardTitle: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const CardTitle: React$AbstractComponent<CardTitleT, HTMLElement> = React.forwardRef<CardTitleT, HTMLElement>(({
   children = null,
   style = {},
   ...otherProps
-}: Props, ref) => {
+}: CardTitleT, ref) => {
   const theme = useTheme();
 
   const styles = {

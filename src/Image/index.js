@@ -6,7 +6,7 @@ import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
-type Props = {
+export type ImageT = {
   ...BoxT,
   /** Specifies the path to the image */
   src: string,
@@ -22,10 +22,10 @@ type Props = {
  *
  * This component requires `src` and `alt` props to be supplied through it's type checkers to ensure accessibility best practices.
  */
-const Image: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Image: React$AbstractComponent<ImageT, HTMLElement> = React.forwardRef<ImageT, HTMLElement>(({
   style = {},
   ...otherProps
-}: Props, ref) => {
+}: ImageT, ref) => {
   const theme = useTheme();
 
   const styles = {

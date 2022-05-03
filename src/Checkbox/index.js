@@ -16,7 +16,7 @@ import Check from './Check';
 import ExtraDetails from './ExtraDetails';
 import Text from './Text';
 
-type Props = {
+export type CheckboxT = {
   ...BoxT,
   /**
    * unique identifier for the field, this is necessary
@@ -58,7 +58,7 @@ type Props = {
 /**
  * Accessible checkbox component great as a form field, alternative to a `Switch`
  */
-const Checkbox: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Checkbox: React$AbstractComponent<CheckboxT, HTMLElement> = React.forwardRef<CheckboxT, HTMLElement>(({
   name = '',
   children = null,
   style = {},
@@ -72,7 +72,7 @@ const Checkbox: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<P
   variant = 'regular',
   prefixTestId = 'Checkbox',
   ...otherProps
-}: Props, ref) => {
+}: CheckboxT, ref) => {
   const inputRef = React.useRef();
   const labelRef = React.useRef();
   const theme = useTheme();

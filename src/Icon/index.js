@@ -7,7 +7,7 @@ import type { StyleT } from '../types';
 
 import Wrapped from './Wrapped';
 
-type Props = {
+export type IconT = {
   ...BaseButtonT,
   /** the name of the icon */
   icon?: string,
@@ -36,7 +36,7 @@ type Props = {
  *
  * By passing in the "icon" prop, it will apply a className of "icon-[icon]" to the underlying element.
  */
-const Icon: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Icon: React$AbstractComponent<IconT, HTMLElement> = React.forwardRef<IconT, HTMLElement>(({
   icon = '',
   backgroundIcon,
   backgroundColor,
@@ -47,7 +47,7 @@ const Icon: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props
   size = 'inherit',
   withButton = false,
   ...otherProps
-}: Props, ref) => {
+}: IconT, ref) => {
   if (withButton) {
     return (
       <BaseButton

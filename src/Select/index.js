@@ -14,7 +14,7 @@ import useFormValues from '../useFormValues';
 import useTheme from '../useTheme';
 import type { StyleT } from '../types';
 
-type Props = {
+export type SelectT = {
   ...BaseSelectT,
   /** unique identifier for the field, this is necessary
    * when used with the startown `Form` component
@@ -87,7 +87,7 @@ type Props = {
 /**
  * A fully styled select field to handle all basic single selection needs.
  */
-const Select: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Select: React$AbstractComponent<SelectT, HTMLElement> = React.forwardRef(({
   id,
   name = '',
   rootTestId,
@@ -111,7 +111,7 @@ const Select: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
   onBlur,
   prefixNode = null,
   ...otherProps
-}: Props, ref) => {
+}: SelectT, ref) => {
   const theme = useTheme();
   const {
     setFormValues,

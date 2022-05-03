@@ -4,7 +4,7 @@ import * as React from 'react';
 import BaseButton from '../BaseButton';
 import type { BaseButtonT } from '../BaseButton';
 
-type Props = {
+export type LinkButtonT = {
   ...BaseButtonT,
   ...
 };
@@ -12,12 +12,12 @@ type Props = {
 /**
  * Simple button component styled as a link and adheres to text sizing of it's parent
  */
-const LinkButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const LinkButton: React$AbstractComponent<LinkButtonT, HTMLElement> = React.forwardRef<LinkButtonT, HTMLElement>(({
   children = null,
   style = {},
   color = 'highlight',
   ...otherProps
-}: Props, ref) => {
+}: LinkButtonT, ref) => {
   const styles = {
     link: (theme, styler) => styler(style, theme, {
       fontWeight: theme.fonts.button.style,

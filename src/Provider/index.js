@@ -27,7 +27,7 @@ import type {
   ThemeT,
 } from '../types';
 
-type Props = {|
+export type ProviderT = {|
   /** child components to consume from the theme */
   children: React.Node,
   /** object of color properties to override the default values */
@@ -90,7 +90,7 @@ type Props = {|
  * Use the provider to override default values and apply changes across across startown
  * components such as colors, scale and more.
  */
-const Provider = (props: Props): React.Node => {
+const Provider = (props: ProviderT): React.Node => {
   const colors = {
     ...defaultColors,
     ...props.colors,

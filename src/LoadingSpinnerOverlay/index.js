@@ -8,7 +8,7 @@ import styler from '../styler';
 import useTheme from '../useTheme';
 import type { StyleT } from '../types';
 
-type Props = {
+export type LoadingSpinnerOverlayT = {
   ...LoadingSpinnerT,
   /**
    * If the overlay should render
@@ -23,13 +23,13 @@ type Props = {
  * A type of loading that puts an overlay over the top of all other elements.
  * Useful if you want to block user interaction during the loading phase.
  */
-const LoadingSpinnerOverlay: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const LoadingSpinnerOverlay: React$AbstractComponent<LoadingSpinnerOverlayT, HTMLElement> = React.forwardRef<LoadingSpinnerOverlayT, HTMLElement>(({
   open = true,
   backgroundStyle = {},
   size,
   color = 'pure',
   ...otherProps
-}: Props, ref): React.Node => {
+}: LoadingSpinnerOverlayT, ref): React.Node => {
   const theme = useTheme();
 
   const styles = {

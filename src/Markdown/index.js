@@ -6,7 +6,7 @@ import useComponentTestId from '../internal/hooks/useComponentTestId';
 import Stack, { type StackT } from '../Stack';
 import Typography from '../Typography';
 
-type Props = {
+export type MarkdownT = {
   ...StackT,
   /**
    * The content from a markdown file as a string
@@ -19,10 +19,10 @@ type Props = {
  * Takes a string of markdown content and renders
  * it as jsx using startown components to match application styling
  */
-const Markdown: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Markdown: React$AbstractComponent<MarkdownT, HTMLElement> = React.forwardRef<MarkdownT, HTMLElement>(({
   content,
   ...otherProps
-}: Props, ref): React.Node => {
+}: MarkdownT, ref): React.Node => {
   const compTestId = useComponentTestId('Markdown');
 
   if (!content) return null;

@@ -19,7 +19,7 @@ type TabProportionsT = {|
   proportion: Array<number>,
 |};
 
-type Props = {
+export type TabsT = {
   ...BoxT,
   /** list of objects that will come together to build tabs to form a list of tabs */
   tabs?: Array<{
@@ -44,7 +44,7 @@ type Props = {
 /**
  * Used to display multiple content areas, which can be viewed by selecting the respective tab.
  */
-const Tabs: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Tabs: React$AbstractComponent<TabsT, HTMLElement> = React.forwardRef(({
   tabs = [],
   style = {},
   tabContainerStyle = {},
@@ -52,7 +52,7 @@ const Tabs: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props
   color = 'secondary',
   fullWidth = false,
   ...otherProps
-}: Props, ref) => {
+}: TabsT, ref) => {
   // fullWidth does not work in IE
   // Can fix in the future and UX are aware of this limitation
   // when used in their designs

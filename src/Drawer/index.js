@@ -9,7 +9,7 @@ import type { PaperT } from '../Paper';
 import ClickAwayListener from '../ClickAwayListener';
 import type { RefObjT, ThemeT } from '../types';
 
-type Props = {
+export type DrawerT = {
   ...PaperT,
   /** renders the drawer's opened width */
   width?: number | string,
@@ -36,7 +36,7 @@ type Props = {
 /**
  * Drawers can be toggled open or closed, the drawer can be closed by clicking away from the object
  */
-const Drawer: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Drawer: React$AbstractComponent<DrawerT, HTMLElement> = React.forwardRef<DrawerT, HTMLElement>(({
   children = null,
   style = {},
   width,
@@ -47,7 +47,7 @@ const Drawer: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
   onClose,
   exclusions,
   ...otherProps
-}: Props, ref: RefObjT) => {
+}: DrawerT, ref: RefObjT) => {
   const containerRef = React.useRef();
   const activeRef = ref || containerRef;
 

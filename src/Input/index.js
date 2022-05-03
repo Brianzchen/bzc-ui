@@ -27,7 +27,7 @@ const calcCalendarDate = (value) => {
   return value;
 };
 
-type Props = {
+export type InputT = {
   ...BaseInputT,
   /** unique identifier for the field, this is necessary
    * when used with the startown `Form` component
@@ -159,7 +159,7 @@ type Props = {
 /**
  * A fully styled input field to handle all basic input needs.
  */
-const Input: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<InputT, HTMLElement>(({
   id,
   name = '',
   rootTestId,
@@ -194,7 +194,7 @@ const Input: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Prop
   optional = false,
   inputRef,
   ...otherProps
-}: Props, ref) => {
+}: InputT, ref) => {
   const internalRef = React.useRef();
   const activeRef = ref || internalRef;
 

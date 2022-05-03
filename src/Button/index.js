@@ -21,7 +21,7 @@ type VariantStylesT = {|
   'destructive-tertiary': any,
 |};
 
-type Props = {
+export type ButtonT = {
   ...BaseButtonT,
   /** overrides styling for focus highlight element */
   focusEffectStyle?: StyleT,
@@ -53,7 +53,7 @@ type Props = {
  * Button's perform an action when clicked.
  * The button text should clearly be an actionable word.
  */
-const Button: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Button: React$AbstractComponent<ButtonT, HTMLElement> = React.forwardRef<ButtonT, HTMLElement>(({
   children = null,
   style = {},
   focusEffectStyle = {},
@@ -66,7 +66,7 @@ const Button: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
   prefixIconStyle = {},
   suffixIconStyle = {},
   ...otherProps
-}: Props, ref) => {
+}: ButtonT, ref) => {
   const internalRef = useRef();
   const activeRef = ref || internalRef;
   const theme = useTheme();

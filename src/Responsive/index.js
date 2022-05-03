@@ -20,7 +20,7 @@ type InternalBreakpointsT = {
   ...
 };
 
-type Props = {
+export type ResponsiveT = {
   ...BoxT,
   /**
    * Object of breakpoint values which should be numbers where if the width
@@ -44,11 +44,11 @@ type Props = {
  * **Responsive** handles this by telling its children once itself
  * has hit a given breakpoint that this components parent defines.
  */
-const Responsive: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Responsive: React$AbstractComponent<ResponsiveT, HTMLElement> = React.forwardRef<ResponsiveT, HTMLElement>(({
   breakpoints = {},
   children,
   ...otherProps
-}: Props, ref) => {
+}: ResponsiveT, ref) => {
   const internalRef = React.useRef();
   const activeRef = ref ?? internalRef;
   const theme = useTheme();

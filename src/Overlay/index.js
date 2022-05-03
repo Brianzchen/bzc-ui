@@ -18,7 +18,7 @@ import type { RefObjT } from '../types';
 // eliminate this effect.
 export const mobileLowerPadding = '100px';
 
-type Props = {
+export type OverlayT = {
   ...BoxT,
   /** anything you want to render on top of the background */
   children?: React.Node,
@@ -31,12 +31,12 @@ type Props = {
  * Render a semi transparent overlay on top of all other elements.
  * Usually complemented by an additional element rendered on top of the Overlay
  */
-const Overlay: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Overlay: React$AbstractComponent<OverlayT, HTMLElement> = React.forwardRef<OverlayT, HTMLElement>(({
   children = null,
   style = {},
   onClick,
   ...otherProps
-}: Props, ref: RefObjT) => {
+}: OverlayT, ref: RefObjT) => {
   const theme = useTheme();
 
   const backgroundRef = React.useRef();

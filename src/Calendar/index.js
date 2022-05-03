@@ -19,7 +19,7 @@ import getYearsArray from './utils/getYearsArray';
 import sortYears from './utils/sortYears';
 import withinRange from './utils/withinRange';
 
-type Props = {
+export type CalendarT = {
   ...BoxT,
   /**
    * accepts a function which is passed the date in Date object format
@@ -51,7 +51,7 @@ type Props = {
  * A fully styled calendar component to replace the standard date calendar from html
  * that may differ in style and implementation across browsers.
  */
-const Calendar: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Calendar: React$AbstractComponent<CalendarT, HTMLElement> = React.forwardRef<CalendarT, HTMLElement>(({
   dateButtonProps = () => ({}),
   minDate,
   maxDate,
@@ -59,7 +59,7 @@ const Calendar: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<P
   style = {},
   value,
   ...otherProps
-}: Props, ref) => {
+}: CalendarT, ref) => {
   const yearsArray = sortYears(getYearsArray(minDate, maxDate));
 
   const [currentYear, setCurrentYear] = useState(

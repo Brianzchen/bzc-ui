@@ -7,7 +7,7 @@ import Anchor from '../Anchor';
 import type { AnchorT } from '../Anchor';
 import type { ThemeT } from '../types';
 
-type Props = {
+export type LinkT = {
   ...AnchorT,
   /** Switch the link text between regular and underline font.
    *  underline is bold, underlined and inherits color from parent.
@@ -19,13 +19,13 @@ type Props = {
 /**
  * Renders an anchor tag styled with consistent guidelines.
  */
-const Link: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Link: React$AbstractComponent<LinkT, HTMLElement> = React.forwardRef<LinkT, HTMLElement>(({
   children = null,
   style = {},
   color,
   variant = 'regular',
   ...otherProps
-}: Props, ref) => {
+}: LinkT, ref) => {
   const styles = {
     anchor: (theme: ThemeT, styler) => styler(style, theme, {
       color: computeColor(variant === 'regular' ? color || 'highlight' : color, theme),

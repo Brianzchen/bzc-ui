@@ -14,7 +14,7 @@ import type { StyleT } from '../types';
 
 import Header from './Header';
 
-type Props = {
+export type BottomSheetT = {
   ...PaperT,
   /**
    * the title to render
@@ -52,7 +52,7 @@ type Props = {
  * Can be useful in replacement of a `Modal` and generally used with mobile
  * applications.
  */
-const BottomSheet: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const BottomSheet: React$AbstractComponent<BottomSheetT, HTMLElement> = React.forwardRef<BottomSheetT, HTMLElement>(({
   children = null,
   title = null,
   titleAlignment = 'center',
@@ -64,7 +64,7 @@ const BottomSheet: React$AbstractComponent<Props, HTMLElement> = React.forwardRe
   style = {},
   hideElm,
   ...otherProps
-}: Props, ref) => {
+}: BottomSheetT, ref) => {
   const theme = useTheme();
   const compTestId = useComponentTestId('BottomSheet');
 

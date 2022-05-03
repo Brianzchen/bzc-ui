@@ -19,7 +19,7 @@ type DirectionT = {|
   [key: string]: any,
 |};
 
-type Props = {
+export type SheetT = {
   ...PaperT,
   /**
    * Accepts a render func to render, that expects a React Node to be returned.
@@ -56,7 +56,7 @@ type Props = {
  *
  * Will automatically position itself based on element positioning and screen real estate.
  */
-const Sheet: React$AbstractComponent<Props, HTMLElement> = React.forwardRef(({
+const Sheet: React$AbstractComponent<SheetT, HTMLElement> = React.forwardRef(({
   children,
   style = {},
   onClose,
@@ -64,7 +64,7 @@ const Sheet: React$AbstractComponent<Props, HTMLElement> = React.forwardRef(({
   onDirectionChange,
   exclusions = [],
   ...otherProps
-}: Props, ref) => {
+}: SheetT, ref) => {
   const internalRef = React.useRef();
   const activeRef = ref || internalRef;
 

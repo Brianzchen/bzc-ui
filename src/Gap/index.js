@@ -7,7 +7,7 @@ import type { ThemeT } from '../types';
 
 import compileSpace from '../internal/compileSpace';
 
-type Props = {
+export type GapT = {
   ...BoxT,
   /**
    * height of the gap if placed vertically,
@@ -31,12 +31,12 @@ type Props = {
 /**
  * Renders a spacing element that can be used between two elements, either vertically or horizontally.
  */
-const Gap: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Gap: React$AbstractComponent<GapT, HTMLElement> = React.forwardRef<GapT, HTMLElement>(({
   style = {},
   height = 0,
   width = 0,
   ...otherProps
-}: Props, ref) => {
+}: GapT, ref) => {
   const styles = {
     gap: (theme: ThemeT, styler) => styler(style, theme, {
       display: height ? 'block' : 'inline-block',

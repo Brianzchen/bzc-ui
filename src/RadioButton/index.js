@@ -17,7 +17,7 @@ import type { StyleT } from '../types';
 
 import Icon from './Icon';
 
-type Props = {
+export type RadioButtonT = {
   ...BaseInputT,
   /** the text that shows next to the radio button */
   children?: React.Node,
@@ -70,7 +70,7 @@ type Props = {
 /**
  * Used to render a set of radio buttons for single selection in a form.
  */
-const RadioButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const RadioButton: React$AbstractComponent<RadioButtonT, HTMLElement> = React.forwardRef<RadioButtonT, HTMLElement>(({
   children = null,
   name = '',
   id,
@@ -87,7 +87,7 @@ const RadioButton: React$AbstractComponent<Props, HTMLElement> = React.forwardRe
   variant = 'regular',
   prefixTestId,
   ...otherProps
-}: Props, ref) => {
+}: RadioButtonT, ref) => {
   const internalRef = React.useRef();
   const activeRef = ref || internalRef;
   const inputRef = React.useRef();

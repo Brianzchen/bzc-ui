@@ -6,7 +6,7 @@ import styler from '../styler';
 import useGlobalStyles from '../useGlobalStyles';
 import useTheme from '../useTheme';
 
-type Props = {
+export type AppBarT = {
   ...BoxT,
   ...
 };
@@ -16,11 +16,11 @@ type Props = {
  * You should aim to place this at the top of your page layout to avoid
  * unexpected behaviors though this component will render if there regardless.
  */
-const AppBar: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const AppBar: React$AbstractComponent<AppBarT, HTMLElement> = React.forwardRef<AppBarT, HTMLElement>(({
   children = null,
   style = {},
   ...otherProps
-}: Props, ref) => {
+}: AppBarT, ref) => {
   const theme = useTheme();
 
   const height = 50 * theme.scale;

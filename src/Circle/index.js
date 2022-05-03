@@ -10,7 +10,7 @@ import compileSpace from '../internal/compileSpace';
 
 import computeColor from '../internal/computeColor';
 
-type Props = {
+export type CircleT = {
   ...TypographyT,
   /** pass size of circle */
   size: string | number,
@@ -28,7 +28,7 @@ type Props = {
 /**
  * An atomic circle component that can contain children
  */
-const Circle: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const Circle: React$AbstractComponent<CircleT, HTMLElement> = React.forwardRef<CircleT, HTMLElement>(({
   children = null,
   style = {},
   size,
@@ -37,7 +37,7 @@ const Circle: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Pro
   outlineColor = 'primary',
   outlineWidth = 1,
   ...otherProps
-}: Props, ref) => {
+}: CircleT, ref) => {
   const styles = {
     circle: (theme: ThemeT, styler) => styler(style, theme, {
       display: 'flex',

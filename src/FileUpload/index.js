@@ -4,7 +4,7 @@ import * as React from 'react';
 import Box from '../Box';
 import type { StyleT } from '../types';
 
-type Props = {|
+export type FileUploadT = {|
   /**
    * A render func that is passed the `draggedOver` state
    * in case the child wants to render differently depending
@@ -42,14 +42,14 @@ type Props = {|
 /**
  * Wrapper component to support uploading files with drag and drop or click to add functionality
  */
-const FileUpload: React$AbstractComponent<Props, HTMLElement> = React.forwardRef<Props, HTMLElement>(({
+const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forwardRef<FileUploadT, HTMLElement>(({
   children = () => null,
   uploadOnClick = true,
   onFileAdded,
   accept,
   multiple = false,
   style,
-}: Props, ref): React.Node => {
+}: FileUploadT, ref): React.Node => {
   const inputRef = React.useRef(null);
   const [draggedOver, setDraggedOver] = React.useState(false);
 
