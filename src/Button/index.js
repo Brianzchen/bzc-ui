@@ -30,6 +30,12 @@ export type ButtonT = {
   /** the look and feel of the button */
   variant?: 'primary' | 'secondary' | 'tertiary' | 'destructive' | 'destructive-tertiary',
   /**
+   * When rendering a `tertiary` or `destructive-tertiary` variant
+   * and on an inverse background this can be used to flip the text color
+   * to more visible
+   */
+  tertiaryAlternateText?: boolean,
+  /**
    * To indicate that the button action is submitting.
    * The button will be disabled
    */
@@ -59,6 +65,7 @@ const Button: React$AbstractComponent<ButtonT, HTMLElement> = React.forwardRef<B
   focusEffectStyle = {},
   textStyle = {},
   variant = 'primary',
+  tertiaryAlternateText = false,
   disabled = false,
   loading = false,
   prefixIcon,
@@ -104,8 +111,8 @@ const Button: React$AbstractComponent<ButtonT, HTMLElement> = React.forwardRef<B
       },
     },
     tertiary: {
-      backgroundColor: theme.colors.monoInverse(),
-      border: `${borderWidth} solid ${theme.colors.monoInverse()}`,
+      backgroundColor: 'transparent',
+      border: `${borderWidth} solid transparent`,
       borderRadius: theme.corner(0),
       ':active': {
         backgroundColor: theme.colors.monoLow(),
@@ -119,8 +126,8 @@ const Button: React$AbstractComponent<ButtonT, HTMLElement> = React.forwardRef<B
       },
     },
     'destructive-tertiary': {
-      backgroundColor: theme.colors.monoInverse(),
-      border: `${borderWidth} solid ${theme.colors.monoInverse()}`,
+      backgroundColor: 'transparent',
+      border: `${borderWidth} solid transparent`,
       borderRadius: theme.corner(0),
       ':active': {
         backgroundColor: theme.colors.monoLow(),
@@ -131,7 +138,9 @@ const Button: React$AbstractComponent<ButtonT, HTMLElement> = React.forwardRef<B
   const buttonTextType: { [key: string]: string } = {
     primary: theme.colors.monoInverse(),
     secondary: getColor(theme.colors.monoPrimary()),
-    tertiary: getColor(theme.colors.secondary()),
+    tertiary: getColor(tertiaryAlternateText
+      ? theme.colors.monoInverse()
+      : theme.colors.secondary()),
     destructive: getColor(theme.colors.error()),
     'destructive-tertiary': getColor(theme.colors.error()),
   };
