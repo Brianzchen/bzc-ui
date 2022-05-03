@@ -14,7 +14,7 @@
     "postinstall": "node ./scripts/getStoriesList.js",
     "docgen": "react-docgen src --out=website/components.json --pretty --exclude='/.*[^(index\\.js$)]/' && node ./scripts/post-docgen.js",
     "website:prep": "rm -rf website/dist && yarn docgen",
-    "website:build": "yarn website:prep && NODE_ENV=production yarn webpack --config website/webpack.config.js",
+    "website:build": "yarn website:prep && MODE=website NODE_ENV=production yarn webpack --config website/webpack.config.js",
     "website:start": "yarn website:prep && yarn webpack serve --config website/webpack.config.js"
   },
   "dependencies": {

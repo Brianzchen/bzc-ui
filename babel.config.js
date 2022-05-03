@@ -19,9 +19,11 @@ if (process.env.NODE_ENV === 'production') {
   const ignoreGlob = [
     '*/**/*.spec.js',
     '*/**/testUtils/*',
-    '*/**/*.stories.js',
-    '*/**/story',
   ];
+
+  if (process.env.MODE !== 'website') {
+    ignoreGlob.push('*/**/*.stories.js');
+  }
 
   config.presets[0][1].modules = false;
   config.ignore = config.ignore
