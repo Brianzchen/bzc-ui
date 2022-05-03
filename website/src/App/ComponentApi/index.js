@@ -1,6 +1,12 @@
 // @flow
 import * as React from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import {
+  Navigate,
+  generatePath,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import axios from 'axios';
 
 import { routes, PageWrapper } from 'utils';
@@ -54,9 +60,24 @@ type ComponentT = {|
 
 const ComponentApi = (): React.Node => {
   const params = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pathnameSplit = location.pathname.split('/');
+  const examples = pathnameSplit[pathnameSplit.length - 1] === 'example';
+
+  const toggleExamples = () => {
+    navigate(generatePath(
+      examples
+        ? routes.componentApi
+        : routes.componentApiExample,
+      {
+        component: params.component,
+      },
+    ));
+  };
+
   const [components, setComponents] = React.useState<{ [key: string]: ComponentT } | void>();
   const [currComponent, setCurrComponent] = React.useState<ComponentT | void | null>();
-  const [examples, setExamples] = React.useState(false);
 
   React.useEffect(() => {
     axios.get('/components.json').then(({ data }) => {
@@ -110,9 +131,7 @@ const ComponentApi = (): React.Node => {
         <>
           {currComponent.displayName}
           <Button
-            onClick={() => {
-              setExamples((pExamples) => !pExamples);
-            }}
+            onClick={toggleExamples}
             variant={examples ? 'secondary' : 'primary'}
             style={{
               width: 'auto',

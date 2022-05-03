@@ -3,5 +3,6 @@ export default {
   home: '/',
   page: '/:currentPage',
   gettingStarted: '/getting-started',
-  componentApi: '/components/:component',
+  componentApi: '/components/:component/*',
+  componentApiExample: '/components/:component/example',
 };
