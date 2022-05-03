@@ -165,5 +165,6 @@ utilities.json
 package-lock.json
 types.js
 website/components.json
+website/src/**/storyCache.js
 
 public/css

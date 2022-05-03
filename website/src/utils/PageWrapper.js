@@ -23,6 +23,7 @@ const PageWrapper = ({
     <Box
       style={{
         margin: theme.spacing(5),
+        width: '100%',
       }}
     >
       <Typography

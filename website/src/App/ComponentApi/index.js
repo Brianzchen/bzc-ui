@@ -11,7 +11,7 @@ import {
   Typography,
 } from 'startown';
 
-import ExamplesModal from './ExamplesModal';
+import Examples from './Examples';
 import PropsTable from './PropsTable';
 
 export type FlowTypeT =
@@ -56,7 +56,7 @@ const ComponentApi = (): React.Node => {
   const params = useParams();
   const [components, setComponents] = React.useState<{ [key: string]: ComponentT } | void>();
   const [currComponent, setCurrComponent] = React.useState<ComponentT | void | null>();
-  const [examplesModal, setExamplesModal] = React.useState(false);
+  const [examples, setExamples] = React.useState(false);
 
   React.useEffect(() => {
     axios.get('/components.json').then(({ data }) => {
@@ -104,45 +104,49 @@ const ComponentApi = (): React.Node => {
     }), ({}: ComponentPropsT)),
   });
 
-  console.log(currComponent);
-
   return (
-    <>
-      <PageWrapper
-        title={(
-          <>
-            {currComponent.displayName}
-            <Button
-              onClick={() => {
-                setExamplesModal(true);
-              }}
-              style={{
-                width: 'auto',
-              }}
-            >
-              Examples
-            </Button>
-          </>
-        )}
-      >
-        <Stack space="spacing(4)">
-          <Typography>
-            {currComponent.description.replace(/\n/g, ' ')}
-          </Typography>
-          <PropsTable
-            props={findComposedProps(currComponent)}
-          />
-        </Stack>
-      </PageWrapper>
-      {examplesModal && (
-        <ExamplesModal
-          component={currComponent.displayName}
-          onClose={() => {
-            setExamplesModal(false);
-          }}
-        />
+    <PageWrapper
+      title={(
+        <>
+          {currComponent.displayName}
+          <Button
+            onClick={() => {
+              setExamples((pExamples) => !pExamples);
+            }}
+            variant={examples ? 'secondary' : 'primary'}
+            style={{
+              width: 'auto',
+            }}
+          >
+            Examples
+          </Button>
+        </>
       )}
-    </>
+    >
+      {examples
+        ? (
+          <Examples
+            component={currComponent.displayName}
+          />
+        )
+        : (
+          <Stack
+            space="spacing(4)"
+            itemStyle={{
+              ':nth-child(2)': {
+                overflow: 'auto',
+              },
+            }}
+          >
+            <Typography>
+              {currComponent.description.replace(/\n/g, ' ')}
+            </Typography>
+            <PropsTable
+              props={findComposedProps(currComponent)}
+            />
+          </Stack>
+        )}
+    </PageWrapper>
   );
 };
 

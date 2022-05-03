@@ -11,6 +11,7 @@
     "build:flow": "flow-copy-source --ignore '*/**/*.{stories,spec}.*' src lib",
     "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js",
     "prepublishOnly": "yarn clean && yarn jest && yarn build",
+    "postinstall": "node ./scripts/getStoriesList.js",
     "docgen": "react-docgen src --out=website/components.json --pretty --exclude='/.*[^(index\\.js$)]/' && node ./scripts/post-docgen.js",
     "website:prep": "rm -rf website/dist && yarn docgen",
     "website:build": "yarn website:prep && NODE_ENV=production yarn webpack --config website/webpack.config.js",
