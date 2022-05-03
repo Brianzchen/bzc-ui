@@ -18,7 +18,7 @@ const Examples = ({
 }: Props): React.Node => {
   const stories = storyCache[component];
 
-  const [story, setStory] = React.useState(Object.keys(stories)[0]);
+  const [story, setStory] = React.useState(Object.keys(stories ?? {})[0]);
 
   if (!stories) {
     return (
