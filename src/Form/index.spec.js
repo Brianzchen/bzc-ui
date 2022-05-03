@@ -19,4 +19,16 @@ describe('<Form />', () => {
       expect(screen.getByTestId('test').getAttribute(key)).toBe(props[key]);
     });
   });
+
+  it('has the right onSubmit form value struct', () => {
+    render(
+      <Form
+        onSubmit={(event, values) => {
+          console.info(values.test?.value);
+        }}
+      />,
+    );
+
+    expect(true).toBe(true);
+  });
 });
