@@ -86,7 +86,7 @@ const Content = ({
               style={{
                 paddingLeft: theme.spacing(5),
               }}
-              highlight={location.pathname.startsWith(path)}
+              highlight={location.pathname === path || location.pathname === `${path}/example`}
             >
               {comp.displayName}
             </CardButton>

@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import Box, { type BoxT } from '../Box';
 import { TableRowContext } from '../TableRow';
+import Typography from '../Typography';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
@@ -41,7 +42,17 @@ const TableData: React$AbstractComponent<TableDataT, HTMLElement> = React.forwar
       as={variant ?? tableRowVariant ?? 'td'}
       style={styles.data}
     >
-      {children}
+      {variant === 'th'
+        ? (
+          <Typography
+            type="heading3"
+          >
+            {children}
+          </Typography>
+        )
+        : (
+          children
+        )}
     </Box>
   );
 });

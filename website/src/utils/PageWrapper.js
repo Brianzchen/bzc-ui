@@ -24,6 +24,7 @@ const PageWrapper = ({
       style={{
         margin: theme.spacing(5),
         width: '100%',
+        overflow: 'auto',
       }}
     >
       <Typography

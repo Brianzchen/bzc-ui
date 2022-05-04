@@ -23,6 +23,8 @@ const Table: React$AbstractComponent<TableT, HTMLElement> = React.forwardRef(({
   const styles = {
     table: styler(style, theme, {
       fontSize: theme.fonts.body.px,
+      borderCollapse: 'collapse',
+      width: '100%',
     }),
   };
 
