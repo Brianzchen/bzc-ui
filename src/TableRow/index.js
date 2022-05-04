@@ -5,8 +5,11 @@ import Box, { type BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
+export const TableRowContext: React$Context<void | 'th' | 'td'> = React.createContext();
+
 export type TableRowT = {
   ...BoxT,
+  variant?: 'th' | 'td',
   ...
 };
 
@@ -16,6 +19,7 @@ export type TableRowT = {
 const TableRow: React$AbstractComponent<TableRowT, HTMLElement> = React.forwardRef(({
   children = null,
   style = {},
+  variant,
   ...otherProps
 }: TableRowT, ref): React.Node => {
   const theme = useTheme();
@@ -33,7 +37,11 @@ const TableRow: React$AbstractComponent<TableRowT, HTMLElement> = React.forwardR
       as="tr"
       style={styles.row}
     >
-      {children}
+      <TableRowContext.Provider
+        value={variant}
+      >
+        {children}
+      </TableRowContext.Provider>
     </Box>
   );
 });

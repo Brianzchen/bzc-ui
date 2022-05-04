@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import Box, { type BoxT } from '../Box';
+import { TableRowContext } from '../TableRow';
 import styler from '../styler';
 import useTheme from '../useTheme';
 
@@ -19,10 +20,11 @@ export type TableDataT = {
  */
 const TableData: React$AbstractComponent<TableDataT, HTMLElement> = React.forwardRef(({
   children,
-  variant = 'td',
+  variant,
   style = {},
   ...otherProps
 }: TableDataT, ref): React.Node => {
+  const tableRowVariant = React.useContext(TableRowContext);
   const theme = useTheme();
 
   const styles = {
@@ -36,7 +38,7 @@ const TableData: React$AbstractComponent<TableDataT, HTMLElement> = React.forwar
     <Box
       {...otherProps}
       ref={ref}
-      as={variant}
+      as={variant ?? tableRowVariant ?? 'td'}
       style={styles.data}
     >
       {children}
