@@ -27,6 +27,7 @@ jobs:
     - uses: CultureHQ/actions-yarn@v1.0.1
 
     - run: yarn
+    - run: node ./scripts/getStoriesList.js
     - run: yarn eslint .
     - run: yarn flow
     - run: yarn jest
