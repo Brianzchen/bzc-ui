@@ -12,5 +12,5 @@ export const dropdown = (theme: ThemeT): string => (
 );
 
 export const card = (theme: ThemeT): string => (
-  `0 ${theme.spacing(1) / 2}px ${theme.spacing(1)}px 0 ${hexToRgba(theme.colors.monoPrimary(), 0.15)}`
+  `0 ${theme.spacing(1) / 2}px ${theme.spacing(1)}px ${theme.spacing(1) / 2}px ${hexToRgba(theme.colors.monoPrimary(), 0.15)}`
 );
