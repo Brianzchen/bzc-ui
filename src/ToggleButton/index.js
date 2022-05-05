@@ -35,10 +35,25 @@ const ToggleButton: React$AbstractComponent<ToggleButtonT, HTMLElement> = React.
   // ToggleButton modifies the styling if child is `Icon`
   const isIcon = isReactElement(children, 'Icon');
 
+  const getColors = (): {|
+    color: string,
+    backgroundColor: string,
+  |} => {
+    if (selected) {
+      return {
+        color: theme.colors.monoInverse(),
+        backgroundColor: theme.colors.secondary(-0.3),
+      };
+    }
+    return {
+      color: theme.colors.monoPrimary(),
+      backgroundColor: theme.colors.monoInverse(),
+    };
+  };
+
   const styles = {
     button: () => styler(style, theme, {
-      color: selected && isIcon ? theme.colors.secondary() : theme.colors[isIcon ? 'monoTertiary' : 'monoPrimary'](),
-      backgroundColor: selected ? theme.colors.secondary(-0.5) : theme.colors.monoInverse(),
+      ...getColors(),
       fontSize: isIcon ? theme.fonts.heading2.px : theme.fonts.smallButton.px,
       fontWeight: theme.fonts.smallButton.style,
       lineHeight: theme.fonts.smallButton.leading,

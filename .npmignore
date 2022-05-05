@@ -16,6 +16,7 @@ website
 .nvmrc
 babel.config.js
 CONTRIBUTING.md
+flow-typed.config.js
 dangerfile.js
 Dockerfile*
 GOVERNANCE.md
