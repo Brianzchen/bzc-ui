@@ -36,6 +36,6 @@ describe('shadows', () => {
 
   it('calculates card correctly', () => {
     // $FlowExpectedError[prop-missing] missing theme props
-    expect(card(theme)).toBe('0 2px 4px 0 rgba(25, 25, 25, 0.15)');
+    expect(card(theme)).toBe('0 2px 4px 2px rgba(25, 25, 25, 0.15)');
   });
 });
