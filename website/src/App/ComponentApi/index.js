@@ -151,11 +151,6 @@ const ComponentApi = (): React.Node => {
         : (
           <Stack
             space="spacing(4)"
-            itemStyle={{
-              ':nth-child(2)': {
-                overflow: 'auto',
-              },
-            }}
           >
             <Typography>
               {currComponent.description.replace(/\n/g, ' ')}

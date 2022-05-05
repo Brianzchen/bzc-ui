@@ -4,9 +4,11 @@ import * as React from 'react';
 import Box, { type BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
+import type { StyleT } from '../types';
 
 export type TableT = {
   ...BoxT,
+  tableStyle?: StyleT,
   ...
 };
 
@@ -16,12 +18,16 @@ export type TableT = {
 const Table: React$AbstractComponent<TableT, HTMLElement> = React.forwardRef(({
   children = null,
   style = {},
+  tableStyle = {},
   ...otherProps
 }: TableT, ref): React.Node => {
   const theme = useTheme();
 
   const styles = {
-    table: styler(style, theme, {
+    container: styler(style, theme, {
+      overflow: 'auto',
+    }),
+    table: styler(tableStyle, theme, {
       fontSize: theme.fonts.body.px,
       borderCollapse: 'collapse',
       width: '100%',
@@ -32,10 +38,14 @@ const Table: React$AbstractComponent<TableT, HTMLElement> = React.forwardRef(({
     <Box
       {...otherProps}
       ref={ref}
-      as="table"
-      style={styles.table}
+      style={styles.container}
     >
-      {children}
+      <Box
+        as="table"
+        style={styles.table}
+      >
+        {children}
+      </Box>
     </Box>
   );
 });
