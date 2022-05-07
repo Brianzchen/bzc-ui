@@ -10,12 +10,6 @@ import useTheme from '../useTheme';
 export type BadgeT = {
   ...TypographyT,
   /**
-   * Badges can be rendered in two ways depending on what it's used for
-   * and what you plan to put it in. Label is standard and default but numbered
-   * values have their own rendition
-   */
-  variant?: 'label' | 'number',
-  /**
    * Assign a color directly to the badge border.
    * Accepts theme value `color` or `color(0.5)` as a string
    * or alternatively accepts a hexcode.
@@ -36,7 +30,6 @@ export type BadgeT = {
 const Badge: React$AbstractComponent<BadgeT, HTMLElement> = React.forwardRef<BadgeT, HTMLElement>(({
   children = null,
   style = {},
-  variant = 'label',
   color,
   borderColor,
   backgroundColor,
@@ -53,15 +46,8 @@ const Badge: React$AbstractComponent<BadgeT, HTMLElement> = React.forwardRef<Bad
       color: theme.colors.monoPrimary(),
       backgroundColor: backgroundColor ? computeColor(backgroundColor, theme) : defaultColor,
       border: `${theme.line(1)} solid ${borderRenderedColor ? computeColor(borderRenderedColor, theme) : defaultColor}`,
-      ...variant === 'label'
-        ? {
-          padding: `0 ${theme.spacing(1)}px`,
-          borderRadius: theme.corner(1),
-        }
-        : {
-          padding: `${theme.scale / 2}px ${theme.spacing(1)}px`,
-          borderRadius: `${10 * theme.scale}px`,
-        },
+      padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+      borderRadius: theme.corner(2),
     }),
   };
 
@@ -71,7 +57,7 @@ const Badge: React$AbstractComponent<BadgeT, HTMLElement> = React.forwardRef<Bad
       ref={ref}
       style={styles.badge}
       color={color}
-      type={variant === 'label' ? 'metadata' : 'description'}
+      type="label"
     >
       {children}
     </Typography>

@@ -7,7 +7,7 @@ export default ({
   highlight: '#1d89bf',
   error: '#bf0000',
   successBackground: '#daf2e6',
-  infoBackground: '#fff9dc',
+  infoBackground: '#ffee9c',
   warningBackground: '#ffefe5',
   errorBackground: '#ffd9d9',
   monoPrimary: '#191919',
