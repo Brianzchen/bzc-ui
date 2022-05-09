@@ -27,7 +27,7 @@ const LoadingSpinnerOverlay: React$AbstractComponent<LoadingSpinnerOverlayT, HTM
   open = true,
   backgroundStyle = {},
   size,
-  color = 'pure',
+  color = 'monoInverse',
   ...otherProps
 }: LoadingSpinnerOverlayT, ref): React.Node => {
   const theme = useTheme();
@@ -47,7 +47,7 @@ const LoadingSpinnerOverlay: React$AbstractComponent<LoadingSpinnerOverlayT, HTM
       <LoadingSpinner
         {...otherProps}
         color={color}
-        size={size ?? `${32 * theme.scale}px`}
+        size={size ?? `${48 * theme.scale}px`}
       />
     </Overlay>
   );
