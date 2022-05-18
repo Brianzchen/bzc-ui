@@ -34,6 +34,10 @@ export type TypographyT = {
    * know it should render aligning to tooltip design standards.
    */
   parent?: 'tooltip',
+  /**
+   * Applies textAlign: 'center' on the root element
+   */
+  center?: boolean,
   ...
 };
 
@@ -51,6 +55,7 @@ const Typography: React$AbstractComponent<TypographyT, HTMLElement> = React.forw
   stringParse = true,
   as = 'span',
   parent,
+  center = false,
   ...otherProps
 }: TypographyT, ref) => {
   const theme = useTheme();
@@ -78,6 +83,7 @@ const Typography: React$AbstractComponent<TypographyT, HTMLElement> = React.forw
         fontWeight: lg.style,
         lineHeight: lg.leading,
         margin: 0,
+        textAlign: center ? 'center' : 'inherit',
         ':st-max(sm)': {
           ...sm
             ? {
