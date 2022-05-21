@@ -162,7 +162,6 @@ const Sheet: React$AbstractComponent<SheetT, HTMLElement> = React.forwardRef(({
       borderRadius: theme.corner(2),
       overflow: 'hidden',
       zIndex: theme.elevations.sheet,
-      padding: theme.spacing(4),
     }),
   };
 

@@ -347,9 +347,6 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
         }
         : { ...null },
     }),
-    calendarPopup: {
-      padding: 0,
-    },
     calendar: styler(calendarStyle, theme),
   };
 
@@ -433,7 +430,6 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
         <Sheet
           attachRef={activeRef}
           onClose={() => setCalendarOpen(false)}
-          style={styles.calendarPopup}
         >
           {() => (
             <Calendar
