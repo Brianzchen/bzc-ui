@@ -44,6 +44,10 @@ export type CardButtonT = {
    * Whether the button should render the chevron
    */
   chevron?: boolean,
+  /**
+   * Whether the button should be clickable
+   */
+  disabled?: boolean,
   ...
 };
 
@@ -60,6 +64,7 @@ const CardButton: React$AbstractComponent<CardButtonT, HTMLElement> = React.forw
   chevronStyle = {},
   highlight = false,
   chevron = true,
+  disabled,
   ...otherProps
 }: CardButtonT, ref) => {
   const theme: ThemeT = useTheme();
@@ -78,12 +83,12 @@ const CardButton: React$AbstractComponent<CardButtonT, HTMLElement> = React.forw
       width: '100%',
       padding: theme.spacing(3),
       borderTop: `${theme.line(1)} solid ${theme.colors.monoHighlight()}`,
-      color: theme.colors.secondary(),
+      color: theme.colors.secondary(disabled ? -0.5 : undefined),
       backgroundColor: highlight ? theme.colors.monoHighlight() : theme.colors.monoInverse(),
       outline: 'none',
       overflow: 'hidden',
       ':hover': {
-        backgroundColor: theme.colors.monoLow(),
+        backgroundColor: disabled ? undefined : theme.colors.monoLow(),
       },
     }),
     focusEffect: {
@@ -116,6 +121,7 @@ const CardButton: React$AbstractComponent<CardButtonT, HTMLElement> = React.forw
       href={href}
       ref={ref}
       style={styles.button}
+      disabled={disabled}
       setFocus={(f) => setFocus(f)}
     >
       {theme.focusEffect && (
@@ -131,7 +137,7 @@ const CardButton: React$AbstractComponent<CardButtonT, HTMLElement> = React.forw
       >
         {children}
       </Typography>
-      {chevron && (
+      {chevron && !disabled && (
         <Chevron
           data-testid={compTestId('chevron')}
           style={styles.chevron}
