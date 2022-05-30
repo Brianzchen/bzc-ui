@@ -1,6 +1,6 @@
 {
   "name": "startown",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Home to a collection of superstar atomic react components",
   "main": "lib/index.js",
   "repository": "https://github.com/Brianzchen/startown.git",
