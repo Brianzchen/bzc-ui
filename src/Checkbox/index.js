@@ -167,6 +167,7 @@ const Checkbox: React$AbstractComponent<CheckboxT, HTMLElement> = React.forwardR
           compTestId={compTestId}
         />
         <Text
+          disabled={disabled}
           marginLeft={textMargin}
           variant={variant}
           metadata={!!metadata}

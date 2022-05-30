@@ -5,6 +5,7 @@ import Typography from '../Typography';
 
 type Props = {|
   children: React.Node,
+  disabled: boolean,
   marginLeft: number,
   variant: 'regular' | 'bold',
   metadata: boolean,
@@ -12,6 +13,7 @@ type Props = {|
 
 const Text = ({
   children,
+  disabled,
   marginLeft,
   variant,
   metadata,
@@ -26,7 +28,7 @@ const Text = ({
   return (
     <Typography
       type={variant === 'regular' && !metadata ? 'body' : 'button'}
-      color="inform"
+      color={disabled ? 'monoTertiary' : 'monoPrimary'}
       style={styles.text}
     >
       {children}

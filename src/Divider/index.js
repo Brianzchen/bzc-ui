@@ -6,7 +6,8 @@ import computeColor from '../internal/computeColor';
 import Box from '../Box';
 import type { BoxT } from '../Box';
 import compileSpace from '../internal/compileSpace';
-import type { ThemeT } from '../types';
+import styler from '../styler';
+import useTheme from '../useTheme';
 
 export type DividerT = {
   ...BoxT,
@@ -56,15 +57,17 @@ export type DividerT = {
  */
 const Divider: React$AbstractComponent<DividerT, HTMLElement> = React.forwardRef<DividerT, HTMLElement>(({
   style = {},
-  color = 'boundary',
+  color = 'monoHighlight',
   top = 0,
   right = 0,
   bottom = 0,
   left = 0,
   ...otherProps
 }: DividerT, ref) => {
+  const theme = useTheme();
+
   const styles = {
-    divider: (theme: ThemeT, styler) => styler(style, theme, {
+    divider: styler(style, theme, {
       borderBottom: `${theme.line(1)} solid ${computeColor(color, theme)}`,
       margin: `${compileSpace(top, theme.spacing, 'px')} ${compileSpace(right, theme.spacing, 'px')} ${compileSpace(bottom, theme.spacing, 'px')} ${compileSpace(left, theme.spacing, 'px')}`,
     }),
