@@ -88,29 +88,29 @@ describe('Modal />', () => {
     expect(screen.queryByTestId('st-modal-close-button')).toBe(null);
   });
 
-  it('renders the notification if bannerText is passed in', () => {
-    const bannerText = lorem.sentence();
+  it('renders the notification if notificationText is passed in', () => {
+    const notificationText = lorem.sentence();
     render(
       <Modal
-        bannerText={bannerText}
+        notificationText={notificationText}
       >
         test
       </Modal>,
     );
 
-    expect(screen.getByTestId('st-modal-banner').textContent).toBe(bannerText);
+    expect(screen.getByTestId('st-modal-notification').textContent).toBe(notificationText);
   });
 
-  it('does not render the notification if I pass in other banner related props', () => {
+  it('does not render the notification if I pass in other notification related props', () => {
     render(
       <Modal
-        bannerStyle={{ test: 'hi' }}
-        bannerVariant="error"
+        notificationStyle={{ test: 'hi' }}
+        notificationVariant="error"
       >
         test
       </Modal>,
     );
 
-    expect(screen.queryByTestId('st-modal-banner')).toBe(null);
+    expect(screen.queryByTestId('st-modal-notification')).toBe(null);
   });
 });

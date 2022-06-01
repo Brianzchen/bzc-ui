@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Box, useTheme } from 'startown';
 
-import { routes } from 'utils';
+import { routes, AppBarNotificationContext } from 'utils';
 
 import ComponentApi from './ComponentApi';
 import Header from './Header';
@@ -15,13 +15,23 @@ import SidePanel from './SidePanel';
 const App = (): React.Node => {
   const theme = useTheme();
   const [menuOpen, setMenuOpen] = React.useState(window.innerWidth > theme.mobileWidth);
+  const [appBarMessage, setAppBarMessage] = React.useState();
+  const [appBarHeight, setAppBarHeight] = React.useState(0);
+
+  const appBarValue = React.useMemo(() => ({
+    value: appBarMessage,
+    setValue: setAppBarMessage,
+  }), [appBarMessage]);
 
   return (
-    <>
+    <AppBarNotificationContext.Provider
+      value={appBarValue}
+    >
       <Header
         onMenuClick={() => {
           setMenuOpen((pOpen) => !pOpen);
         }}
+        setAppBarHeight={setAppBarHeight}
       />
       <Box
         style={{
@@ -34,6 +44,7 @@ const App = (): React.Node => {
           onClose={() => {
             setMenuOpen(false);
           }}
+          appBarHeight={appBarHeight}
         />
         <Routes>
           <Route
@@ -50,7 +61,7 @@ const App = (): React.Node => {
           />
         </Routes>
       </Box>
-    </>
+    </AppBarNotificationContext.Provider>
   );
 };
 

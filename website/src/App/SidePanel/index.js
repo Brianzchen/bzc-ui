@@ -9,15 +9,15 @@ import Content from './Content';
 type Props = {|
   open: boolean,
   onClose: () => void,
+  appBarHeight: number,
 |};
 
 const SidePanel = ({
   open,
   onClose,
+  appBarHeight,
 }: Props): React.Node => {
   const theme = useTheme();
-
-  const offset = 50;
 
   return (
     <Media
@@ -30,7 +30,7 @@ const SidePanel = ({
           return (
             <Drawer
               open={open}
-              offsetTop={offset}
+              offsetTop={appBarHeight}
               onClose={onClose}
               exclusions={[document.getElementById('menu-button')]}
             >
@@ -50,7 +50,7 @@ const SidePanel = ({
             <Box
               style={{
                 position: 'fixed',
-                top: offset,
+                top: appBarHeight,
                 bottom: 0,
                 minWidth: '300px',
                 overflow: 'auto',

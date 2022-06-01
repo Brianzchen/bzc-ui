@@ -41,11 +41,11 @@ export type ModalT = {
   /** overrides styling for the header element */
   headerStyle?: StyleT,
   /** The text to be applies the notification above the header and also enables it */
-  bannerText?: React.Node,
+  notificationText?: React.Node,
   /** Defines the variant of notification such as error state */
-  bannerVariant?: NotificationVariantT,
+  notificationVariant?: NotificationVariantT,
   /** overrides styling for the notification if also enabled */
-  bannerStyle?: StyleT,
+  notificationStyle?: StyleT,
   bodyStackSpacing?: string | number,
   ...
 };
@@ -65,9 +65,9 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
   bodyStyle = {},
   backgroundStyle = {},
   headerStyle = {},
-  bannerText,
-  bannerVariant = 'note',
-  bannerStyle = {},
+  notificationText,
+  notificationVariant = 'note',
+  notificationStyle = {},
   hideElm,
   bodyStackSpacing,
   ...otherProps
@@ -319,7 +319,7 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
           : {},
       },
     }),
-    banner: styler(bannerStyle, theme, {
+    notification: styler(notificationStyle, theme, {
       margin: `${theme.spacing(3)}px ${theme.spacing(5)}px`,
     }),
   };
@@ -352,14 +352,14 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
           )
         }
         {
-          bannerText
+          notificationText
           && (
             <Notification
-              data-testid={compTestId('banner')}
-              variant={bannerVariant}
-              style={styles.banner}
+              data-testid={compTestId('notification')}
+              variant={notificationVariant}
+              style={styles.notification}
             >
-              {bannerText}
+              {notificationText}
             </Notification>
           )
         }

@@ -9,6 +9,7 @@ import {
 } from 'startown';
 
 import * as storyCache from './storyCache';
+import { AppBarNotificationContext } from '../../utils';
 
 const splitStoryToSentence = (value: string) => (
   value.split('').map((o, i) => {
@@ -27,6 +28,7 @@ const Examples = ({
   component,
 }: Props): React.Node => {
   const theme = useTheme();
+  const { setValue } = React.useContext(AppBarNotificationContext);
 
   const stories = storyCache[component];
   const storiesList = Object.keys(stories ?? {});
@@ -40,6 +42,8 @@ const Examples = ({
       </Typography>
     );
   }
+
+  const Comp = stories[story];
 
   return (
     <Box>
@@ -58,7 +62,9 @@ const Examples = ({
           marginTop: theme.spacing(4),
         }}
       >
-        {stories[story]()}
+        <Comp
+          setAppBarNotification={setValue}
+        />
       </Box>
     </Box>
   );
