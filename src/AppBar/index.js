@@ -15,7 +15,7 @@ export type AppBarT = {
   /** Defines the variant of notification such as error state */
   notificationVariant?: NotificationVariantT,
   /** overrides styling for the notification if also enabled */
-  notificationStyle: StyleT,
+  notificationStyle?: StyleT,
   onHeightChange?: (newHeight: number) => void,
   ...
 };
