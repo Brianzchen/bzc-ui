@@ -123,6 +123,9 @@ const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardR
         outline: 'none',
         borderColor: theme.colors.highlight(),
       },
+      ':disabled': {
+        backgroundColor: theme.colors.monoHighlight(),
+      },
     }),
     title: styler(titleStyle, theme, {
       margin: `auto auto ${theme.spacing(1)}px`,
