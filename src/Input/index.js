@@ -341,11 +341,9 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
       outline: 'none',
       border: 'none',
       backgroundColor: 'transparent',
-      ...disabled
-        ? {
-          color: theme.colors.monoTertiary(),
-        }
-        : { ...null },
+      ':disabled': {
+        color: theme.colors.monoTertiary(),
+      },
     }),
     calendar: styler(calendarStyle, theme),
   };
