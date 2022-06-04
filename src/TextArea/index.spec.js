@@ -27,4 +27,21 @@ describe('<TextArea />', () => {
 
     expect(screen.getByTestId('st-text-area-title').textContent).toBe(title);
   });
+
+  it('can get ref of underlying textarea', (done) => {
+    const Comp = () => {
+      const ref = React.useRef();
+
+      React.useEffect(() => {
+        expect(ref.current instanceof HTMLTextAreaElement).toBe(true);
+        done();
+      }, []);
+
+      return (
+        <TextArea textAreaRef={ref} />
+      );
+    };
+
+    render(<Comp />);
+  });
 });

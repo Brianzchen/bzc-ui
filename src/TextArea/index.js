@@ -11,7 +11,7 @@ import Typography from '../Typography';
 import styler from '../styler';
 import useFormValues from '../useFormValues';
 import useTheme from '../useTheme';
-import type { StyleT } from '../types';
+import type { StyleT, RefObjT } from '../types';
 
 import Wrapped from './Wrapped';
 
@@ -49,6 +49,10 @@ export type TextAreaT = {
    */
   onChange?: (event: SyntheticEvent<HTMLTextAreaElement>) => void,
   readOnly?: boolean,
+  /**
+   * React reference of the underlying textarea element
+   */
+   textAreaRef?: RefObjT,
   ...
 };
 
@@ -65,6 +69,7 @@ const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardR
   rows = 4,
   value,
   onChange,
+  textAreaRef,
   ...otherProps
 }: TextAreaT, ref) => {
   const theme = useTheme();
@@ -140,6 +145,7 @@ const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardR
       )}
       <Wrapped
         {...otherProps}
+        ref={textAreaRef}
         style={styles.textArea}
         rows={rows}
         value={value}
