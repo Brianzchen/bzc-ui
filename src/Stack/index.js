@@ -51,32 +51,47 @@ const Stack: React$AbstractComponent<StackT, HTMLElement> = React.forwardRef(({
     }),
   };
 
+  /**
+   * When mapping through to create a list components the first rendered
+   * element should not be given top margin.
+   * But the first element in the list won't necessarily be the first rendered
+   * element because it could be a falsy Node.
+   */
+  let hasRenderedFirstChild = false;
+
   return (
     <Box
       {...otherProps}
       ref={ref}
       style={style}
     >
-      {React.Children.map(children, (obj, index) => {
-        if (!obj) return null;
+      {React.Children.map(children, (obj) => {
+        if (!obj) {
+          return null;
+        }
 
-        const createItem = (child, firstEle) => (
-          <Box
-            {...itemProps}
-            data-testid={compTestId('item')}
-            style={styles.item(firstEle)}
-          >
-            {[child]}
-          </Box>
-        );
+        const createItem = (child) => {
+          const isFirstChild = !hasRenderedFirstChild;
+          hasRenderedFirstChild = true;
+
+          return (
+            <Box
+              {...itemProps}
+              data-testid={compTestId('item')}
+              style={styles.item(isFirstChild)}
+            >
+              {[child]}
+            </Box>
+          );
+        };
 
         if (obj.type === React.Fragment) {
-          return React.Children.map(obj.props.children, (o, i) => (
-            createItem(o, index === 0 && i === 0)
+          return React.Children.map(obj.props.children, (o) => (
+            createItem(o)
           ));
         }
 
-        return createItem(obj, index === 0);
+        return createItem(obj);
       })}
     </Box>
   );
