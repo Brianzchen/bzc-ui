@@ -16,7 +16,8 @@ import type { StyleT, RefObjT } from '../types';
 import Wrapped from './Wrapped';
 
 export type TextAreaT = {
-  ...BoxT,
+  ...$Exact<BoxT>,
+  ...$Exact<jsx$HTMLTextAreaElement>,
   /**
    * unique identifier for the field, this is necessary
    * when used with the startown `Form` component
@@ -52,7 +53,7 @@ export type TextAreaT = {
   /**
    * React reference of the underlying textarea element
    */
-   textAreaRef?: RefObjT,
+  textAreaRef?: RefObjT,
   ...
 };
 
