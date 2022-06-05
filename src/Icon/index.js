@@ -3,6 +3,8 @@ import React from 'react';
 
 import BaseButton from '../BaseButton';
 import type { BaseButtonT } from '../BaseButton';
+import styler from '../styler';
+import useTheme from '../useTheme';
 import type { StyleT } from '../types';
 
 import Wrapped from './Wrapped';
@@ -42,18 +44,28 @@ const Icon: React$AbstractComponent<IconT, HTMLElement> = React.forwardRef<IconT
   backgroundColor,
   foregroundIcon,
   foregroundColor,
-  style,
+  style = {},
   iconStyle,
   size = 'inherit',
   withButton = false,
   ...otherProps
 }: IconT, ref) => {
+  const theme = useTheme();
+
   if (withButton) {
+    const styles = {
+      button: styler(style, theme, {
+        ':disabled': {
+          opacity: 0.5,
+        },
+      }),
+    };
+
     return (
       <BaseButton
         {...otherProps}
         ref={ref}
-        style={style}
+        style={styles.button}
       >
         <Wrapped
           style={iconStyle}
