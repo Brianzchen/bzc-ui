@@ -46,7 +46,7 @@ const Badge: React$AbstractComponent<BadgeT, HTMLElement> = React.forwardRef<Bad
       color: theme.colors.monoPrimary(),
       backgroundColor: backgroundColor ? computeColor(backgroundColor, theme) : defaultColor,
       border: `${theme.line(1)} solid ${borderRenderedColor ? computeColor(borderRenderedColor, theme) : defaultColor}`,
-      padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+      padding: `0 ${theme.spacing(2)}px`,
       borderRadius: theme.corner(2),
     }),
   };
