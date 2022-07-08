@@ -91,6 +91,7 @@ const BaseButton: React$AbstractComponent<BaseButtonT, HTMLElement> = React.forw
     }),
   };
 
+  // $FlowFixMe[prop-missing]
   const forwardSetFocus = as instanceof Object && as.displayName === 'Anchor';
 
   return (

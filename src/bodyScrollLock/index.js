@@ -111,7 +111,9 @@ const restoreOverflowSetting = () => {
 
 const setPositionFixed = () => window.requestAnimationFrame(() => {
   // If previousBodyPosition is already set, don't set it again.
-  if (previousBodyPosition === undefined && document.body?.style) {
+  if (previousBodyPosition === undefined
+      && document.body?.style
+      && document.documentElement?.style) {
     previousBodyPosition = {
       position: document.body.style.position,
       top: document.body.style.top,
@@ -136,7 +138,9 @@ const restorePositionSetting = () => {
     const x = -parseInt(style.left, 10);
 
     // Restore styles
-    if (previousBodyPosition !== undefined && document.body?.style) {
+    if (previousBodyPosition !== undefined
+        && document.body?.style
+        && document.documentElement?.style) {
       document.body.style.position = previousBodyPosition.position;
       document.body.style.top = previousBodyPosition.top;
       document.body.style.left = previousBodyPosition.left;

@@ -1,3 +1,6 @@
+// flow-typed signature: 78dc7c448940b4fd3611832c7db0db62
+// flow-typed version: df736c39bb/react-router-dom_v6.x.x/flow_>=v0.104.x
+
 declare module "react-router-dom" {
   declare export var BrowserRouter: React$ComponentType<{|
     basename?: string,
@@ -142,29 +145,21 @@ declare module "react-router-dom" {
     context?: mixed;
   |}>
 
-  declare export var useNavigate: () => {|
-    (
+  declare export var useNavigate: () => (
+    & ((
       to: To,
       options?: {|
         replace?: boolean, state?: any,
       |},
-    ): void,
-    (delta: number): void,
-  |};
+    ) => void)
+    & ((delta: number) => void)
+  );
 
   declare export var Navigate: (props: {|
     to: To;
     replace?: boolean;
     state?: any;
   |}) => null;
-
-  declare export var Route: React$ComponentType<{|
-    caseSensitive?: boolean,
-    children?: React$Node,
-    element?: React$Element<any> | null,
-    index?: boolean,
-    path?: string,
-  |}>
 
   declare export var Routes: React$ComponentType<{|
     children?: React$Node,
