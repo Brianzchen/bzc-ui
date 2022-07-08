@@ -8,7 +8,7 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
-import { disableBodyScroll, enableBodyScroll } from '../bodyScrollLock';
+import bodyScrollLock from '../bodyScrollLock';
 import type { RefObjT } from '../types';
 
 // On a mobile device that has an address bar. When the user scrolls down
@@ -45,12 +45,12 @@ const Overlay: React$AbstractComponent<OverlayT, HTMLElement> = React.forwardRef
   React.useEffect(() => {
     const { current } = activeRef;
     if (current instanceof HTMLElement) {
-      disableBodyScroll(current);
+      bodyScrollLock.disableBodyScroll(current);
     }
 
     return () => {
       if (current instanceof HTMLElement) {
-        enableBodyScroll(current);
+        bodyScrollLock.enableBodyScroll(current);
       }
     };
   }, []);
