@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 import hexToRgb from '../internal/hexToRgba';
 
@@ -9,6 +8,7 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import styler from '../styler';
 import useTheme from '../useTheme';
+import { disableBodyScroll, enableBodyScroll } from '../bodyScrollLock';
 import type { RefObjT } from '../types';
 
 // On a mobile device that has an address bar. When the user scrolls down

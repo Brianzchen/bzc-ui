@@ -1,6 +1,6 @@
 {
   "name": "startown",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Home to a collection of superstar atomic react components",
   "main": "lib/index.js",
   "repository": "https://github.com/Brianzchen/startown.git",
@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "aphrodite": "^2.4.0",
-    "body-scroll-lock": "^4.0.0-beta.0",
     "color": "^4.2.1",
     "deepmerge": "^4.2.2",
     "hex-to-rgb": "^1.0.1",

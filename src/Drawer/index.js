@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 import useEsc from '../internal/hooks/useEsc';
 
 import Paper from '../Paper';
 import type { PaperT } from '../Paper';
 import ClickAwayListener from '../ClickAwayListener';
+import { disableBodyScroll, enableBodyScroll } from '../bodyScrollLock';
 import type { RefObjT, ThemeT } from '../types';
 
 export type DrawerT = {
