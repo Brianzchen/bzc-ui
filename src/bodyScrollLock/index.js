@@ -180,7 +180,7 @@ const handleScroll = (event: HandleScrollEventT, targetElement: any): boolean =>
   return true;
 };
 
-export const disableBodyScroll = (targetElement: any, options?: BodyScrollOptionsT): void => {
+const disableBodyScroll = (targetElement: any, options?: BodyScrollOptionsT): void => {
   // targetElement must be provided
   if (!targetElement) {
     // eslint-disable-next-line no-console
@@ -231,7 +231,7 @@ export const disableBodyScroll = (targetElement: any, options?: BodyScrollOption
   }
 };
 
-export const clearAllBodyScrollLocks = (): void => {
+const clearAllBodyScrollLocks = (): void => {
   if (isIosDevice) {
     // Clear all locks ontouchstart/ontouchmove handlers, and the references.
     locks.forEach((lock: LockT) => {
@@ -259,7 +259,7 @@ export const clearAllBodyScrollLocks = (): void => {
   locks = [];
 };
 
-export const enableBodyScroll = (targetElement: any): void => {
+const enableBodyScroll = (targetElement: any): void => {
   if (!targetElement) {
     // eslint-disable-next-line no-console
     console.error(
@@ -287,4 +287,10 @@ export const enableBodyScroll = (targetElement: any): void => {
   } else {
     restoreOverflowSetting();
   }
+};
+
+export default {
+  disableBodyScroll,
+  clearAllBodyScrollLocks,
+  enableBodyScroll,
 };

@@ -6,7 +6,7 @@ import useEsc from '../internal/hooks/useEsc';
 import Paper from '../Paper';
 import type { PaperT } from '../Paper';
 import ClickAwayListener from '../ClickAwayListener';
-import { disableBodyScroll, enableBodyScroll } from '../bodyScrollLock';
+import bodyScrollLock from '../bodyScrollLock';
 import type { RefObjT, ThemeT } from '../types';
 
 export type DrawerT = {
@@ -56,12 +56,12 @@ const Drawer: React$AbstractComponent<DrawerT, HTMLElement> = React.forwardRef<D
   React.useEffect(() => {
     const { current } = activeRef;
     if (open && current instanceof HTMLElement) {
-      disableBodyScroll(current);
+      bodyScrollLock.disableBodyScroll(current);
     }
 
     return () => {
       if (open && current instanceof HTMLElement) {
-        enableBodyScroll(current);
+        bodyScrollLock.enableBodyScroll(current);
       }
     };
   }, [open]);

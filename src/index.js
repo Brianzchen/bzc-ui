@@ -123,6 +123,7 @@ export { default as ToggleSwitch } from './ToggleSwitch';
 export type { ToggleSwitchT } from './ToggleSwitch';
 export { default as Typography } from './Typography';
 export type { TypographyT } from './Typography';
+export { default as bodyScrollLock } from './bodyScrollLock';
 export { default as styler } from './styler';
 export { default as useFormValues } from './useFormValues';
 export { default as useGlobalStyles } from './useGlobalStyles';
