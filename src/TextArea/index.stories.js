@@ -15,5 +15,9 @@ export const Basic = (): React.Node => (
       title="Disabled"
       disabled
     />
+    <TextArea
+      title="Description"
+      optional
+    />
   </Stack>
 );

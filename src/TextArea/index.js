@@ -54,6 +54,11 @@ export type TextAreaT = {
    * React reference of the underlying textarea element
    */
   textAreaRef?: RefObjT,
+  /**
+   * Whether the field is intended to be optional to render
+   * the appropriate UI and attributes
+   */
+  optional?: boolean,
   ...
 };
 
@@ -71,6 +76,7 @@ const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardR
   value,
   onChange,
   textAreaRef,
+  optional = false,
   ...otherProps
 }: TextAreaT, ref) => {
   const theme = useTheme();
@@ -131,6 +137,10 @@ const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardR
     title: styler(titleStyle, theme, {
       margin: `auto auto ${theme.spacing(1)}px`,
     }),
+    optionalLabel: {
+      marginLeft: theme.spacing(1),
+      fontSize: 'inherit',
+    },
   };
 
   return (
@@ -145,6 +155,16 @@ const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardR
           style={styles.title}
         >
           {title}
+          {optional && (
+            <Typography
+              data-testid={compTestId('optional-label')}
+              style={styles.optionalLabel}
+              color="monoTertiary"
+              inline
+            >
+              {'(Optional)'}
+            </Typography>
+          )}
         </Typography>
       )}
       <Wrapped
@@ -154,6 +174,7 @@ const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardR
         rows={rows}
         value={value}
         onChange={handleChange}
+        optional={optional}
       />
     </Box>
   );

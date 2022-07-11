@@ -149,7 +149,7 @@ const FormFieldContainer: React$AbstractComponent<FormFieldContainerT, HTMLEleme
             <Typography
               data-testid={compTestId('optional-label')}
               style={styles.optionalLabel}
-              color="guiding"
+              color="monoTertiary"
               inline
             >
               {'(Optional)'}
