@@ -70,7 +70,7 @@ const Check = ({
       right: `${focused ? '-' : ''}50%`,
       bottom: `${focused ? '-' : ''}50%`,
       transition: 'all 0.2s linear',
-      backgroundColor: theme.colors.secondary(20),
+      backgroundColor: theme.colors.secondary(-0.5),
       borderRadius: '100%',
       zIndex: -1,
     },
