@@ -2,6 +2,8 @@
 import * as React from 'react';
 
 import Box from '../Box';
+import styler from '../styler';
+import useTheme from '../useTheme';
 import type { StyleT } from '../types';
 
 export type FileUploadT = {|
@@ -24,7 +26,8 @@ export type FileUploadT = {|
    * Returns an array of objects { fileName, data }
    */
   onFileAdded?: (Array<{|
-    data: any,
+    data: null | ArrayBuffer | string,
+    raw: Blob,
     fileName: string,
   |}>) => void,
   /**
@@ -48,8 +51,9 @@ const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forw
   onFileAdded,
   accept,
   multiple = false,
-  style,
+  style = {},
 }: FileUploadT, ref): React.Node => {
+  const theme = useTheme();
   const inputRef = React.useRef(null);
   const [draggedOver, setDraggedOver] = React.useState(false);
 
@@ -88,6 +92,7 @@ const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forw
           fileData.onload = () => {
             filesParsed.push({
               data: fileData.result,
+              raw: dataFile.files[i],
               fileName,
             });
             if (len === filesParsed.length && onFileAdded) {
@@ -113,6 +118,7 @@ const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forw
         fileData.onload = () => {
           filesParsed.push({
             data: fileData.result,
+            raw: current.files[i],
             fileName,
           });
           if (len === filesParsed.length && onFileAdded) {
@@ -121,6 +127,12 @@ const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forw
         };
       }
     }
+  };
+
+  const styles = {
+    fileUpload: styler(style, theme, {
+      cursor: 'pointer',
+    }),
   };
 
   return (
@@ -137,7 +149,7 @@ const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forw
       onDragOver={(e) => handleDragOver(e)}
       onDragEnter={(e) => handleDragEnter(e)}
       onDragLeave={(e) => handleDragLeave(e)}
-      style={style}
+      style={styles.fileUpload}
     >
       {children({
         draggedOver,
