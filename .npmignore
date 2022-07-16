@@ -22,3 +22,4 @@ Dockerfile*
 GOVERNANCE.md
 jest.config.js
 yarn.lock
+yarn-error.log
