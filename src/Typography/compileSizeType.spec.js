@@ -56,7 +56,8 @@ describe('compileSizeType', () => {
       sm: 'body',
       md: 'heading3',
       lg: 'heading1',
-    // $FlowExpectedError[prop-missing] missing theme props
+    // $FlowExpectedError[prop-missing]
+    // $FlowExpectedError[incompatible-call] missing theme props
     }, theme)).toEqual({
       sm: theme.fonts.body,
       md: theme.fonts.heading3,
@@ -69,6 +70,7 @@ describe('compileSizeType', () => {
     expect(compileSizeType({
       sm: 'withMobile',
       lg: 'body',
+    // $FlowExpectedError[incompatible-call]
     // $FlowExpectedError[prop-missing] missing theme props
     }, theme)).toEqual({
       sm: theme.fonts.withMobile.mobile,
@@ -79,6 +81,7 @@ describe('compileSizeType', () => {
   it('assigns md to lg if lg is missing', () => {
     expect(compileSizeType({
       md: 'heading3',
+    // $FlowExpectedError[incompatible-call]
     // $FlowExpectedError[prop-missing] missing theme props
     }, theme)).toEqual({
       lg: theme.fonts.heading3,
@@ -89,6 +92,7 @@ describe('compileSizeType', () => {
   it('assigns sm to lg when lg is missing', () => {
     expect(compileSizeType({
       sm: 'heading3',
+    // $FlowExpectedError[incompatible-call]
     // $FlowExpectedError[prop-missing] missing theme props
     }, theme)).toEqual({
       lg: theme.fonts.heading3,

@@ -36,9 +36,14 @@ type HandleScrollEventT = TouchEvent;
 let locks: Array<LockT> = [];
 let documentListenerAdded: boolean = false;
 let initialClientY: number = -1;
-let previousBodyOverflowSetting;
-let previousBodyPosition;
-let previousBodyPaddingRight;
+let previousBodyOverflowSetting: string | void;
+let previousBodyPosition: {|
+  position: string,
+  top: string,
+  left: string,
+  height: string,
+|} | void;
+let previousBodyPaddingRight: string | void;
 
 // returns true if `el` should be allowed to receive touchmove events.
 const allowTouchMove = (el: EventTarget): boolean => locks.some((lock) => {

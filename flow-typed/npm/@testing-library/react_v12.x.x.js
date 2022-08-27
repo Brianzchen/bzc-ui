@@ -1,171 +1,8 @@
-// flow-typed signature: 190d9e81b44ea2bb588cf6473940804f
-// flow-typed version: bb611c8bba/@testing-library/react_v12.x.x/flow_>=v0.104.x
-
-/**
- * A local copy from:
- * https://github.com/A11yance/aria-query/blob/2e6a3011a0d8987655f3a14853934fe3df38a8d8/flow/aria.js
- */
- declare module '@@aria-query' {
-  declare export type ARIAAbstractRole =
-    | 'command'
-    | 'composite'
-    | 'input'
-    | 'landmark'
-    | 'range'
-    | 'roletype'
-    | 'section'
-    | 'sectionhead'
-    | 'select'
-    | 'structure'
-    | 'widget'
-    | 'window';
-
-  declare export type ARIAWidgetRole =
-    | 'button'
-    | 'checkbox'
-    | 'gridcell'
-    | 'link'
-    | 'menuitem'
-    | 'menuitemcheckbox'
-    | 'menuitemradio'
-    | 'option'
-    | 'progressbar'
-    | 'radio'
-    | 'scrollbar'
-    | 'searchbox'
-    | 'slider'
-    | 'spinbutton'
-    | 'switch'
-    | 'tab'
-    | 'tabpanel'
-    | 'textbox'
-    | 'treeitem';
-
-  declare export type ARIACompositeWidgetRole =
-    | 'combobox'
-    | 'grid'
-    | 'listbox'
-    | 'menu'
-    | 'menubar'
-    | 'radiogroup'
-    | 'tablist'
-    | 'tree'
-    | 'treegrid';
-
-  declare export type ARIADocumentStructureRole =
-    | 'application'
-    | 'article'
-    | 'blockquote'
-    | 'caption'
-    | 'cell'
-    | 'columnheader'
-    | 'definition'
-    | 'deletion'
-    | 'directory'
-    | 'document'
-    | 'emphasis'
-    | 'feed'
-    | 'figure'
-    | 'generic'
-    | 'group'
-    | 'heading'
-    | 'img'
-    | 'insertion'
-    | 'list'
-    | 'listitem'
-    | 'math'
-    | 'meter'
-    | 'none'
-    | 'note'
-    | 'paragraph'
-    | 'presentation'
-    | 'row'
-    | 'rowgroup'
-    | 'rowheader'
-    | 'separator'
-    | 'strong'
-    | 'subscript'
-    | 'superscript'
-    | 'table'
-    | 'term'
-    | 'time'
-    | 'toolbar'
-    | 'tooltip';
-
-  declare export type ARIALandmarkRole =
-    | 'banner'
-    | 'complementary'
-    | 'contentinfo'
-    | 'form'
-    | 'main'
-    | 'navigation'
-    | 'region'
-    | 'search';
-
-  declare export type ARIALiveRegionRole =
-    | 'alert'
-    | 'log'
-    | 'marquee'
-    | 'status'
-    | 'timer';
-
-  declare export type ARIAWindowRole = 'alertdialog' | 'dialog';
-
-  declare export type ARIAUncategorizedRole = 'code';
-
-  declare export type ARIADPubRole =
-    | 'doc-abstract'
-    | 'doc-acknowledgments'
-    | 'doc-afterword'
-    | 'doc-appendix'
-    | 'doc-backlink'
-    | 'doc-biblioentry'
-    | 'doc-bibliography'
-    | 'doc-biblioref'
-    | 'doc-chapter'
-    | 'doc-colophon'
-    | 'doc-conclusion'
-    | 'doc-cover'
-    | 'doc-credit'
-    | 'doc-credits'
-    | 'doc-dedication'
-    | 'doc-endnote'
-    | 'doc-endnotes'
-    | 'doc-epigraph'
-    | 'doc-epilogue'
-    | 'doc-errata'
-    | 'doc-example'
-    | 'doc-footnote'
-    | 'doc-foreword'
-    | 'doc-glossary'
-    | 'doc-glossref'
-    | 'doc-index'
-    | 'doc-introduction'
-    | 'doc-noteref'
-    | 'doc-notice'
-    | 'doc-pagebreak'
-    | 'doc-pagelist'
-    | 'doc-part'
-    | 'doc-preface'
-    | 'doc-prologue'
-    | 'doc-pullquote'
-    | 'doc-qna'
-    | 'doc-subtitle'
-    | 'doc-tip'
-    | 'doc-toc';
-
-  declare export type ARIARole =
-    | ARIAWidgetRole
-    | ARIACompositeWidgetRole
-    | ARIADocumentStructureRole
-    | ARIALandmarkRole
-    | ARIALiveRegionRole
-    | ARIAWindowRole
-    | ARIAUncategorizedRole;
-}
+// flow-typed signature: d6d7dd802cb30eba28942c63bfb55e6c
+// flow-typed version: 2eabcd3dac/@testing-library/react_v12.x.x/flow_>=v0.104.x
 
 declare module '@testing-library/react' {
-  import type { ARIARole } from '@@aria-query';
+  import type { ARIARole } from 'aria-query';
 
   // This type comes from react-dom_v17.x.x.js
   declare interface ReactDOMTestUtilsThenable {
@@ -187,7 +24,7 @@ declare module '@testing-library/react' {
 
   declare type MatcherFunction = (
     content: string,
-    element: ?Element
+    element: HTMLElement
   ) => boolean;
 
   declare type Matcher = MatcherFunction | RegExp | string | number;
@@ -279,10 +116,12 @@ declare module '@testing-library/react' {
     & HTMLSelectElement;
   // End mixed html types
 
+  declare type MaybeIntersectionHTMLElement = null | IntersectionHTMLElement;
+
   declare type QueryByBoundAttribute = (
     text: Matcher,
     options?: MatcherOptions
-  ) => ?IntersectionHTMLElement;
+  ) => MaybeIntersectionHTMLElement;
 
   declare type AllByBoundAttribute = (
     text: Matcher,
@@ -309,7 +148,7 @@ declare module '@testing-library/react' {
   declare type QueryByText = (
     text: Matcher,
     options?: SelectorMatcherOptions
-  ) => ?IntersectionHTMLElement;
+  ) => MaybeIntersectionHTMLElement;
 
   declare type AllByText = (
     text: Matcher,
@@ -596,7 +435,7 @@ declare module '@testing-library/react' {
     container: UnionHTMLElement,
     id: Matcher,
     options?: MatcherOptions
-  ): ?IntersectionHTMLElement;
+  ): MaybeIntersectionHTMLElement;
   declare export function getByTestId(
     container: UnionHTMLElement,
     id: Matcher,
@@ -606,7 +445,7 @@ declare module '@testing-library/react' {
     container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): ?IntersectionHTMLElement;
+  ): MaybeIntersectionHTMLElement;
   declare export function getByText(
     container: UnionHTMLElement,
     text: Matcher,
@@ -616,7 +455,7 @@ declare module '@testing-library/react' {
     container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): ?IntersectionHTMLElement;
+  ): MaybeIntersectionHTMLElement;
   declare export function getByPlaceholderText(
     container: UnionHTMLElement,
     text: Matcher,
@@ -626,7 +465,7 @@ declare module '@testing-library/react' {
     container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): ?IntersectionHTMLElement;
+  ): MaybeIntersectionHTMLElement;
   declare export function getByLabelText(
     container: UnionHTMLElement,
     text: Matcher,
@@ -636,7 +475,7 @@ declare module '@testing-library/react' {
     container: UnionHTMLElement,
     text: Matcher,
     options?: MatcherOptions
-  ): ?IntersectionHTMLElement;
+  ): MaybeIntersectionHTMLElement;
   declare export function getByAltText(
     container: UnionHTMLElement,
     text: Matcher,

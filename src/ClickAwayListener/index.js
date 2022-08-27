@@ -64,7 +64,7 @@ const ClickAwayListener = ({
         return;
       }
 
-      if (activeRef?.current instanceof HTMLElement) {
+      if (activeRef.current instanceof HTMLElement) {
         // IE11 support, which trigger the handleClickAway even after the unbind
         if (isCurrentlyMounted) {
           if (event.target instanceof Node && document.documentElement?.contains(event.target)

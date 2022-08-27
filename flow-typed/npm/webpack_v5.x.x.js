@@ -1,5 +1,5 @@
-// flow-typed signature: 029c45f838294c42f5621a2fbc0e2222
-// flow-typed version: d55f290df6/webpack_v5.x.x/flow_>=v0.104.x
+// flow-typed signature: 609a2dadacfeffc168d2c9c53ec666b2
+// flow-typed version: ac213d8267/webpack_v5.x.x/flow_>=v0.104.x
 
 declare module 'webpack' {
   import typeof { Server } from 'http';
@@ -192,11 +192,10 @@ declare module 'webpack' {
 
   declare type WebpackPluginFunction = (compiler: WebpackCompiler) => void;
 
-  declare type WebpackPluginInstance = {
-    [k: string]: any,
-    apply: WebpackPluginFunction,
-    ...
-  };
+  declare interface WebpackPluginInstance {
+    apply: WebpackPluginFunction;
+    [k: string]: any;
+  }
 
   declare type OptimizationSplitChunksOptions = {
     automaticNameDelimiter?: string,
