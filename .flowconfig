@@ -18,7 +18,6 @@
 
 [lints]
 deprecated-type=error
-deprecated-utility=error
 unnecessary-optional-chain=error
 ambiguous-object-type=error
 

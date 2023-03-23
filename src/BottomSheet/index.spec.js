@@ -7,7 +7,7 @@ import BottomSheet from '.';
 
 describe('<BottomSheet', () => {
   it('does not render if not open', () => {
-    const onClose = jest.fn();
+    const onClose: () => void = jest.fn();
     render(
       <BottomSheet
         onClose={onClose}
@@ -18,7 +18,7 @@ describe('<BottomSheet', () => {
   });
 
   it('closes if clicking the background', () => {
-    const onClose = jest.fn();
+    const onClose: () => void = jest.fn();
     render(
       <BottomSheet
         open
@@ -32,7 +32,7 @@ describe('<BottomSheet', () => {
   });
 
   it('closes if clicking on the close button', () => {
-    const onClose = jest.fn();
+    const onClose: () => void = jest.fn();
     render(
       <BottomSheet
         open

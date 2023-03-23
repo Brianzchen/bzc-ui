@@ -5,7 +5,7 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import usePrevious from '../internal/hooks/usePrevious';
 import usePositioning from '../internal/hooks/usePositioning';
-import type { StyleT } from '../types';
+import type { StyleT, ThemeT, StylerT } from '../types';
 
 type AccordionContextT = {|
   nested: boolean,
@@ -105,7 +105,7 @@ const Accordion: React$AbstractComponent<AccordionT, HTMLElement> = React.forwar
   }), [trackHeightChanged]);
 
   const styles = {
-    accordion: (theme, styler) => styler(style, theme, {
+    accordion: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       overflow: 'hidden',
       height: open ? height : 'auto',
       maxHeight: currMaxHeight,
@@ -115,7 +115,7 @@ const Accordion: React$AbstractComponent<AccordionT, HTMLElement> = React.forwar
           transition: 'max-height 0.2s ease-out',
         },
     }),
-    inner: (theme, styler) => styler(innerStyle, theme, {
+    inner: (theme: ThemeT, styler: StylerT) => styler(innerStyle, theme, {
       overflow: 'auto',
     }),
   };

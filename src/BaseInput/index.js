@@ -6,7 +6,7 @@ import isOnlyNumbers from '../internal/isOnlyNumbers';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
-import type { InputFormatT, ThemeT } from '../types';
+import type { InputFormatT, ThemeT, StylerT } from '../types';
 
 import findCharDifference from './findCharDifference';
 import findReplacedDifference from './findReplacedDifference';
@@ -92,7 +92,7 @@ const BaseInput: React$AbstractComponent<BaseInputT, HTMLElement> = React.forwar
   const [cursorPos, setCursorPos] = React.useState(-1);
 
   const baseType = getBaseType(type);
-  const unformat = (v) => inputUnformat(v, format);
+  const unformat = (v: mixed) => inputUnformat(v, format);
 
   // arbitrary timeout value so that the readonly attribute is
   // removed before the user focuses on the field,
@@ -112,7 +112,12 @@ const BaseInput: React$AbstractComponent<BaseInputT, HTMLElement> = React.forwar
   }, [cursorPos]);
 
   const handleChange = (event: SyntheticEvent<HTMLInputElement>) => {
-    const callOnChange = (e, func) => {
+    const callOnChange = (e: SyntheticEvent<HTMLInputElement>, func?: (
+      event: SyntheticEvent<HTMLInputElement>,
+      {|
+        unformat: (v: string) => string,
+      |},
+    ) => void) => {
       if (format === 'credit-card') {
         func && func(e, {
           unformat,
@@ -195,7 +200,7 @@ const BaseInput: React$AbstractComponent<BaseInputT, HTMLElement> = React.forwar
   };
 
   const styles = {
-    input: (theme: ThemeT, styler) => styler(style, theme, {
+    input: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       boxShadow: 'none',
       outline: 'none',
       '::-ms-clear': {

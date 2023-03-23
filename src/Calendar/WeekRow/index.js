@@ -9,7 +9,7 @@ import DateButton from './DateButton';
 
 import formatTimeString from '../utils/formatTimeString';
 
-type DateObjPropsT = {|
+export type DateObjPropsT = {|
   year: number,
   month: number,
   date: number,

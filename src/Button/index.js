@@ -89,7 +89,7 @@ const Button: React$AbstractComponent<ButtonT, HTMLElement> = React.forwardRef<B
     }
   }, [buttonDisabled]);
 
-  const getColor = (color) => (
+  const getColor = (color: string) => (
     hexToRgba(color, buttonDisabled ? 0.5 : 1)
   );
 

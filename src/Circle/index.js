@@ -4,7 +4,7 @@ import * as React from 'react';
 import Typography from '../Typography';
 
 import type { TypographyT } from '../Typography';
-import type { ThemeT } from '../types';
+import type { ThemeT, StylerT } from '../types';
 
 import compileSpace from '../internal/compileSpace';
 
@@ -39,7 +39,7 @@ const Circle: React$AbstractComponent<CircleT, HTMLElement> = React.forwardRef<C
   ...otherProps
 }: CircleT, ref) => {
   const styles = {
-    circle: (theme: ThemeT, styler) => styler(style, theme, {
+    circle: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

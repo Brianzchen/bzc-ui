@@ -8,7 +8,7 @@ import Button from '.';
 
 describe('<Button />', () => {
   it('can trigger the onClick when passed in', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <Button
@@ -25,7 +25,7 @@ describe('<Button />', () => {
   });
 
   it('does not trigger onClick when disabled is passed in', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <Button

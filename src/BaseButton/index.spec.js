@@ -7,7 +7,7 @@ import BaseButton from '.';
 
 describe('<BaseButton />', () => {
   it('triggers the onClick when clicked', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <BaseButton
@@ -36,7 +36,7 @@ describe('<BaseButton />', () => {
   });
 
   it('does not trigger onClick when disabled is passed in', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <BaseButton

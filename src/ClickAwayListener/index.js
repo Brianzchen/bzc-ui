@@ -1,21 +1,32 @@
 // @flow
 import * as React from 'react';
 
-const on = (element, type, callback) => {
+type ClickAwayCallbackT = (event: MouseEvent | TouchEvent) => void;
+
+const on = (
+  element: Document,
+  type: MouseEventTypes | TouchEventTypes,
+  callback: ClickAwayCallbackT,
+) => {
   // $FlowFixMe[method-unbinding]
   if (element.addEventListener) {
     element.addEventListener(type, callback);
   }
 };
 
-const off = (element, type, callback) => {
+const off = (
+  element: Document,
+  type: MouseEventTypes | TouchEventTypes,
+  callback: ClickAwayCallbackT,
+) => {
   // $FlowFixMe[method-unbinding]
   if (element.removeEventListener) {
     element.removeEventListener(type, callback);
   }
 };
 
-const isDescendant = (element, target) => {
+// $FlowExpectedError[recursive-definition]
+const isDescendant = (element: any, target: EventTarget) => {
   if (target !== null && target instanceof Node) {
     return element === target || isDescendant(element, target.parentNode);
   }
@@ -23,8 +34,12 @@ const isDescendant = (element, target) => {
 };
 
 const clickAwayEvents = ['mouseup', 'touchend'];
-const bind = (callback) => clickAwayEvents.forEach((event) => on(document, event, callback));
-const unbind = (callback) => clickAwayEvents.forEach((event) => off(document, event, callback));
+const bind = (callback: ClickAwayCallbackT) => (
+  clickAwayEvents.forEach((event) => on(document, event, callback))
+);
+const unbind = (callback: ClickAwayCallbackT) => (
+  clickAwayEvents.forEach((event) => off(document, event, callback))
+);
 
 export type ClickAwayListenerT = {|
   /**
@@ -43,7 +58,9 @@ export type ClickAwayListenerT = {|
 |};
 
 /**
- * Listen for click events that occur somewhere in the document, outside of the element itself. For instance, if you need to hide a menu when people click anywhere else on your page.
+ * Listen for click events that occur somewhere in the document,
+ * outside of the element itself. For instance, if you need to hide a menu
+ * when people click anywhere else on your page.
  */
 const ClickAwayListener = ({
   children,
@@ -59,7 +76,7 @@ const ClickAwayListener = ({
 
     let isCurrentlyMounted = true;
 
-    const handleClickAway = (event: MouseEvent | TouchEvent) => {
+    const handleClickAway: ClickAwayCallbackT = (event) => {
       if (event.defaultPrevented) {
         return;
       }

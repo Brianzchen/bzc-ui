@@ -48,7 +48,7 @@ export type BoxT = {
  * The Box component is the lowest level base components in startown implementing
  * the theme engine and is a direct replacement for primitive element tags.
  */
-const Box: React$AbstractComponent<BoxT, HTMLElement> = React.forwardRef<BoxT, HTMLElement>(({
+const Box: React$AbstractComponent<BoxT, HTMLElement & null> = React.forwardRef<BoxT, HTMLElement & null>(({
   children = null,
   as: Element = 'div',
   className = '',
@@ -98,7 +98,7 @@ const Box: React$AbstractComponent<BoxT, HTMLElement> = React.forwardRef<BoxT, H
         }
         return false;
       };
-      const shouldHideNumber = (sizes) => {
+      const shouldHideNumber = (sizes: Array<number>) => {
         const currWidth = window.innerWidth;
         if (currWidth > sizes[0]) {
           if (!sizes[1]) return true;

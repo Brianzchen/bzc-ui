@@ -13,7 +13,7 @@ import sidePanelContent from './side-panel.json';
 
 const Pages = (): React.Node => {
   const params = useParams();
-  const [currentContent, setCurrentContent] = React.useState();
+  const [currentContent, setCurrentContent] = React.useState<string | void | null>();
 
   const page = sidePanelContent.find((o) => toKebabCase(o[0]) === params.currentPage);
 
@@ -23,7 +23,7 @@ const Pages = (): React.Node => {
       return;
     }
 
-    axios.get(`/pages/${page[1]}`).then(({ data }) => {
+    axios.get<string>(`/pages/${page[1]}`).then(({ data }) => {
       if (data.startsWith('<!DOCTYPE html>')) {
         setCurrentContent(null);
         return;

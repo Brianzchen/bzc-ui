@@ -10,7 +10,7 @@ const calendarArray = (
     year: number,
   |}>
 > => {
-  const getTotalDays = (year, month) => new Date(year, month, 0).getDate();
+  const getTotalDays = (year: number, month: number) => new Date(year, month, 0).getDate();
 
   const getFirstDayIndexOfCurrentMonth = () => (
     new Date(currentYear, currentMonth - 1, 1).getDay()

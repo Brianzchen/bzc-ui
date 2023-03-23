@@ -73,8 +73,8 @@ const Checkbox: React$AbstractComponent<CheckboxT, HTMLElement> = React.forwardR
   prefixTestId = 'Checkbox',
   ...otherProps
 }: CheckboxT, ref) => {
-  const inputRef = React.useRef();
-  const labelRef = React.useRef();
+  const inputRef = React.useRef(null);
+  const labelRef = React.useRef(null);
   const theme = useTheme();
   const compTestId = useComponentTestId(prefixTestId);
   const { formWrapped, setFormValues } = useFormValues();
@@ -102,7 +102,7 @@ const Checkbox: React$AbstractComponent<CheckboxT, HTMLElement> = React.forwardR
     }
   }, [value, errorMessage]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: SyntheticEvent<HTMLInputElement>) => {
     if (disabled) return;
 
     onChange && onChange(e);

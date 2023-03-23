@@ -31,7 +31,7 @@ const DateButton = ({
     normal,
   } = dateStatusString;
 
-  const matchStyle = (obj) => obj[dateStatus];
+  const matchStyle = (obj: any) => obj[dateStatus];
 
   const styles = {
     buttonWrapper: {

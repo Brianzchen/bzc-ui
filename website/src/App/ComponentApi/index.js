@@ -58,6 +58,8 @@ type ComponentT = {|
   props: ComponentPropsT,
 |};
 
+export type ComponentMapT = { [key: string]: ComponentT };
+
 const ComponentApi = (): React.Node => {
   const params = useParams();
   const navigate = useNavigate();
@@ -76,11 +78,11 @@ const ComponentApi = (): React.Node => {
     ));
   };
 
-  const [components, setComponents] = React.useState<{ [key: string]: ComponentT } | void>();
+  const [components, setComponents] = React.useState<ComponentMapT | void>();
   const [currComponent, setCurrComponent] = React.useState<ComponentT | void | null>();
 
   React.useEffect(() => {
-    axios.get('/components.json').then(({ data }) => {
+    axios.get<ComponentMapT>('/components.json').then(({ data }) => {
       setComponents(data);
     });
   }, []);
@@ -105,7 +107,8 @@ const ComponentApi = (): React.Node => {
     );
   }
 
-  const findComposedProps = (comp): ComponentPropsT => ({
+  const findComposedProps = (comp: ComponentT): ComponentPropsT => ({
+    // $FlowExpectedError[exponential-spread]
     ...comp.composes ? comp.composes.reduce((acc, cur) => {
       const compName = cur.substring(0, cur.length - 1);
       const composedComp = components[`src/${compName}/index.js`];
@@ -119,7 +122,7 @@ const ComponentApi = (): React.Node => {
     }, ({}: ComponentPropsT)) : {},
     ...Object.keys(comp.props).filter((key) => (
       comp.props[key].description
-    )).reduce((acc, cur) => ({
+    )).reduce((acc, cur: string) => ({
       ...acc,
       [cur]: comp.props[cur],
     }), ({}: ComponentPropsT)),

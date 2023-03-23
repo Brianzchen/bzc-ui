@@ -9,7 +9,7 @@ import Checkbox from '.';
 
 describe('<Checkbox />', () => {
   it('triggers onChange when I click on the box', () => {
-    const onChange = jest.fn();
+    const onChange: () => void = jest.fn();
 
     render(
       <Checkbox
@@ -24,7 +24,7 @@ describe('<Checkbox />', () => {
   });
 
   it('does not trigger when I click on the box if disabled', () => {
-    const onChange = jest.fn();
+    const onChange: () => void = jest.fn();
 
     render(
       <Checkbox
@@ -115,7 +115,7 @@ describe('<Checkbox />', () => {
   });
 
   it('overrides the prefix testid correctly', () => {
-    const onChange = jest.fn();
+    const onChange: () => void = jest.fn();
 
     render(
       <Checkbox
@@ -130,7 +130,7 @@ describe('<Checkbox />', () => {
   });
 
   it('fires onTouched on first click', () => {
-    const onTouched = jest.fn();
+    const onTouched: () => void = jest.fn();
 
     render(
       <Checkbox

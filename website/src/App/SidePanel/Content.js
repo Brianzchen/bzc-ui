@@ -12,6 +12,7 @@ import { routes } from 'utils';
 
 import { Accordion, CardButton, useTheme } from 'startown';
 
+import { type ComponentMapT } from '../ComponentApi';
 import sidePanelContent from '../Pages/side-panel.json';
 
 type Props = {|
@@ -28,10 +29,10 @@ const Content = ({
     routes.componentApi,
     location.pathname,
   ));
-  const [components, setComponents] = React.useState();
+  const [components, setComponents] = React.useState<ComponentMapT | void>();
 
   React.useEffect(() => {
-    axios.get('/components.json').then(({ data }) => {
+    axios.get<ComponentMapT>('/components.json').then(({ data }) => {
       setComponents(data);
     });
   }, []);

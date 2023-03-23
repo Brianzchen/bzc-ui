@@ -8,7 +8,7 @@ import useTheme from '../useTheme';
 
 import DaysHeader from './DaysHeader';
 import YearAndDateSection from './YearAndDateSection';
-import WeekRow from './WeekRow';
+import WeekRow, { type DateObjPropsT } from './WeekRow';
 
 import { daysArray, dateStatusString } from './constants';
 import calendarArray from './utils/calendarArray';
@@ -17,7 +17,7 @@ import getTime from '../internal/getTime';
 import getCloserDate from './utils/getCloserDate';
 import getYearsArray from './utils/getYearsArray';
 import sortYears from './utils/sortYears';
-import withinRange from './utils/withinRange';
+import withinRange, { type TargetTimeT } from './utils/withinRange';
 
 export type CalendarT = {
   ...BoxT,
@@ -74,7 +74,7 @@ const Calendar: React$AbstractComponent<CalendarT, HTMLElement> = React.forwardR
     || new Date(Date.now()).getMonth() + 1,
   );
 
-  const getDateStatus = (obj) => {
+  const getDateStatus = (obj: DateObjPropsT) => {
     const {
       notCurrentMonth, selected, beyondRange, normal,
     } = dateStatusString;
@@ -101,8 +101,8 @@ const Calendar: React$AbstractComponent<CalendarT, HTMLElement> = React.forwardR
     return normal;
   };
 
-  const changeYear = (event) => {
-    const updateDropdownTime = (year, month) => {
+  const changeYear = (event: SyntheticEvent<HTMLSelectElement>) => {
+    const updateDropdownTime = (year: number, month: number) => {
       if (maxDate
           && year >= maxDate.getFullYear()
           && month >= maxDate.getMonth() + 1) {
@@ -132,11 +132,14 @@ const Calendar: React$AbstractComponent<CalendarT, HTMLElement> = React.forwardR
     setCurrentMonth(month);
   };
 
-  const changeMonth = (event) => {
+  const changeMonth = (event: SyntheticEvent<HTMLSelectElement>) => {
     setCurrentMonth(Number(event.currentTarget.value));
   };
 
-  const changeDate = (event, { year, month, date }) => {
+  const changeDate = (
+    event: SyntheticEvent<HTMLButtonElement>,
+    { year, month, date }: TargetTimeT,
+  ) => {
     if (withinRange({ year, month, date }, minDate, maxDate)
       && onChange
     ) {

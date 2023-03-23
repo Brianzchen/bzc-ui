@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import Paper from '../Paper';
 import type { PaperT } from '../Paper';
-import type { ThemeT } from '../types';
+import type { ThemeT, StylerT } from '../types';
 
 export type CardT = {
   ...PaperT,
@@ -32,7 +32,7 @@ const Card: React$AbstractComponent<CardT, HTMLElement> = React.forwardRef<CardT
   };
 
   const styles = {
-    container: (theme: ThemeT, styler) => styler(style, theme, {
+    container: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       borderRadius: theme.corner(2),
       overflow: 'hidden',
       backgroundColor: getBackgroundColor(theme),

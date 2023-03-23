@@ -26,7 +26,7 @@ describe('<Calendar />', () => {
   });
 
   it('renders calendar and click a date button of current month', () => {
-    const onChange = jest.fn();
+    const onChange: () => void = jest.fn();
     render(
       <Calendar
         onChange={onChange}
@@ -56,7 +56,11 @@ describe('<Calendar />', () => {
   });
 
   it('renders date button as Anchor tag and url', () => {
-    const generateUrl = (year, month, date) => `/test-url/${year}-${month}-${date}`;
+    const generateUrl = (
+      year: string | number,
+      month: string | number,
+      date: string | number,
+    ) => `/test-url/${year}-${month}-${date}`;
     render(
       <Calendar
         dateButtonProps={(dateObj) => ({

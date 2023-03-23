@@ -1,7 +1,7 @@
 // @flow
 import formatTimeString from './formatTimeString';
 
-type TargetTimeT = {|
+export type TargetTimeT = {|
   date: number,
   month: number,
   year: number,
@@ -16,11 +16,11 @@ export default (
 ): boolean => {
   const targetTime = new Date(formatTimeString(year, month, date)).getTime();
 
-  const greaterThan = (time, comparison) => (
+  const greaterThan = (time: number, comparison?: Date) => (
     !comparison || time >= new Date(comparison).getTime()
   );
 
-  const lessThan = (time, comparison) => (
+  const lessThan = (time: number, comparison?: Date) => (
     !comparison || time <= new Date(comparison).getTime()
   );
 
