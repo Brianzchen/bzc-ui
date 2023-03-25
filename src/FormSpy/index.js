@@ -13,7 +13,7 @@ const useSubscribedValues = (subscribers: Array<string>): FormValuesT => {
 
   return Object.keys(formValues).filter((key) => (
     subscribers.indexOf(key) > -1
-  )).reduce((acc, cur) => {
+  )).reduce<{ [key: string]: any }>((acc, cur) => {
     acc[cur] = formValues[cur];
     return acc;
   }, {});

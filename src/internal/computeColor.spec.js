@@ -4,7 +4,7 @@ import computeColor from './computeColor';
 describe('computeColor', () => {
   const theme = {
     colors: {
-      primary: (shade) => {
+      primary: (shade?: number) => {
         if (!shade) return 'no shade';
 
         return `The color is ${shade}`;

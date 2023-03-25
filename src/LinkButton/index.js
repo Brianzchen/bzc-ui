@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import BaseButton from '../BaseButton';
 import type { BaseButtonT } from '../BaseButton';
+import type { ThemeT, StylerT } from '../types';
 
 export type LinkButtonT = {
   ...BaseButtonT,
@@ -19,7 +20,7 @@ const LinkButton: React$AbstractComponent<LinkButtonT, HTMLElement> = React.forw
   ...otherProps
 }: LinkButtonT, ref) => {
   const styles = {
-    link: (theme, styler) => styler(style, theme, {
+    link: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       fontWeight: theme.fonts.button.style,
       fontSize: 'inherit',
       lineHeight: 'inherit',

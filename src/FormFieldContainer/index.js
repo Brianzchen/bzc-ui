@@ -81,7 +81,7 @@ const FormFieldContainer: React$AbstractComponent<FormFieldContainerT, HTMLEleme
 
   const hasError = !!errorMessage || error;
 
-  const handleClick = (e) => {
+  const handleClick = (e: SyntheticEvent<HTMLButtonElement>) => {
     if (activeRef.current instanceof HTMLElement && onClick) {
       onClick(
         e,
@@ -119,7 +119,7 @@ const FormFieldContainer: React$AbstractComponent<FormFieldContainerT, HTMLEleme
     title: (theme: ThemeT) => styler(titleStyle, theme, {
       margin: `auto auto ${theme.spacing(1)}px`,
     }),
-    optionalLabel: (theme) => ({
+    optionalLabel: (theme: ThemeT) => ({
       marginLeft: theme.spacing(1),
       fontSize: 'inherit',
     }),

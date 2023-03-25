@@ -19,7 +19,7 @@ describe('<GroupedToggleButtons', () => {
   });
 
   it('allows only single selection', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <GroupedToggleButtons
@@ -41,7 +41,7 @@ describe('<GroupedToggleButtons', () => {
   });
 
   it('can deselect single selection', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <GroupedToggleButtons
@@ -63,7 +63,7 @@ describe('<GroupedToggleButtons', () => {
   });
 
   it('allows multi selection', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <GroupedToggleButtons
@@ -86,7 +86,7 @@ describe('<GroupedToggleButtons', () => {
   });
 
   it('can deselect with multiple selections', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <GroupedToggleButtons

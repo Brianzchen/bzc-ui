@@ -76,7 +76,7 @@ const Inline: React$AbstractComponent<InlineT, HTMLElement> = React.forwardRef<I
       {React.Children.map(children, (obj) => {
         if (!obj) return null;
 
-        const createItem = (child) => (
+        const createItem = (child: mixed) => (
           <Box
             {...itemProps}
             data-testid={compTestId('item')}
@@ -87,7 +87,7 @@ const Inline: React$AbstractComponent<InlineT, HTMLElement> = React.forwardRef<I
         );
 
         if (obj.type === React.Fragment) {
-          return React.Children.map(obj.props.children, (o) => (
+          return React.Children.map((obj: any).props.children, (o) => (
             createItem(o)
           ));
         }

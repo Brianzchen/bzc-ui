@@ -41,7 +41,7 @@ export default function useInternallyFocused(
       mouseUpCalled = false;
     };
 
-    const addEventListener = (event, func) => {
+    const addEventListener = (event: MouseEventTypes | FocusEventTypes, func: EventListener) => {
       if (elementRef.current instanceof HTMLElement) {
         elementRef.current.addEventListener(event, func);
       }
@@ -61,7 +61,10 @@ export default function useInternallyFocused(
     addEventListener('blur', onBlur);
 
     return () => {
-      const removeEventListener = (event, func) => {
+      const removeEventListener = (
+        event: MouseEventTypes | FocusEventTypes,
+        func: EventListener,
+      ) => {
         if (elementRef.current instanceof HTMLElement) {
           elementRef.current.removeEventListener(event, func);
         }

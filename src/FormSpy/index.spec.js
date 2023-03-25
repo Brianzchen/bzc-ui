@@ -19,7 +19,7 @@ describe('<FormSpy />', () => {
 
   it('renders null if not wrapped in the Form component', () => {
     const originalLog = console.error;
-    const mockLog = jest.fn();
+    const mockLog: () => void = jest.fn();
     (console: any).error = mockLog;
 
     render(

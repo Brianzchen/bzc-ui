@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import Box from '../../Box';
-import type { StyleT } from '../../types';
+import type { StyleT, StylerT, ThemeT } from '../../types';
 
 import CloseButton from './CloseButton';
 import Title from './Title';
@@ -23,7 +23,7 @@ const Header = ({
   style,
 }: Props): React.Node => {
   const styles = {
-    container: (theme, styler) => styler(style, theme, {
+    container: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',

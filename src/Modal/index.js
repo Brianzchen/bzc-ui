@@ -13,7 +13,7 @@ import type { NotificationVariantT, RefObjT, StyleT } from '../types';
 
 import Header from './Header';
 
-const getBodyMaxHeight = (headerHeight, paddingHeight) => (
+const getBodyMaxHeight = (headerHeight: number, paddingHeight: number) => (
   window.innerHeight - headerHeight - paddingHeight
 );
 

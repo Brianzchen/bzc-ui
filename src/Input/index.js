@@ -20,7 +20,7 @@ import useTheme from '../useTheme';
 import useFormValues from '../useFormValues';
 import type { InputFormatT, StyleT, RefObjT } from '../types';
 
-const calcCalendarDate = (value) => {
+const calcCalendarDate = (value?: string | number) => {
   if (typeof value === 'string' || typeof value === 'number') {
     return new Date(value);
   }
@@ -217,17 +217,17 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
 
   const isMobile = ['iOS', 'Android'].indexOf(getOS()) > -1;
   const isCalendar = type === 'calendar' && !isMobile;
-  const unformat = (v) => inputUnformat(v, format);
+  const unformat = (v: string) => inputUnformat(v, format);
   const isErrorFocused = errorFocused ? errorFocused(value, { unformat }) : undefined;
   const isErrorBlurred = errorBlurred ? errorBlurred(value, { unformat }) : undefined;
 
-  const isValidField = (v) => (!!(typeof validValue !== 'undefined'
+  const isValidField = (v: any) => (!!(typeof validValue !== 'undefined'
     ? validValue
     : (
       (errorFocused ? !errorFocused(v, { unformat }) : true)
       && (errorBlurred ? !errorBlurred(v, { unformat }) : true)
     )));
-  const isErrorField = (v) => !!(
+  const isErrorField = (v: any) => !!(
     error
     || (errorFocused && errorFocused(v, { unformat }))
     || (errorBlurred && errorBlurred(v, { unformat }))
@@ -249,7 +249,14 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
     }
   }, []);
 
-  const handleContainerClick = (event, { rootElement }) => {
+  const handleContainerClick = (
+    event: SyntheticEvent<HTMLButtonElement>,
+    {
+      rootElement,
+    }: {|
+      rootElement: HTMLElement | null,
+    |},
+  ) => {
     if (rootElement) {
       const { childNodes } = rootElement;
       const inputNode = childNodes[0].childNodes[prefixNode ? 1 : 0];
@@ -260,13 +267,13 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
     }
   };
 
-  const getFormattedDateString = (date) => {
+  const getFormattedDateString = (date: Date) => {
     const time = getTime(date);
 
     return `${padZero(`${time.date}`, 2)}/${padZero(`${time.month}`, 2)}/${time.year}`;
   };
 
-  const getValue = (currValue) => {
+  const getValue = (currValue?: string | number) => {
     if (isCalendar) {
       if (typeof currValue === 'string') {
         if (currValue === '') {
@@ -278,7 +285,7 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
     return currValue;
   };
 
-  const getType = (currType): InputTypeT => {
+  const getType = (currType: InputTypeT | 'calendar'): InputTypeT => {
     if (currType === 'calendar') {
       if (!isMobile) {
         return 'text';
@@ -375,11 +382,11 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
           id={inputId}
           ref={inputRef}
           value={getValue(value)}
-          onFocus={(e) => {
+          onFocus={(e: SyntheticFocusEvent<>) => {
             onFocus && onFocus(e);
             setFocus(true);
           }}
-          onBlur={(e) => {
+          onBlur={(e: SyntheticFocusEvent<>) => {
             onBlur && onBlur(e);
             setTouched(true);
             setFocus(false);

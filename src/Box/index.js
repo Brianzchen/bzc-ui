@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { StyleSheet, css } from 'aphrodite';
+import { StyleSheet, css, type StyleObject } from 'aphrodite';
 
 import usePositioning from '../internal/hooks/usePositioning';
 import computeColor from '../internal/computeColor';
@@ -48,7 +48,7 @@ export type BoxT = {
  * The Box component is the lowest level base components in startown implementing
  * the theme engine and is a direct replacement for primitive element tags.
  */
-const Box: React$AbstractComponent<BoxT, HTMLElement & null> = React.forwardRef<BoxT, HTMLElement & null>(({
+const Box: React$AbstractComponent<BoxT, HTMLElement> = React.forwardRef<BoxT, HTMLElement>(({
   children = null,
   as: Element = 'div',
   className = '',
@@ -62,7 +62,7 @@ const Box: React$AbstractComponent<BoxT, HTMLElement & null> = React.forwardRef<
   const theme = useTheme();
 
   const [hide, setHide] = React.useState(!!hideElm);
-  const [previousComputedStyle, setPreviousComputedStyle] = React.useState();
+  const [previousComputedStyle, setPreviousComputedStyle] = React.useState<StyleObject | void>();
 
   const styles = StyleSheet.create({
     container: styler(style, theme, {
@@ -98,7 +98,7 @@ const Box: React$AbstractComponent<BoxT, HTMLElement & null> = React.forwardRef<
         }
         return false;
       };
-      const shouldHideNumber = (sizes: Array<number>) => {
+      const shouldHideNumber = (sizes: [number, number | void]) => {
         const currWidth = window.innerWidth;
         if (currWidth > sizes[0]) {
           if (!sizes[1]) return true;

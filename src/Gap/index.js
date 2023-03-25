@@ -3,7 +3,7 @@ import React from 'react';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
-import type { ThemeT } from '../types';
+import type { ThemeT, StylerT } from '../types';
 
 import compileSpace from '../internal/compileSpace';
 
@@ -38,7 +38,7 @@ const Gap: React$AbstractComponent<GapT, HTMLElement> = React.forwardRef<GapT, H
   ...otherProps
 }: GapT, ref) => {
   const styles = {
-    gap: (theme: ThemeT, styler) => styler(style, theme, {
+    gap: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       display: height ? 'block' : 'inline-block',
       height,
       minHeight: compileSpace(height, theme.spacing),

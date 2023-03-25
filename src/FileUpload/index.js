@@ -27,7 +27,7 @@ export type FileUploadT = {|
    */
   onFileAdded?: (Array<{|
     data: null | ArrayBuffer | string,
-    raw: Blob,
+    raw: File,
     fileName: string,
   |}>) => void,
   /**
@@ -54,28 +54,28 @@ const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forw
   style = {},
 }: FileUploadT, ref): React.Node => {
   const theme = useTheme();
-  const inputRef = React.useRef(null);
+  const inputRef = React.useRef<?HTMLInputElement>(null);
   const [draggedOver, setDraggedOver] = React.useState(false);
 
-  const handleDragEnter = (e) => {
+  const handleDragEnter = (e: SyntheticEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setDraggedOver(true);
   };
 
-  const handleDragLeave = (e) => {
+  const handleDragLeave = (e: SyntheticEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setDraggedOver(false);
   };
 
-  const handleDragOver = (e) => {
+  const handleDragOver = (e: SyntheticEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setDraggedOver(true);
   };
 
-  const handleDrop = (e) => {
+  const handleDrop = (e: DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
     const dataFile = e.dataTransfer;
@@ -105,7 +105,7 @@ const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forw
     setDraggedOver(false);
   };
 
-  const handleFileClickAdded = (e) => {
+  const handleFileClickAdded = (e: SyntheticInputEvent<>) => {
     const { files } = e.target;
 
     const filesParsed = [];
@@ -145,10 +145,10 @@ const FileUpload: React$AbstractComponent<FileUploadT, HTMLElement> = React.forw
           }
         }
         : undefined}
-      onDrop={(e) => handleDrop(e)}
-      onDragOver={(e) => handleDragOver(e)}
-      onDragEnter={(e) => handleDragEnter(e)}
-      onDragLeave={(e) => handleDragLeave(e)}
+      onDrop={handleDrop}
+      onDragOver={handleDragOver}
+      onDragEnter={handleDragEnter}
+      onDragLeave={handleDragLeave}
       style={styles.fileUpload}
     >
       {children({

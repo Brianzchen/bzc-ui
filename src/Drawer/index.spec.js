@@ -21,7 +21,7 @@ describe('<Drawer />', () => {
   });
 
   it('triggers the onClose function if I click away from the drawer', () => {
-    const onClose = jest.fn();
+    const onClose: () => void = jest.fn();
     render(
       <>
         <button type="button" data-testid="clicker">
@@ -69,7 +69,7 @@ describe('<Drawer />', () => {
   });
 
   it('does not close if a user is clicking on the drawer', () => {
-    const onClose = jest.fn();
+    const onClose: () => void = jest.fn();
     render(
       <>
         <button type="button" data-testid="clicker">

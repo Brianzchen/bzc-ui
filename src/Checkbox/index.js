@@ -73,8 +73,8 @@ const Checkbox: React$AbstractComponent<CheckboxT, HTMLElement> = React.forwardR
   prefixTestId = 'Checkbox',
   ...otherProps
 }: CheckboxT, ref) => {
-  const inputRef = React.useRef(null);
-  const labelRef = React.useRef(null);
+  const inputRef = React.useRef<?HTMLElement>(null);
+  const labelRef = React.useRef<?HTMLElement>(null);
   const theme = useTheme();
   const compTestId = useComponentTestId(prefixTestId);
   const { formWrapped, setFormValues } = useFormValues();

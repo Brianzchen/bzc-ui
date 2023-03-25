@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import Box, { type BoxT } from '../Box';
+import type { ThemeT, StylerT } from '../types';
 
 type ValueT = any;
 
@@ -20,7 +21,7 @@ export type DraggableT = {
     value: ValueT, x: number, y: number,
   |}) => void,
   /** trigged when mousedown occurs on the root element */
-  onMouseDown?: (...args: Array<any>) => any,
+  onMouseDown?: (event?: SyntheticEvent<HTMLElement>, ...args: Array<any>) => any,
   ...
 };
 
@@ -42,10 +43,10 @@ const Draggable: React$AbstractComponent<DraggableT, HTMLElement> = React.forwar
   const internalRef = React.useRef();
   const activeRef = ref || internalRef;
   const [dragging, setDragging] = React.useState(false);
-  const [coord, setCoord] = React.useState();
+  const [coord, setCoord] = React.useState<{| x: number, y: number |} | void>();
 
   React.useEffect(() => {
-    const onMovement = (event) => {
+    const onMovement = (event: MouseEvent) => {
       if (activeRef.current instanceof HTMLElement) {
         const { height, width } = activeRef.current.getBoundingClientRect();
         const { clientX, clientY } = event;
@@ -70,7 +71,7 @@ const Draggable: React$AbstractComponent<DraggableT, HTMLElement> = React.forwar
   }, [dragging]);
 
   React.useEffect(() => {
-    const onDragComplete = (event) => {
+    const onDragComplete = (event: MouseEvent) => {
       setDragging(false);
       setCoord();
       const { clientX, clientY } = event;
@@ -93,7 +94,7 @@ const Draggable: React$AbstractComponent<DraggableT, HTMLElement> = React.forwar
   }, [dragging]);
 
   const styles = {
-    draggable: (theme, styler) => styler(style, theme, {
+    draggable: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       ...coord
         ? {
           position: 'fixed',
@@ -113,7 +114,7 @@ const Draggable: React$AbstractComponent<DraggableT, HTMLElement> = React.forwar
       {...otherProps}
       ref={activeRef}
       style={styles.draggable}
-      onMouseDown={(e) => {
+      onMouseDown={(e: SyntheticEvent<HTMLElement>) => {
         onMouseDown && onMouseDown(e);
         setDragging(true);
       }}

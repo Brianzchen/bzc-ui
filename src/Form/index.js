@@ -42,7 +42,7 @@ const Form: React$AbstractComponent<FormT, HTMLElement> = React.forwardRef<FormT
   const [values, setValues] = React.useState({ ...null });
   const [, setSubmitted] = React.useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: SyntheticEvent<>) => {
     e.preventDefault();
     setSubmitted(true);
     onSubmit && onSubmit(e, values);

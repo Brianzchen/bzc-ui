@@ -6,7 +6,7 @@ import LinkButton from '.';
 
 describe('<LinkButton />', () => {
   it('triggers onClick', () => {
-    const func = jest.fn();
+    const func: () => void = jest.fn();
     render(
       <LinkButton data-testid="button" onClick={func}>
         test

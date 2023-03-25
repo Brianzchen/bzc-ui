@@ -9,13 +9,15 @@ import useTheme from '../useTheme';
 import type { StyleT } from '../types';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
 
+type VariantT = 'single' | 'multiple';
+
 export type GroupedToggleButtonsT = {
   ...BoxT,
   /**
    * the modes will change what is returned by `onSelect`
    * as well rendering slightly differently
    */
-  variant?: 'single' | 'multiple',
+  variant?: VariantT,
   /**
    * will be called when one of the ToggleButton's are clicked
    * and will return (event, { newSelection }) => {}.
@@ -56,7 +58,11 @@ const GroupedToggleButtons: React$AbstractComponent<GroupedToggleButtonsT, HTMLE
   const theme = useTheme();
   const compTestId = useComponentTestId('GroupedToggleButton');
 
-  const onButtonClick = (event, index, selected) => {
+  const onButtonClick = (
+    event: SyntheticEvent<HTMLButtonElement>,
+    index: number,
+    selected: boolean,
+  ) => {
     let newSelection;
 
     if (variant === 'single') {
@@ -76,7 +82,7 @@ const GroupedToggleButtons: React$AbstractComponent<GroupedToggleButtonsT, HTMLE
     container: styler(style, theme, {
       display: 'flex',
     }),
-    single: (index, selected) => {
+    single: (index: number, selected: boolean) => {
       const removeLeftRoundness = {
         borderTopLeftRadius: 0,
         borderBottomLeftRadius: 0,
@@ -103,7 +109,7 @@ const GroupedToggleButtons: React$AbstractComponent<GroupedToggleButtonsT, HTMLE
         ...indexStyle(),
       };
     },
-    multiple: (index) => ({
+    multiple: (index: number) => ({
       ...index !== 0
         ? {
           marginLeft: theme.spacing(2),
@@ -112,7 +118,7 @@ const GroupedToggleButtons: React$AbstractComponent<GroupedToggleButtonsT, HTMLE
     }),
   };
 
-  const getBaseStyle = (buttonType, index, selected) => {
+  const getBaseStyle = (buttonType: VariantT, index: number, selected: boolean) => {
     if (buttonType === 'multiple') {
       return styles.multiple(index);
     }

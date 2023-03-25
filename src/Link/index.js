@@ -5,7 +5,7 @@ import computeColor from '../internal/computeColor';
 
 import Anchor from '../Anchor';
 import type { AnchorT } from '../Anchor';
-import type { ThemeT } from '../types';
+import type { StylerT, ThemeT } from '../types';
 
 export type LinkT = {
   ...AnchorT,
@@ -27,7 +27,7 @@ const Link: React$AbstractComponent<LinkT, HTMLElement> = React.forwardRef<LinkT
   ...otherProps
 }: LinkT, ref) => {
   const styles = {
-    anchor: (theme: ThemeT, styler) => styler(style, theme, {
+    anchor: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       color: computeColor(variant === 'regular' ? color || 'highlight' : color, theme),
       fontWeight: theme.fonts.label.style,
       textDecoration: (variant === 'underline' ? 'underline' : 'none'),

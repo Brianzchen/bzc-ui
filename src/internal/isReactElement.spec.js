@@ -39,6 +39,7 @@ describe('isReactElement', () => {
     const Comp = () => <div />;
 
     expect(isReactElement(<Comp />, 'Icon')).toBe(false);
+    // $FlowExpectedError[prop-missing] displayName has not been assigned
     expect(isReactElement(<Comp />, 'Icon')).toBe(React.isValidElement(<Comp />) && <Comp />.type.displayName === 'Icon');
   });
 

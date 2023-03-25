@@ -7,7 +7,7 @@ import Paper from '../Paper';
 import type { PaperT } from '../Paper';
 import ClickAwayListener from '../ClickAwayListener';
 import bodyScrollLock from '../bodyScrollLock';
-import type { RefObjT, ThemeT } from '../types';
+import type { RefObjT, StylerT, ThemeT } from '../types';
 
 export type DrawerT = {
   ...PaperT,
@@ -82,7 +82,7 @@ const Drawer: React$AbstractComponent<DrawerT, HTMLElement> = React.forwardRef<D
   };
 
   const styles = {
-    paper: (theme: ThemeT, styler) => styler(style, theme, {
+    paper: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       width: width ?? 320 * theme.scale,
       top: offsetTop,
       bottom: offsetBottom,

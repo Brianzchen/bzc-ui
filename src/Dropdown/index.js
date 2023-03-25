@@ -64,7 +64,7 @@ const Dropdown: React$AbstractComponent<DropdownT, HTMLElement> = React.forwardR
   const [internalOpen, setOpen] = React.useState(false);
   const activeOpen = typeof open !== 'undefined' ? open : internalOpen;
 
-  const handleToggle = (e) => {
+  const handleToggle = (e: SyntheticEvent<HTMLButtonElement>) => {
     onClick(e);
     setOpen((val) => !val);
   };
