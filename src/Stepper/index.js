@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
+import type { ThemeT, StylerT } from '../types';
 
 import Step from './Step';
 import Line from './Line';
@@ -29,7 +30,7 @@ const Stepper: React$AbstractComponent<StepperT, HTMLElement> = React.forwardRef
   ...otherProps
 }: StepperT, ref) => {
   const styles = {
-    container: (theme, styler) => styler(style, theme, {
+    container: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       display: 'flex',
       alignItems: 'center',
     }),

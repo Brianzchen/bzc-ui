@@ -43,7 +43,7 @@ describe('Modal />', () => {
   });
 
   it('triggers the onClose function if I click on the background', () => {
-    const onClose = jest.fn();
+    const onClose: () => void = jest.fn();
 
     render(
       <Modal
@@ -60,7 +60,7 @@ describe('Modal />', () => {
   });
 
   it('triggers the onClose if the click on the close button', () => {
-    const onClose = jest.fn();
+    const onClose: () => void = jest.fn();
 
     render(
       <Modal

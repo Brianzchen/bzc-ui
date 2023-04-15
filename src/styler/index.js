@@ -38,7 +38,7 @@ const styler: StylerT = (style, theme, target = {}) => {
   ];
 
   // parse and apply startown media shorthands
-  const applyShorthands = (obj) => {
+  const applyShorthands = (obj: any) => {
     const shortHandObject = { ...obj };
     for (let i = 0, len = type.length; i < len; i++) {
       // This reversal is necessary to ensure that one media query

@@ -20,14 +20,19 @@ export default (type: TypePropT, theme: ThemeT): {|
     const key = arr[i];
     const font = theme.fonts[type[key]];
     if (key === 'sm' && font.mobile) {
+      // $FlowFixMe[prop-missing]
       typeObj[key] = font.mobile;
     } else {
+      // $FlowFixMe[prop-missing]
       typeObj[key] = font;
     }
   }
+  // $FlowFixMe[prop-missing]
   if (!typeObj.lg) {
+    // $FlowFixMe[prop-missing]
     if (typeObj.md) {
       typeObj.lg = typeObj.md;
+      // $FlowFixMe[prop-missing]
     } else if (typeObj.sm) {
       typeObj.lg = typeObj.sm;
     }

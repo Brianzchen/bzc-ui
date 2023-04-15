@@ -6,7 +6,7 @@ import ToggleButton from '.';
 
 describe('<ToggleButton />', () => {
   it('can trigger the onClick when passed in', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
     const Comp = () => <div>test</div>;
 
     render(
@@ -24,7 +24,7 @@ describe('<ToggleButton />', () => {
   });
 
   it('does not trigger onClick when disabled is passed in', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <ToggleButton

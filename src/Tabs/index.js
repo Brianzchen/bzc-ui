@@ -61,7 +61,7 @@ const Tabs: React$AbstractComponent<TabsT, HTMLElement> = React.forwardRef(({
 
   const internalRef = React.useRef<HTMLElement | null>(null);
   const activeRef = ref || internalRef;
-  const tabContainerRef = React.useRef();
+  const tabContainerRef = React.useRef<?HTMLElement>();
 
   const theme = useTheme();
   const compTestId = useComponentTestId('Tabs');
@@ -87,7 +87,7 @@ const Tabs: React$AbstractComponent<TabsT, HTMLElement> = React.forwardRef(({
           const { paddingLeft, paddingRight, width } = element;
           return (removePx(width) - removePx(paddingLeft) - removePx(paddingRight));
         });
-        const sum = childWidths.reduce((a, b) => a + b, 0);
+        const sum = childWidths.reduce<number>((acc: number, cur: number) => acc + cur, 0);
         if (sum !== tabProportions.sum) {
           setTabProportions({
             sum,
@@ -117,18 +117,23 @@ const Tabs: React$AbstractComponent<TabsT, HTMLElement> = React.forwardRef(({
   React.useEffect(() => {
     const { current } = tabContainerRef;
 
-    if (!current) return;
+    if (current instanceof HTMLElement) {
+      const childrenWidth = Array.from(current.childNodes).reduce(
+        (acc, cur) => {
+          if (cur instanceof HTMLElement) {
+            return acc + cur.getBoundingClientRect().width;
+          }
+          return 0;
+        },
+        0,
+      );
 
-    const childrenWidth = Array.from(current.childNodes).reduce(
-      (acc, cur) => acc + cur.getBoundingClientRect().width,
-      0,
-    );
-
-    if (containerWidth !== 0
-        && containerWidth < childrenWidth) {
-      setShowNav(true);
-    } else {
-      setShowNav(false);
+      if (containerWidth !== 0
+          && containerWidth < childrenWidth) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
     }
   });
 
@@ -139,7 +144,7 @@ const Tabs: React$AbstractComponent<TabsT, HTMLElement> = React.forwardRef(({
     if (!current) return undefined;
 
     const onScroll = () => {
-      const scrollRight = (elm) => (
+      const scrollRight = (elm: Element) => (
         elm.scrollWidth - (elm.scrollLeft + elm.clientWidth)
       );
 

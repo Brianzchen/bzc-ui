@@ -101,11 +101,12 @@ const TextArea: React$AbstractComponent<TextAreaT, HTMLElement> = React.forwardR
     }
   }, [value]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: SyntheticEvent<HTMLTextAreaElement>) => {
     onChange && onChange(e);
     formWrapped && name && setFormValues(
       name,
       {
+        // $FlowFixMe[prop-missing]
         value: e.target.value,
       },
     );

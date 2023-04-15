@@ -14,6 +14,7 @@ export default (fonts: FontsT, scale?: number = 1): any => (
       mobile.leading = `${removePx(mobile.leading) * scale}px`;
     }
     font.mobile = mobile;
+    // $FlowFixMe[prop-missing]
     acc[cur] = font;
     return acc;
   }, {})

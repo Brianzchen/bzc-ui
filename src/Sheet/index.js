@@ -14,8 +14,8 @@ import Child from './Child';
 import type { RenderT } from './Child';
 
 type DirectionT = {|
-  vertical: 'top' | 'bottom',
-  horizontal: 'left' | 'right',
+  vertical?: 'top' | 'bottom',
+  horizontal?: 'left' | 'right',
   [key: string]: any,
 |};
 
@@ -70,8 +70,8 @@ const Sheet: React$AbstractComponent<SheetT, HTMLElement> = React.forwardRef(({
 
   const theme = useTheme();
 
-  const [verticalValue, setVerticalValue] = React.useState();
-  const [horizontalValue, setHorizontalValue] = React.useState();
+  const [verticalValue, setVerticalValue] = React.useState<number | void>();
+  const [horizontalValue, setHorizontalValue] = React.useState<number | void>();
   const [direction, setDirection] = React.useState<DirectionT>({});
 
   const attachedPadding = theme.spacing(1);

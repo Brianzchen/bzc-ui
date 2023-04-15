@@ -6,7 +6,7 @@ import Overlay from '.';
 
 describe('<Overlay />', () => {
   it('triggers the onClick if I click on the background', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <Overlay
@@ -21,7 +21,7 @@ describe('<Overlay />', () => {
   });
 
   it('does not trigger onClick if a child is clicked', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     const Child = () => <div data-testid="test">test</div>;
 
@@ -39,7 +39,7 @@ describe('<Overlay />', () => {
   });
 
   it('can close if ref is passed in', () => {
-    const onClick = jest.fn();
+    const onClick: () => void = jest.fn();
 
     render(
       <Overlay

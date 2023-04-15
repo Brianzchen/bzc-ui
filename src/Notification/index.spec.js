@@ -30,7 +30,7 @@ describe('<Notification />', () => {
   });
 
   it('renders close button when passing in onClose', () => {
-    const onClose = jest.fn();
+    const onClose: () => void = jest.fn();
     render(
       <Notification
         onClose={onClose}

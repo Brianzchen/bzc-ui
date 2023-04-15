@@ -5,6 +5,7 @@ import Box from '../Box';
 import Typography from '../Typography';
 import Tick from '../internal/components/Tick';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
+import type { ThemeT } from '../types';
 
 import stepStates from './stepStates';
 
@@ -20,7 +21,7 @@ const Step = ({
   const compTestId = useComponentTestId('Stepper');
 
   const styles = {
-    container: (theme) => ({
+    container: (theme: ThemeT) => ({
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',

@@ -7,10 +7,14 @@ import useTheme from '../useTheme';
 import Provider from '.';
 
 describe('<Provider />', () => {
-  const onThemeChange = jest.fn();
+  const onThemeChange: {
+    (): () => void,
+    +mockClear: () => void,
+    ...
+  } = jest.fn();
 
   beforeEach(() => {
-    onThemeChange.mockClear();
+    jest.clearAllMocks();
   });
 
   it('has focusEffect as true by default', (done) => {

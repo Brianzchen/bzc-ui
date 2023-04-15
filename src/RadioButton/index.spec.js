@@ -9,7 +9,7 @@ import RadioButton from '.';
 describe('<RadioButton />', () => {
   const props = {
     id: 'test',
-    onChange: jest.fn(),
+    onChange: (jest.fn(): () => void),
   };
 
   it('has radio input nested inside the label', () => {

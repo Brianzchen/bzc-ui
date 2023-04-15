@@ -24,7 +24,8 @@ export default (
 
   React.useEffect(() => {
     const upId = kc.subscribe('ArrowUp', () => {
-      setCurrentIndex((pCurrentIndex) => {
+      // $FlowExpectedError[incompatible-call]
+      setCurrentIndex((pCurrentIndex?: number) => {
         if (typeof pCurrentIndex === 'undefined'
             || pCurrentIndex === 0
             || pCurrentIndex > listLength - 1) {
@@ -34,6 +35,7 @@ export default (
       });
     }, { onRepeat: true });
     const downId = kc.subscribe('ArrowDown', () => {
+      // $FlowExpectedError[incompatible-call]
       setCurrentIndex((pCurrentIndex) => {
         if (typeof pCurrentIndex === 'undefined' || pCurrentIndex >= listLength - 1) {
           return 0;

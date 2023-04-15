@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Box, useTheme } from 'startown';
 
-import { routes, AppBarNotificationContext } from 'utils';
+import { routes, AppBarNotificationContext, type AppBarNotificationT } from 'utils';
 
 import ComponentApi from './ComponentApi';
 import Header from './Header';
@@ -15,7 +15,7 @@ import SidePanel from './SidePanel';
 const App = (): React.Node => {
   const theme = useTheme();
   const [menuOpen, setMenuOpen] = React.useState(window.innerWidth > theme.mobileWidth);
-  const [appBarMessage, setAppBarMessage] = React.useState();
+  const [appBarMessage, setAppBarMessage] = React.useState<AppBarNotificationT>();
   const [appBarHeight, setAppBarHeight] = React.useState(0);
 
   const appBarValue = React.useMemo(() => ({

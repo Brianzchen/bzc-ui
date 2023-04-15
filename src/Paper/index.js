@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
+import type { ThemeT, StylerT } from '../types';
 
 export type PaperT = {
   ...BoxT,
@@ -22,7 +23,7 @@ const Paper: React$AbstractComponent<PaperT, HTMLElement> = React.forwardRef<Pap
   ...otherProps
 }: PaperT, ref) => {
   const styles = {
-    paper: (theme, styler) => styler(style, theme, {
+    paper: (theme: ThemeT, styler: StylerT) => styler(style, theme, {
       boxShadow: theme.shadows[elevation],
       backgroundColor: theme.colors.monoInverse(),
     }),

@@ -5,9 +5,14 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import { useListNavigator } from '..';
 
 describe('useListNavigator', () => {
-  const onEnter = jest.fn();
-  const onEsc = jest.fn();
+  const onEnter: {
+    (): () => void,
+    +mockClear: () => void,
+    ...
+  } = jest.fn();
+  const onEsc: () => void = jest.fn();
   const TestComp = () => {
+    // $FlowExpectedError[incompatible-call]
     const listNav = useListNavigator(4, onEnter, onEsc);
 
     return (

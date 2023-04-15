@@ -7,7 +7,7 @@ import useTheme from '../useTheme';
 type Props = {|
   compTestId: (string) => string,
   onClose: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  color: string,
+  color?: string,
 |};
 
 const CloseButton = ({

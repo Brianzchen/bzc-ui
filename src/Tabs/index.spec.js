@@ -32,7 +32,7 @@ describe('<Tabs />', () => {
     const tabs = [
       {
         value: lorem.word(),
-        onClick: jest.fn(),
+        onClick: (jest.fn(): () => void),
         selected: false,
         'data-testid': 'test-tab',
       },
@@ -53,7 +53,7 @@ describe('<Tabs />', () => {
     const tabs = [
       {
         value: lorem.sentence(),
-        onClick: jest.fn(),
+        onClick: (jest.fn(): () => void),
         selected: false,
         'data-testid': 'test-tab',
       },
@@ -73,7 +73,7 @@ describe('<Tabs />', () => {
       {
         value: 'not this',
         children: 'this',
-        onClick: jest.fn(),
+        onClick: (jest.fn(): () => void),
         selected: false,
         'data-testid': 'test-tab',
       },

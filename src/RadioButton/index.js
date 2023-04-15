@@ -90,7 +90,7 @@ const RadioButton: React$AbstractComponent<RadioButtonT, HTMLElement> = React.fo
 }: RadioButtonT, ref) => {
   const internalRef = React.useRef();
   const activeRef = ref || internalRef;
-  const inputRef = React.useRef();
+  const inputRef = React.useRef<?HTMLElement>();
   const theme = useTheme();
   const compTestId = useComponentTestId(prefixTestId ?? 'RadioButton');
   const { formWrapped, formValues, setFormValues } = useFormValues();
@@ -124,7 +124,12 @@ const RadioButton: React$AbstractComponent<RadioButtonT, HTMLElement> = React.fo
     }
   }, [id, error]);
 
-  const triggerChange = (e, options) => {
+  const triggerChange = (
+    e: SyntheticEvent<HTMLInputElement>,
+    options: {|
+      unformat: (v: string) => string,
+    |},
+  ): void => {
     onChange && onChange(
       e,
       {

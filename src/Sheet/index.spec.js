@@ -6,7 +6,7 @@ import Sheet from '.';
 
 describe('<Sheet />', () => {
   it('renders child render function', () => {
-    const onCloseFunc = jest.fn();
+    const onCloseFunc: () => void = jest.fn();
     const ExpectedElement = ({ onClick }: {|
       onClick: (...args: Array<any>) => any,
     |}) => (
@@ -15,7 +15,7 @@ describe('<Sheet />', () => {
         onClick={onClick}
       />
     );
-    const ref = React.createRef();
+    const ref = React.createRef<?HTMLElement>();
 
     render(
       <>

@@ -2,6 +2,7 @@
 import { lorem, datatype } from '@faker-js/faker';
 
 import styler from '.';
+import type { StylerT, ThemeT } from '../types';
 
 describe('styler', () => {
   const baseTheme = {
@@ -29,7 +30,7 @@ describe('styler', () => {
       },
     };
 
-    const style = (theme) => ({
+    const style = (theme: ThemeT) => ({
       test: theme.colors.primary(),
       another: 'thing',
     });
@@ -52,11 +53,11 @@ describe('styler', () => {
       },
     };
 
-    const innerStyle = (theme) => ({
+    const innerStyle = (theme: ThemeT) => ({
       superTest: theme.colors.primary(),
     });
 
-    const style = (theme, innerStyled) => innerStyled(innerStyle, theme, {
+    const style = (theme: ThemeT, innerStyled: StylerT) => innerStyled(innerStyle, theme, {
       color: 'hi',
       zIndex: theme.elevations.hover,
     });
@@ -90,7 +91,7 @@ describe('styler', () => {
       },
     };
 
-    const style = (theme) => ({
+    const style = (theme: ThemeT) => ({
       outline: 'Universe',
       height: theme.spacing(1),
       '::-ms-clear': {
@@ -145,7 +146,7 @@ describe('styler', () => {
         tabletWidth: datatype.number(),
       };
 
-      const style = (theme) => ({
+      const style = (theme: ThemeT) => ({
         test: '123',
         [`@media (max-width: ${theme.mobileWidth}px)`]: {
           color: 'black',
@@ -171,7 +172,7 @@ describe('styler', () => {
         tabletWidth: datatype.number(),
       };
 
-      const style = (theme) => ({
+      const style = (theme: ThemeT) => ({
         test: '123',
         [`@media (min-width: ${theme.mobileWidth + 1}px)`]: {
           color: 'black',
@@ -197,7 +198,7 @@ describe('styler', () => {
         tabletWidth: datatype.number(),
       };
 
-      const style = (theme) => ({
+      const style = (theme: ThemeT) => ({
         test: '123',
         [`@media (max-width: ${theme.tabletWidth}px)`]: {
           color: 'black',
@@ -223,7 +224,7 @@ describe('styler', () => {
         tabletWidth: datatype.number(),
       };
 
-      const style = (theme) => ({
+      const style = (theme: ThemeT) => ({
         test: '123',
         [`@media (min-width: ${theme.tabletWidth + 1}px)`]: {
           color: 'black',

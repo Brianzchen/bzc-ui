@@ -6,7 +6,7 @@ import useComponentTestId from '../internal/hooks/useComponentTestId';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
-import type { StyleT } from '../types';
+import type { StyleT, StylerT, ThemeT } from '../types';
 
 export type StackT = {
   ...BoxT,
@@ -42,7 +42,7 @@ const Stack: React$AbstractComponent<StackT, HTMLElement> = React.forwardRef(({
   const compTestId = useComponentTestId('Stack');
 
   const styles = {
-    item: (firstEle) => (theme, styler) => styler(itemStyle, theme, {
+    item: (firstEle: boolean) => (theme: ThemeT, styler: StylerT) => styler(itemStyle, theme, {
       ...space && !firstEle
         ? {
           marginTop: compileSpace(space, theme.spacing),
@@ -70,7 +70,7 @@ const Stack: React$AbstractComponent<StackT, HTMLElement> = React.forwardRef(({
           return null;
         }
 
-        const createItem = (child) => {
+        const createItem = (child: mixed) => {
           const isFirstChild = !hasRenderedFirstChild;
           hasRenderedFirstChild = true;
 
@@ -86,7 +86,7 @@ const Stack: React$AbstractComponent<StackT, HTMLElement> = React.forwardRef(({
         };
 
         if (obj.type === React.Fragment) {
-          return React.Children.map(obj.props.children, (o) => (
+          return React.Children.map((obj: any).props.children, (o) => (
             createItem(o)
           ));
         }

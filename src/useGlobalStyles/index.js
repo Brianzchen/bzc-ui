@@ -54,6 +54,7 @@ const useGlobalStyles = (styles: StylesT = {}, condition?: boolean): void => {
       const compiledStyles = Object.keys(styles).reduce((acc, cur) => {
         const style = styler(styles[cur], theme);
         const name = getStyleName(cur);
+        // $FlowExpectedError[prop-missing]
         acc[`${name}`] = style;
         return acc;
       }, {});
@@ -68,6 +69,7 @@ const useGlobalStyles = (styles: StylesT = {}, condition?: boolean): void => {
 
         if (element) {
           element.classList.add(className);
+          // $FlowExpectedError[prop-missing]
           classList[styleName] = className;
         }
       });

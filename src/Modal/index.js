@@ -82,8 +82,8 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
   const isLarge = variant === 'form';
   const headerHeight = hHeight * theme.scale;
 
-  const [mouseDownEle, setMouseDownEle] = React.useState();
-  const [mouseUpEle, setMouseUpEle] = React.useState();
+  const [mouseDownEle, setMouseDownEle] = React.useState<EventTarget | void>();
+  const [mouseUpEle, setMouseUpEle] = React.useState<EventTarget | void>();
   const [bodyMaxHeight, setBodyMaxHeight] = React.useState(
     getBodyMaxHeight(
       title ? headerHeight : 0,
@@ -199,11 +199,11 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
 
   // Track element that is interacted with during mousedown and mouseup
   React.useEffect(() => {
-    const trackMouseDown = (event) => {
+    const trackMouseDown: MouseEventListener = (event) => {
       setMouseDownEle(event.target);
     };
 
-    const trackMouseUp = (event) => {
+    const trackMouseUp: MouseEventListener = (event) => {
       setMouseUpEle(event.target);
     };
 
@@ -218,7 +218,9 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
     };
   });
 
-  const handleClose = (isOverlay = false) => (event) => {
+  const handleClose = (isOverlay: boolean = false) => (
+    event: SyntheticEvent<HTMLButtonElement>,
+  ) => {
     // Only close if user is confidently clicking on a close element
     // test note: Cannot reliably test mouse events with jest so we remove this check during testing
     if ((isOverlay ? (event.target === mouseDownEle && event.target === mouseUpEle) : true)

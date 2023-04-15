@@ -53,7 +53,7 @@ const Responsive: React$AbstractComponent<ResponsiveT, HTMLElement> = React.forw
   const activeRef = ref ?? internalRef;
   const theme = useTheme();
 
-  const [width, setWidth] = React.useState();
+  const [width, setWidth] = React.useState<number | void>();
 
   usePositioning(() => {
     let cacheWidth;
@@ -77,7 +77,10 @@ const Responsive: React$AbstractComponent<ResponsiveT, HTMLElement> = React.forw
   })).reduce<InternalBreakpointsT>((acc, cur) => ({
     ...acc,
     [`${cur.key}`]: cur.value,
-  }), {});
+  }), ({
+    mobile: false,
+    tablet: false,
+  }: InternalBreakpointsT));
 
   return (
     <Box

@@ -144,8 +144,9 @@ const Select: React$AbstractComponent<SelectT, HTMLElement> = React.forwardRef((
     }
   }, [value, isValid, isError]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: SyntheticEvent<HTMLButtonElement>) => {
     onChange && onChange(e);
+    // $FlowFixMe[prop-missing] TODO should use `currentTarget` instead of `target` but need to confirm
     const newValue = e.target.value;
     formWrapped && name && setFormValues(
       name,
@@ -206,11 +207,11 @@ const Select: React$AbstractComponent<SelectT, HTMLElement> = React.forwardRef((
         onChange={handleChange}
         disabled={disabled}
         style={styles.select}
-        onFocus={(e) => {
+        onFocus={(e: SyntheticEvent<>) => {
           setFocused(true);
           onFocus && onFocus(e);
         }}
-        onBlur={(e) => {
+        onBlur={(e: SyntheticEvent<>) => {
           setFocused(false);
           onBlur && onBlur(e);
         }}

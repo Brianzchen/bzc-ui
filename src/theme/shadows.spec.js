@@ -6,7 +6,7 @@ describe('shadows', () => {
     colors: {
       monoPrimary: () => '#191919',
     },
-    spacing: (space) => {
+    spacing: (space: number) => {
       switch (space) {
         case 1:
           return 4;

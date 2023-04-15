@@ -38,7 +38,10 @@ const colorEnd = '::';
 
 type SplitT = Array<RegularT | BoldT | LinkT | NewLineT>;
 
-const findLinks = (split, underlineDefault: boolean) => split.reduce((acc, cur: any) => {
+const findLinks = (
+  split: Array<{ [key: string]: any }>,
+  underlineDefault: boolean,
+): Array<{ [key: string]: any }> => split.reduce((acc, cur: any) => {
   const hasLink = cur.value.indexOf(linkMid);
   if (hasLink > -1
       && cur.value.indexOf(linkStart) < hasLink
@@ -68,10 +71,12 @@ const findLinks = (split, underlineDefault: boolean) => split.reduce((acc, cur: 
     ...acc,
     cur,
   ];
-}, []);
+}, ([]: Array<{ [key: string]: any }>));
 
-const findColors = (split): SplitT => {
+const findColors = (split: Array<{ [key: string]: any }>): SplitT => {
+  // $FlowFixMe[definition-cycle]
   const totalColorSplits = [];
+  // $FlowFixMe[incompatible-call]
   const newSplit = split.reduce((acc, cur) => {
     const { value } = cur;
     const index = [];
@@ -162,7 +167,7 @@ const findColors = (split): SplitT => {
       ...acc,
       cur,
     ];
-  }, []);
+  }, ([]: SplitT));
   return newSplit;
 };
 
@@ -172,6 +177,7 @@ const findNewLine = (split: SplitT): SplitT => (
       const s = cur.value.split('\n');
       return [
         ...acc,
+        // $FlowFixMe[missing-local-annot]
         ...s.reduce((a, c, i) => {
           if (i === 0) {
             return [
@@ -200,12 +206,13 @@ const findNewLine = (split: SplitT): SplitT => (
       ...acc,
       cur,
     ];
-  }, [])
+  }, ([]: SplitT))
 );
 
+// $FlowFixMe[missing-local-annot]
 const addBold = (obj, i) => <b key={i}>{obj.value}</b>;
 
-const addLink = (obj: LinkT, i) => (
+const addLink = (obj: LinkT, i: number) => (
   <Link
     key={i}
     href={obj.href}
@@ -222,6 +229,7 @@ export default (
     underline: boolean,
   |},
 ): Array<React.Node> | React.Node => {
+  // $FlowFixMe[missing-local-annot]
   const boldSplit = child.split(bold).reduce((acc, cur, index, array) => {
     const shouldBold = index % 2 === 1;
     if (shouldBold) {

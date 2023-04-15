@@ -115,6 +115,7 @@ const Typography: React$AbstractComponent<TypographyT, HTMLElement> = React.forw
       color={color}
     >
       {stringParse
+        // $FlowFixMe[incompatible-type]
         ? React.Children.map(children, (child) => (
           typeof child === 'string'
             ? genStringTree(child, { underline: parent === 'tooltip' })

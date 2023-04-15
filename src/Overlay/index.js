@@ -41,7 +41,7 @@ const Overlay: React$AbstractComponent<OverlayT, HTMLElement> = React.forwardRef
   const backgroundRef = React.useRef();
   const activeRef = ref || backgroundRef;
 
-  const handleClick = (event) => {
+  const handleClick = (event: SyntheticEvent<HTMLButtonElement>) => {
     if (activeRef.current && event.target === activeRef.current) {
       onClick && onClick(event);
     }

@@ -9,7 +9,7 @@ import type { TypePropT } from './types';
  * Otherwise default to the `as` supplied by the consumer.
  */
 export default (type: TypePropT, as: any, theme: ThemeT): 'h1' | 'h2' | 'h3' | any => {
-  const getTag = (fontType) => {
+  const getTag = (fontType: string) => {
     switch (fontType) {
       case 'displayTitle1':
       case 'heading1':

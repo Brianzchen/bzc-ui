@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { types } from 'startown';
 
-type AppBarNotificationT = void | {|
+export type AppBarNotificationT = void | {|
   variant: types.NotificationVariantT,
   message: string,
 |};
