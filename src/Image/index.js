@@ -18,7 +18,7 @@ export type ImageT = {
 };
 
 /**
- * A simple wrapper component of the `img` tag to enable more efficient development while exposing the startown style engine.
+ * A simple wrapper component of the `img` tag to enable more efficient development while exposing the bzc-ui style engine.
  *
  * This component requires `src` and `alt` props to be supplied through it's type checkers to ensure accessibility best practices.
  */

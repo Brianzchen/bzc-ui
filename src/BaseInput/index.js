@@ -73,7 +73,7 @@ export type BaseInputT = {
 };
 
 /**
- * A basic input element with all styles removed and support for startown's styling API.
+ * A basic input element with all styles removed and support for bzc-ui's styling API.
  */
 const BaseInput: React$AbstractComponent<BaseInputT, HTMLElement> = React.forwardRef<BaseInputT, HTMLElement>(({
   style = {},

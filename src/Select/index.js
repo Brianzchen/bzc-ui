@@ -17,7 +17,7 @@ import type { StyleT } from '../types';
 export type SelectT = {
   ...BaseSelectT,
   /** unique identifier for the field, this is necessary
-   * when used with the startown `Form` component
+   * when used with the bzc-ui `Form` component
    */
   name?: string,
   /**

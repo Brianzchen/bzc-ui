@@ -15,7 +15,7 @@ import {
   Button,
   Stack,
   Typography,
-} from 'startown';
+} from 'bzc-ui';
 
 import Examples from './Examples';
 import PropsTable from './PropsTable';

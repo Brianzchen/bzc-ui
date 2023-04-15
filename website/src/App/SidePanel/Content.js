@@ -10,7 +10,7 @@ import axios from 'axios';
 
 import { routes } from 'utils';
 
-import { Accordion, CardButton, useTheme } from 'startown';
+import { Accordion, CardButton, useTheme } from 'bzc-ui';
 
 import { type ComponentMapT } from '../ComponentApi';
 import sidePanelContent from '../Pages/side-panel.json';

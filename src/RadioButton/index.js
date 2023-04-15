@@ -22,7 +22,7 @@ export type RadioButtonT = {
   /** the text that shows next to the radio button */
   children?: React.Node,
   /** unique identifier for the field, this is necessary
-   * when used with the startown `Form` component
+   * when used with the bzc-ui `Form` component
    */
   name?: string,
   /**
@@ -37,7 +37,7 @@ export type RadioButtonT = {
   /** whether or not radio button is selected */
   checked?: boolean,
   /**
-   * used with the form context when wrapped in a startown `Form` component
+   * used with the form context when wrapped in a bzc-ui `Form` component
    * to define the initial checked value of a radio button group
    */
   initialChecked?: boolean,
@@ -120,7 +120,7 @@ const RadioButton: React$AbstractComponent<RadioButtonT, HTMLElement> = React.fo
         },
       );
     } else if (initialChecked) {
-      console.error('`initialChecked` should only be used in RadioButton when wrapped in a startown Form component');
+      console.error('`initialChecked` should only be used in RadioButton when wrapped in a bzc-ui Form component');
     }
   }, [id, error]);
 

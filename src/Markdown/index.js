@@ -17,7 +17,7 @@ export type MarkdownT = {
 
 /**
  * Takes a string of markdown content and renders
- * it as jsx using startown components to match application styling
+ * it as jsx using bzc-ui components to match application styling
  */
 const Markdown: React$AbstractComponent<MarkdownT, HTMLElement> = React.forwardRef<MarkdownT, HTMLElement>(({
   content,

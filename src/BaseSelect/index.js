@@ -14,7 +14,7 @@ export type BaseSelectT = {
 };
 
 /**
- * A basic select element with all styles removed and support startown's styling api.
+ * A basic select element with all styles removed and support bzc-ui's styling api.
  */
 const BaseSelect: React$AbstractComponent<BaseSelectT, HTMLElement> = React.forwardRef<BaseSelectT, HTMLElement>(({
   style = {},

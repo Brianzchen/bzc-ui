@@ -45,7 +45,7 @@ export type BoxT = {
 };
 
 /**
- * The Box component is the lowest level base components in startown implementing
+ * The Box component is the lowest level base components in bzc-ui implementing
  * the theme engine and is a direct replacement for primitive element tags.
  */
 const Box: React$AbstractComponent<BoxT, HTMLElement> = React.forwardRef<BoxT, HTMLElement>(({

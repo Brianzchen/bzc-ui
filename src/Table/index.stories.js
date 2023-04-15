@@ -5,7 +5,7 @@ import {
   Table,
   TableRow,
   TableData,
-} from 'startown';
+} from 'bzc-ui';
 
 export const Basic = (): React.Node => (
   <Table>

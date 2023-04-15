@@ -13,7 +13,7 @@ import {
   Link,
   Typography,
   useTheme,
-} from 'startown';
+} from 'bzc-ui';
 
 import Star from './Star';
 
@@ -44,7 +44,7 @@ const Home = (): React.Node => {
             fontFamily: '\'Comfortaa\', cursive',
           }}
         >
-          startown
+          bzc-ui
           <Badge
             style={{
               position: 'absolute',

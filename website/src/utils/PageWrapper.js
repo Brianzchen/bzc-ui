@@ -6,7 +6,7 @@ import {
   Typography,
   Gap,
   useTheme,
-} from 'startown';
+} from 'bzc-ui';
 
 type Props = {|
   title: React.Node,

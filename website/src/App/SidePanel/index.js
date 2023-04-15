@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Media from 'react-media';
 
-import { Box, Drawer, useTheme } from 'startown';
+import { Box, Drawer, useTheme } from 'bzc-ui';
 
 import Content from './Content';
 

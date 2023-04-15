@@ -28,6 +28,7 @@ const off = (
 // $FlowExpectedError[recursive-definition]
 const isDescendant = (element: any, target: EventTarget) => {
   if (target !== null && target instanceof Node) {
+    // $FlowExpectedError[incompatible-call]
     return element === target || isDescendant(element, target.parentNode);
   }
   return false;

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { Box, useTheme } from 'startown';
+import { Box, useTheme } from 'bzc-ui';
 
 import { routes, AppBarNotificationContext, type AppBarNotificationT } from 'utils';
 

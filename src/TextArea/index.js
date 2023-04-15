@@ -20,7 +20,7 @@ export type TextAreaT = {
   ...$Exact<jsx$HTMLTextAreaElement>,
   /**
    * unique identifier for the field, this is necessary
-   * when used with the startown `Form` component
+   * when used with the bzc-ui `Form` component
    */
   name?: string,
   /** overrides styling for the title element */

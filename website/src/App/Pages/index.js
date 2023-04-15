@@ -7,7 +7,7 @@ import { PageWrapper, routes, toKebabCase } from 'utils';
 
 import {
   Markdown,
-} from 'startown';
+} from 'bzc-ui';
 
 import sidePanelContent from './side-panel.json';
 

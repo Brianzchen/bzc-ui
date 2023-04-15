@@ -4,7 +4,7 @@ import * as React from 'react';
 import {
   Button,
   Modal,
-} from 'startown';
+} from 'bzc-ui';
 
 export const Basic = (): React.Node => {
   const [open, setOpen] = React.useState(false);

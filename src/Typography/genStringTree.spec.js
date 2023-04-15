@@ -117,7 +117,7 @@ describe('genStringTree', () => {
   });
 
   it('generates links with all params passed', () => {
-    const text = 'this should be **bold** and it [links]((https://www.google.com/search?q=startown&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8|true|underline))';
+    const text = 'this should be **bold** and it [links]((https://www.google.com/search?q=bzc-ui&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8|true|underline))';
     expect(JSON.stringify(genStringTree(text, defaultOptions))).toBe(JSON.stringify([
       'this should be ',
       <b key="1">
@@ -126,7 +126,7 @@ describe('genStringTree', () => {
       ' and it ',
       <Link
         key="3"
-        href="https://www.google.com/search?q=startown&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8"
+        href="https://www.google.com/search?q=bzc-ui&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8"
         newTab
         variant="underline"
       >
@@ -137,7 +137,7 @@ describe('genStringTree', () => {
   });
 
   it('renders link as underline by default if option passed in', () => {
-    const text = 'this should be **bold** and it [links]((https://www.google.com/search?q=startown&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8))';
+    const text = 'this should be **bold** and it [links]((https://www.google.com/search?q=bzc-ui&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8))';
     expect(JSON.stringify(genStringTree(text, { underline: true }))).toBe(JSON.stringify([
       'this should be ',
       <b key="1">
@@ -146,7 +146,7 @@ describe('genStringTree', () => {
       ' and it ',
       <Link
         key="3"
-        href="https://www.google.com/search?q=startown&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8"
+        href="https://www.google.com/search?q=bzc-ui&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8"
         newTab={false}
         variant="underline"
       >
@@ -157,7 +157,7 @@ describe('genStringTree', () => {
   });
 
   it('can render links as regular even if underline has been defaulted', () => {
-    const text = 'this should be **bold** and it [links]((https://www.google.com/search?q=startown&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8|false|regular))';
+    const text = 'this should be **bold** and it [links]((https://www.google.com/search?q=bzc-ui&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8|false|regular))';
     expect(JSON.stringify(genStringTree(text, { underline: true }))).toBe(JSON.stringify([
       'this should be ',
       <b key="1">
@@ -166,7 +166,7 @@ describe('genStringTree', () => {
       ' and it ',
       <Link
         key="3"
-        href="https://www.google.com/search?q=startown&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8"
+        href="https://www.google.com/search?q=bzc-ui&rlz=1C5CHFA_enAU919AU919&oq=sta&aqs=chrome.0.69i59j69i64j5j69i60j5i44l4.3622j0j7&sourceid=chrome&ie=UTF-8"
         newTab={false}
         variant="regular"
       >

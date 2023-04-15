@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { types } from 'startown';
+import { types } from 'bzc-ui';
 
 export type AppBarNotificationT = void | {|
   variant: types.NotificationVariantT,

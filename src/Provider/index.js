@@ -67,7 +67,7 @@ export type ProviderT = {|
   /** whether keyboard focus effects should be enabled for all child components */
   focusEffect?: boolean,
   /**
-   * A multiplier value to increase the scale of all startown components,
+   * A multiplier value to increase the scale of all bzc-ui components,
    * spacing, and fonts by a given amount
    */
   scale?: number,
@@ -87,7 +87,7 @@ export type ProviderT = {|
 |};
 
 /**
- * Use the provider to override default values and apply changes across across startown
+ * Use the provider to override default values and apply changes across across bzc-ui
  * components such as colors, scale and more.
  */
 const Provider = (props: ProviderT): React.Node => {

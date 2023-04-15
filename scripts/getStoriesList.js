@@ -4,7 +4,7 @@ const rootPath = require('app-root-path');
 
 const src = `${rootPath.toString()}/src`;
 
-const exists = (o: string) => fs.existsSync(`${rootPath}/src/${o}/index.stories.js`);
+const exists = (o/*: string */) => fs.existsSync(`${rootPath}/src/${o}/index.stories.js`);
 
 fs.readdir(src, (err, files) => {
   if (err) {

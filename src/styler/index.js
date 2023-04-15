@@ -5,7 +5,7 @@ import type { StylerT } from '../types';
 
 /**
  * A small function that allows you to create fully custom components
- * that mimic the enables the styling api of startown.
+ * that mimic the enables the styling api of bzc-ui.
  */
 const styler: StylerT = (style, theme, target = {}) => {
   const compiledStyle = style instanceof Function
@@ -37,7 +37,7 @@ const styler: StylerT = (style, theme, target = {}) => {
     },
   ];
 
-  // parse and apply startown media shorthands
+  // parse and apply bzc-ui media shorthands
   const applyShorthands = (obj: any) => {
     const shortHandObject = { ...obj };
     for (let i = 0, len = type.length; i < len; i++) {
@@ -52,16 +52,16 @@ const styler: StylerT = (style, theme, target = {}) => {
       for (let j = 0, leng = sizes.length; j < leng; j++) {
         const { key: sizeKey, value: sizeValue } = sizes[j];
 
-        const startownMedia = `${typeKey}${sizeKey})`;
+        const bzcMedia = `${typeKey}${sizeKey})`;
         const realMedia = `${typeValue}${sizeValue + offset}px)`;
-        const mediaObj = shortHandObject[startownMedia];
+        const mediaObj = shortHandObject[bzcMedia];
 
         if (typeof mediaObj !== 'undefined') {
           shortHandObject[realMedia] = {
             ...shortHandObject[realMedia],
             ...mediaObj,
           };
-          delete shortHandObject[startownMedia];
+          delete shortHandObject[bzcMedia];
         }
       }
     }

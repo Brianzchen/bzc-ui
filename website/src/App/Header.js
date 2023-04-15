@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import pkgJson from 'pkgJson';
 
-import { Anchor, AppBar, Icon } from 'startown';
+import { Anchor, AppBar, Icon } from 'bzc-ui';
 
 import { AppBarNotificationContext } from '../utils';
 

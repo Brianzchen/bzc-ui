@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { Box, useTheme } from 'startown';
+import { Box, useTheme } from 'bzc-ui';
 
 type Props = {|
   left?: number,

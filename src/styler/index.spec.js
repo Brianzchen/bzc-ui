@@ -140,7 +140,7 @@ describe('styler', () => {
   });
 
   describe('media shorthands', () => {
-    it('accepts a startown shorthand max sm', () => {
+    it('accepts a bzc-ui shorthand max sm', () => {
       const fakeTheme = {
         mobileWidth: datatype.number(),
         tabletWidth: datatype.number(),
@@ -166,7 +166,7 @@ describe('styler', () => {
       });
     });
 
-    it('accepts a startown shorthand min sm', () => {
+    it('accepts a bzc-ui shorthand min sm', () => {
       const fakeTheme = {
         mobileWidth: datatype.number(),
         tabletWidth: datatype.number(),
@@ -192,7 +192,7 @@ describe('styler', () => {
       });
     });
 
-    it('accepts a startown shorthand max md', () => {
+    it('accepts a bzc-ui shorthand max md', () => {
       const fakeTheme = {
         mobileWidth: datatype.number(),
         tabletWidth: datatype.number(),
@@ -218,7 +218,7 @@ describe('styler', () => {
       });
     });
 
-    it('accepts a startown shorthand min md', () => {
+    it('accepts a bzc-ui shorthand min md', () => {
       const fakeTheme = {
         mobileWidth: datatype.number(),
         tabletWidth: datatype.number(),

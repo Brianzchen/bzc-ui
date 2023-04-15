@@ -30,7 +30,7 @@ const calcCalendarDate = (value?: string | number) => {
 export type InputT = {
   ...BaseInputT,
   /** unique identifier for the field, this is necessary
-   * when used with the startown `Form` component
+   * when used with the bzc-ui `Form` component
    */
   name?: string,
   /**

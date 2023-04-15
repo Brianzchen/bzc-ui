@@ -6,7 +6,7 @@ import {
   Tabs,
   Typography,
   useTheme,
-} from 'startown';
+} from 'bzc-ui';
 
 import * as storyCache from './storyCache';
 import { AppBarNotificationContext } from '../../utils';

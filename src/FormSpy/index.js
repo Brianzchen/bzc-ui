@@ -44,7 +44,7 @@ const FormSpy = ({
 
   if (!children) return null;
   if (!formWrapped) {
-    console.error('`FormSpy` must be a child of the startown `Form` component');
+    console.error('`FormSpy` must be a child of the bzc-ui `Form` component');
     return null;
   }
 

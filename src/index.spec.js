@@ -2,9 +2,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import * as startown from '.';
+import * as bzcUi from '.';
 
-describe('startown', () => {
+describe('bzc-ui', () => {
   const exclusions = ['internal', 'theme'];
 
   it('exports all top level functions and components', () => {
@@ -13,8 +13,8 @@ describe('startown', () => {
     dirs.forEach((dir) => {
       const stat = fs.lstatSync(path.join(__dirname, dir));
       if (stat.isDirectory() && !exclusions.includes(dir)) {
-        if (startown[dir]) {
-          expect(startown[dir]).toBeDefined();
+        if (bzcUi[dir]) {
+          expect(bzcUi[dir]).toBeDefined();
         } else {
           throw new Error(`\`${dir}\` is missing a top level export`);
         }
@@ -23,15 +23,15 @@ describe('startown', () => {
   });
 
   it('can import types', () => {
-    const color: startown.types.StyleObjT = {
+    const color: bzcUi.types.StyleObjT = {
       ...null,
     };
 
     expect(color.display).toBe(undefined);
   });
 
-  Object.keys(startown).forEach((key) => {
-    const module = startown[key];
+  Object.keys(bzcUi).forEach((key) => {
+    const module = bzcUi[key];
 
     if (key.charAt(0).toUpperCase() === key.charAt(0)) {
       it(`${key} has a displayName`, () => {

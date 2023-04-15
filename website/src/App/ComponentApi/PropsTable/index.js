@@ -6,7 +6,7 @@ import {
   Table,
   TableData,
   TableRow,
-} from 'startown';
+} from 'bzc-ui';
 
 import getType from './getType';
 import type { ComponentPropsT } from '..';
