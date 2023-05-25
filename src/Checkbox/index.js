@@ -125,6 +125,7 @@ const Checkbox: React$AbstractComponent<CheckboxT, HTMLElement> = React.forwardR
       display: 'flex',
       alignItems: 'center',
       outline: 'none',
+      cursor: disabled ? 'default' : 'pointer',
     }),
     input: {
       position: 'absolute',
