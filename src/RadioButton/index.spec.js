@@ -47,12 +47,12 @@ describe('<RadioButton />', () => {
       </Provider>,
     );
 
-    expect(screen.queryByTestId('st-radio-button-focus-effect')).toBe(null);
+    expect(screen.queryByTestId('bzc-radio-button-focus-effect')).toBe(null);
   });
 
   it('renders focus element by default', () => {
     render(<RadioButton {...props} />);
 
-    expect(screen.getByTestId('st-radio-button-focus-effect').length).not.toBe(null);
+    expect(screen.getByTestId('bzc-radio-button-focus-effect').length).not.toBe(null);
   });
 });

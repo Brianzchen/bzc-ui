@@ -84,7 +84,7 @@ const Typography: React$AbstractComponent<TypographyT, HTMLElement> = React.forw
         lineHeight: lg.leading,
         margin: 0,
         textAlign: center ? 'center' : 'inherit',
-        ':st-max(sm)': {
+        ':bzc-max(sm)': {
           ...sm
             ? {
               fontSize: sm.px,
@@ -93,7 +93,7 @@ const Typography: React$AbstractComponent<TypographyT, HTMLElement> = React.forw
             }
             : {},
         },
-        ':st-max(md)': {
+        ':bzc-max(md)': {
           ...md
             ? {
               fontSize: md.px,

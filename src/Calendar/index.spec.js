@@ -34,11 +34,11 @@ describe('<Calendar />', () => {
       />,
     );
 
-    const targetDateButton = screen.getByTestId('st-calendar-date-2020-05-10');
+    const targetDateButton = screen.getByTestId('bzc-calendar-date-2020-05-10');
 
     getCalendarData.forEach((row) => {
       row.forEach(({ year, month, date }) => {
-        const dateButton = screen.getByTestId(`st-calendar-date-${formatTimeString(year, month, date)}`);
+        const dateButton = screen.getByTestId(`bzc-calendar-date-${formatTimeString(year, month, date)}`);
         expect(dateButton.textContent).toBe(date.toString());
       });
     });
@@ -71,7 +71,7 @@ describe('<Calendar />', () => {
     );
 
     getCalendarData.forEach((row, rowIndex) => {
-      screen.getByTestId(`st-calendar-week-${rowIndex + 1}`).querySelectorAll('a').forEach((button, buttonIndex) => {
+      screen.getByTestId(`bzc-calendar-week-${rowIndex + 1}`).querySelectorAll('a').forEach((button, buttonIndex) => {
         const { date, month, year } = getCalendarData[rowIndex][buttonIndex];
 
         expect(button.getAttribute('href')).toBe(generateUrl(year, month, date));
@@ -88,7 +88,7 @@ describe('<Calendar />', () => {
 
     const targetMonth = 6;
 
-    const element = screen.getByTestId('st-calendar-select-month');
+    const element = screen.getByTestId('bzc-calendar-select-month');
 
     if (element instanceof HTMLSelectElement) {
       fireEvent.change(element, { target: { value: targetMonth } });
@@ -105,7 +105,7 @@ describe('<Calendar />', () => {
         <Calendar />,
       );
 
-      const element = screen.getByTestId('st-calendar-select-year');
+      const element = screen.getByTestId('bzc-calendar-select-year');
 
       if (element instanceof HTMLSelectElement) {
         fireEvent.change(element, { target: { value: yearsArray[1] } });
@@ -124,8 +124,8 @@ describe('<Calendar />', () => {
         />,
       );
 
-      const monthElement = screen.getByTestId('st-calendar-select-month');
-      const yearElement = screen.getByTestId('st-calendar-select-year');
+      const monthElement = screen.getByTestId('bzc-calendar-select-month');
+      const yearElement = screen.getByTestId('bzc-calendar-select-year');
 
       if (monthElement instanceof HTMLSelectElement
           && yearElement instanceof HTMLSelectElement) {
@@ -153,8 +153,8 @@ describe('<Calendar />', () => {
         />,
       );
 
-      const monthElement = screen.getByTestId('st-calendar-select-month');
-      const yearElement = screen.getByTestId('st-calendar-select-year');
+      const monthElement = screen.getByTestId('bzc-calendar-select-month');
+      const yearElement = screen.getByTestId('bzc-calendar-select-year');
 
       if (monthElement instanceof HTMLSelectElement
           && yearElement instanceof HTMLSelectElement) {
@@ -166,7 +166,7 @@ describe('<Calendar />', () => {
         expect(yearElement.value).toBe(yearsArray[1].toString());
 
         // change to minDate's year, month's number should be changed to minDate's month
-        fireEvent.change(screen.getByTestId('st-calendar-select-year'), { target: { value: yearsArray[0] } });
+        fireEvent.change(screen.getByTestId('bzc-calendar-select-year'), { target: { value: yearsArray[0] } });
         expect(yearElement.value).toBe(yearsArray[0].toString());
         expect(monthElement.value).toBe(getTime(minDate).month.toString());
       }

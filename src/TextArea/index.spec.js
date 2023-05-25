@@ -25,7 +25,7 @@ describe('<TextArea />', () => {
 
     render(<TextArea title={title} />);
 
-    expect(screen.getByTestId('st-text-area-title').textContent).toBe(title);
+    expect(screen.getByTestId('bzc-text-area-title').textContent).toBe(title);
   });
 
   it('can get ref of underlying textarea', (done) => {

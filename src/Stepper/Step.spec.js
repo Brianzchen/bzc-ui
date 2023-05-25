@@ -15,7 +15,7 @@ describe('<Step />', () => {
       />,
     );
 
-    expect(screen.getByTestId('st-stepper-tick')).not.toBe(null);
+    expect(screen.getByTestId('bzc-stepper-tick')).not.toBe(null);
   });
 
   it('renders the number when unselected', () => {
@@ -28,7 +28,7 @@ describe('<Step />', () => {
       />,
     );
 
-    expect(screen.getByTestId('st-stepper-step').textContent).toBe(`${expectedStep}`);
+    expect(screen.getByTestId('bzc-stepper-step').textContent).toBe(`${expectedStep}`);
   });
 
   it('renders the number when selected', () => {
@@ -41,6 +41,6 @@ describe('<Step />', () => {
       />,
     );
 
-    expect(screen.getByTestId('st-stepper-step').textContent).toBe(`${expectedStep}`);
+    expect(screen.getByTestId('bzc-stepper-step').textContent).toBe(`${expectedStep}`);
   });
 });

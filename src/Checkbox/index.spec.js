@@ -17,7 +17,7 @@ describe('<Checkbox />', () => {
       />,
     );
 
-    fireEvent.click(screen.getByTestId('st-checkbox-input'));
+    fireEvent.click(screen.getByTestId('bzc-checkbox-input'));
 
     expect(onChange).toHaveBeenCalled();
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -33,7 +33,7 @@ describe('<Checkbox />', () => {
       />,
     );
 
-    fireEvent.click(screen.getByTestId('st-checkbox-input'));
+    fireEvent.click(screen.getByTestId('bzc-checkbox-input'));
 
     expect(onChange).not.toHaveBeenCalled();
   });
@@ -48,7 +48,7 @@ describe('<Checkbox />', () => {
       </Checkbox>,
     );
 
-    expect(screen.getByTestId('st-checkbox-clickable').textContent).toBe(expectedText);
+    expect(screen.getByTestId('bzc-checkbox-clickable').textContent).toBe(expectedText);
   });
 
   it('renders the metadata', () => {
@@ -62,7 +62,7 @@ describe('<Checkbox />', () => {
       />,
     );
 
-    expect(screen.getByTestId('st-checkbox-metadata').textContent).toBe(expectedText);
+    expect(screen.getByTestId('bzc-checkbox-metadata').textContent).toBe(expectedText);
   });
 
   it('renders the errorText', () => {
@@ -76,7 +76,7 @@ describe('<Checkbox />', () => {
       />,
     );
 
-    expect(screen.getByTestId('st-checkbox-error-message').textContent).toBe(expectedText);
+    expect(screen.getByTestId('bzc-checkbox-error-message').textContent).toBe(expectedText);
   });
 
   it('is selected when value is true', () => {
@@ -105,13 +105,13 @@ describe('<Checkbox />', () => {
       </Provider>,
     );
 
-    expect(screen.queryByTestId('st-checkbox-focus-effect')).toBe(null);
+    expect(screen.queryByTestId('bzc-checkbox-focus-effect')).toBe(null);
   });
 
   it('renders focus element by default', () => {
     render(<Checkbox />);
 
-    expect(screen.getByTestId('st-checkbox-focus-effect')).not.toBe(null);
+    expect(screen.getByTestId('bzc-checkbox-focus-effect')).not.toBe(null);
   });
 
   it('overrides the prefix testid correctly', () => {
@@ -124,7 +124,7 @@ describe('<Checkbox />', () => {
       />,
     );
 
-    fireEvent.click(screen.getByTestId('st-testing-input'));
+    fireEvent.click(screen.getByTestId('bzc-testing-input'));
 
     expect(onChange).toHaveBeenCalled();
   });
@@ -138,8 +138,8 @@ describe('<Checkbox />', () => {
       />,
     );
 
-    fireEvent.click(screen.getByTestId('st-checkbox-input'));
-    fireEvent.click(screen.getByTestId('st-checkbox-input'));
+    fireEvent.click(screen.getByTestId('bzc-checkbox-input'));
+    fireEvent.click(screen.getByTestId('bzc-checkbox-input'));
 
     expect(onTouched).toHaveBeenCalledTimes(1);
   });

@@ -26,12 +26,12 @@ const styler: StylerT = (style, theme, target = {}) => {
 
   const type = [
     {
-      key: ':st-min(',
+      key: ':bzc-min(',
       value: '@media (min-width: ',
       offset: 1,
     },
     {
-      key: ':st-max(',
+      key: ':bzc-max(',
       value: '@media (max-width: ',
       offset: 0,
     },
@@ -43,7 +43,7 @@ const styler: StylerT = (style, theme, target = {}) => {
     for (let i = 0, len = type.length; i < len; i++) {
       // This reversal is necessary to ensure that one media query
       // does not override another
-      const sizes = type[i].key === ':st-min('
+      const sizes = type[i].key === ':bzc-min('
         ? sizeList
         : sizeList.slice().reverse();
 

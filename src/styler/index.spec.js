@@ -151,7 +151,7 @@ describe('styler', () => {
         [`@media (max-width: ${theme.mobileWidth}px)`]: {
           color: 'black',
         },
-        ':st-max(sm)': {
+        ':bzc-max(sm)': {
           backgroundColor: 'blue',
         },
       });
@@ -177,7 +177,7 @@ describe('styler', () => {
         [`@media (min-width: ${theme.mobileWidth + 1}px)`]: {
           color: 'black',
         },
-        ':st-min(sm)': {
+        ':bzc-min(sm)': {
           backgroundColor: 'blue',
         },
       });
@@ -203,7 +203,7 @@ describe('styler', () => {
         [`@media (max-width: ${theme.tabletWidth}px)`]: {
           color: 'black',
         },
-        ':st-max(md)': {
+        ':bzc-max(md)': {
           backgroundColor: 'blue',
         },
       });
@@ -229,7 +229,7 @@ describe('styler', () => {
         [`@media (min-width: ${theme.tabletWidth + 1}px)`]: {
           color: 'black',
         },
-        ':st-min(md)': {
+        ':bzc-min(md)': {
           backgroundColor: 'blue',
         },
       });
@@ -252,14 +252,14 @@ describe('styler', () => {
 
       const style = {
         test: '123',
-        ':st-min(md)': {
+        ':bzc-min(md)': {
           backgroundColor: 'blue',
         },
       };
 
       // $FlowExpectedError[prop-missing] missing theme props
       expect(styler(style, fakeTheme, {
-        ':st-min(md)': {
+        ':bzc-min(md)': {
           color: 'black',
         },
       })).toEqual({

@@ -13,7 +13,7 @@ describe('Modal />', () => {
       </Modal>,
     );
 
-    expect(screen.queryByTestId('st-modal-title')).toBe(null);
+    expect(screen.queryByTestId('bzc-modal-title')).toBe(null);
   });
 
   it('renders the header if the title is provided', () => {
@@ -25,7 +25,7 @@ describe('Modal />', () => {
       </Modal>,
     );
 
-    expect(screen.queryByTestId('st-modal-title')).not.toBe(null);
+    expect(screen.queryByTestId('bzc-modal-title')).not.toBe(null);
   });
 
   it('does not error if background if clicked without onClose', () => {
@@ -37,9 +37,9 @@ describe('Modal />', () => {
       </Modal>,
     );
 
-    fireEvent.click(screen.getByTestId('st-modal-overlay'));
+    fireEvent.click(screen.getByTestId('bzc-modal-overlay'));
 
-    expect(screen.getByTestId('st-modal-title')).not.toBe(null);
+    expect(screen.getByTestId('bzc-modal-title')).not.toBe(null);
   });
 
   it('triggers the onClose function if I click on the background', () => {
@@ -54,7 +54,7 @@ describe('Modal />', () => {
       </Modal>,
     );
 
-    fireEvent.click(screen.getByTestId('st-modal-overlay'));
+    fireEvent.click(screen.getByTestId('bzc-modal-overlay'));
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -71,7 +71,7 @@ describe('Modal />', () => {
       </Modal>,
     );
 
-    fireEvent.click(screen.getByTestId('st-modal-close-button'));
+    fireEvent.click(screen.getByTestId('bzc-modal-close-button'));
 
     expect(onClose).toHaveBeenCalled();
   });
@@ -85,7 +85,7 @@ describe('Modal />', () => {
       </Modal>,
     );
 
-    expect(screen.queryByTestId('st-modal-close-button')).toBe(null);
+    expect(screen.queryByTestId('bzc-modal-close-button')).toBe(null);
   });
 
   it('renders the notification if notificationText is passed in', () => {
@@ -98,7 +98,7 @@ describe('Modal />', () => {
       </Modal>,
     );
 
-    expect(screen.getByTestId('st-modal-notification').textContent).toBe(notificationText);
+    expect(screen.getByTestId('bzc-modal-notification').textContent).toBe(notificationText);
   });
 
   it('does not render the notification if I pass in other notification related props', () => {
@@ -111,6 +111,6 @@ describe('Modal />', () => {
       </Modal>,
     );
 
-    expect(screen.queryByTestId('st-modal-notification')).toBe(null);
+    expect(screen.queryByTestId('bzc-modal-notification')).toBe(null);
   });
 });

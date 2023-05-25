@@ -50,7 +50,7 @@ describe('<Input />', () => {
     );
 
     expect(screen.getByTestId('my-input-field').getAttribute('id')).toBe('input-test');
-    expect(screen.getByTestId('st-form-field-container-title').getAttribute('for')).toBe('input-test');
+    expect(screen.getByTestId('bzc-form-field-container-title').getAttribute('for')).toBe('input-test');
   });
 
   it('renders id when there is no title', () => {
@@ -67,7 +67,7 @@ describe('<Input />', () => {
     );
 
     expect(screen.getByTestId('my-input-field').getAttribute('id')).toBe('test-id');
-    expect(screen.getByTestId('st-form-field-container-title').getAttribute('for')).toBe('test-id');
+    expect(screen.getByTestId('bzc-form-field-container-title').getAttribute('for')).toBe('test-id');
   });
 
   it('does not stack overflow if a component is passed into the error message when wrapped in a FormSpy', () => {

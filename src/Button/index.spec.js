@@ -51,13 +51,13 @@ describe('<Button />', () => {
       </Provider>,
     );
 
-    expect(screen.queryByTestId('st-button-focus-effect')).toBe(null);
+    expect(screen.queryByTestId('bzc-button-focus-effect')).toBe(null);
   });
 
   it('renders focus element by default', () => {
     render(<Button />);
 
-    expect(screen.queryByTestId('st-button-focus-effect')).not.toBe(null);
+    expect(screen.queryByTestId('bzc-button-focus-effect')).not.toBe(null);
   });
 
   it('renders prefix icon when passed', () => {
@@ -67,7 +67,7 @@ describe('<Button />', () => {
       </Button>,
     );
 
-    expect(screen.getByTestId('st-button-prefix-icon')).not.toBe(null);
+    expect(screen.getByTestId('bzc-button-prefix-icon')).not.toBe(null);
   });
 
   it('does not render prefix icon normally', () => {
@@ -77,7 +77,7 @@ describe('<Button />', () => {
       </Button>,
     );
 
-    expect(screen.queryByTestId('st-button-prefix-icon')).toBe(null);
+    expect(screen.queryByTestId('bzc-button-prefix-icon')).toBe(null);
   });
 
   it('does not render prefix icon even if suffix icon is provided', () => {
@@ -87,7 +87,7 @@ describe('<Button />', () => {
       </Button>,
     );
 
-    expect(screen.queryByTestId('st-button-prefix-icon')).toBe(null);
+    expect(screen.queryByTestId('bzc-button-prefix-icon')).toBe(null);
   });
 
   it('renders suffix icon wen passed', () => {
@@ -97,7 +97,7 @@ describe('<Button />', () => {
       </Button>,
     );
 
-    expect(screen.getByTestId('st-button-suffix-icon')).not.toBe(null);
+    expect(screen.getByTestId('bzc-button-suffix-icon')).not.toBe(null);
   });
 
   it('does not render suffix icon normally', () => {
@@ -107,7 +107,7 @@ describe('<Button />', () => {
       </Button>,
     );
 
-    expect(screen.queryByTestId('st-button-suffix-icon')).toBe(null);
+    expect(screen.queryByTestId('bzc-button-suffix-icon')).toBe(null);
   });
 
   it('does not render suffix icon even if prefix icon is provided', () => {
@@ -117,6 +117,6 @@ describe('<Button />', () => {
       </Button>,
     );
 
-    expect(screen.queryByTestId('st-button-suffix-icon')).toBe(null);
+    expect(screen.queryByTestId('bzc-button-suffix-icon')).toBe(null);
   });
 });

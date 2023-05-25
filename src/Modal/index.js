@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import useComponentTestId from '../internal/hooks/useComponentTestId';
 
+import Box from '../Box';
 import Overlay, { mobileLowerPadding } from '../Overlay';
 import Notification from '../Notification';
 import Paper, { type PaperT } from '../Paper';
@@ -124,12 +125,9 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
 
     if (current instanceof HTMLElement && open) {
       const focusableEls = getFocusableElements(current);
-      const firstFocusedEl = title && onClose
-        ? focusableEls[1] || focusableEls[0]
-        : focusableEls[0];
 
-      if (firstFocusedEl) {
-        firstFocusedEl.focus();
+      if (focusableEls[0]) {
+        focusableEls[0].focus();
       }
     }
 
@@ -260,7 +258,7 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
       ...isLarge
         ? {
           [mediaMobile]: {
-            ':st-min(sm)': {
+            ':bzc-min(sm)': {
               flexDirection: 'column',
             },
           },
@@ -337,9 +335,10 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
         {...otherProps}
         ref={activeRef}
         role="dialog"
-        aria-labelledby="st-modal-title"
+        aria-labelledby="bzc-modal-title"
         style={styles.container}
       >
+        <Box data-testid={compTestId('first-focusable-ele')} tabIndex="0" />
         {
           title
           && (

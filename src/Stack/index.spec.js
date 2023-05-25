@@ -17,7 +17,7 @@ describe('<Stack />', () => {
       </Stack>,
     );
 
-    expect(screen.getAllByTestId('st-stack-item').length).toBe(4);
+    expect(screen.getAllByTestId('bzc-stack-item').length).toBe(4);
   });
 
   it('renders does not count fragment as a single child', () => {
@@ -34,6 +34,6 @@ describe('<Stack />', () => {
       </Stack>,
     );
 
-    expect(screen.getAllByTestId('st-stack-item').length).toBe(4);
+    expect(screen.getAllByTestId('bzc-stack-item').length).toBe(4);
   });
 });

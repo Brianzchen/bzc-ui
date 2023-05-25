@@ -25,7 +25,7 @@ describe('<Tabs />', () => {
       />,
     );
 
-    expect(screen.getAllByTestId('st-tabs-tab').length).toBe(tabs.length);
+    expect(screen.getAllByTestId('bzc-tabs-tab').length).toBe(tabs.length);
   });
 
   it('triggers the onClick when clicking on a non-selected tab', () => {

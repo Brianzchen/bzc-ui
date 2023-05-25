@@ -38,7 +38,7 @@ describe('<CardButton />', () => {
       <CardButton />,
     );
 
-    expect(screen.getByTestId('st-card-button-chevron')).toBeDefined();
+    expect(screen.getByTestId('bzc-card-button-chevron')).toBeDefined();
   });
 
   it('renders an anchor normally', () => {
@@ -46,6 +46,6 @@ describe('<CardButton />', () => {
       <CardButton chevron={false} />,
     );
 
-    expect(screen.queryByTestId('st-card-button-chevron')).toBe(null);
+    expect(screen.queryByTestId('bzc-card-button-chevron')).toBe(null);
   });
 });
