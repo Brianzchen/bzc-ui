@@ -56,4 +56,14 @@ describe('<Box />', () => {
       done();
     }
   });
+
+  test('onClick can be called with an async function', () => {
+    render(
+      <Box
+        onClick={async () => {
+          // do something
+        }}
+      />,
+    );
+  });
 });

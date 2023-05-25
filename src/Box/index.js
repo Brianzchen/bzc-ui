@@ -25,7 +25,7 @@ export type BoxT = {
    */
   color?: string,
   /** function that fires when the element is clicked if not disabled */
-  onClick?: (event: SyntheticEvent<HTMLButtonElement>) => void,
+  onClick?: (event: SyntheticEvent<HTMLButtonElement>) => (void | Promise<void>),
   /** return the resulting computed style object of the element */
   getStyle?: (computedStyle: {
     [key: string]: any,
