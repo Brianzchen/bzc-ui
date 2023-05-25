@@ -1,5 +1,5 @@
-// flow-typed signature: e556c06e721548417501c08b01fec911
-// flow-typed version: ad3adf2de8/react-dom_v17.x.x/flow_>=v0.127.x
+// flow-typed signature: 4d53dd1643f3cf129e1e35f205158a3f
+// flow-typed version: 9a16bc5b88/react-dom_v17.x.x/flow_>=v0.198.x
 
 declare module 'react-dom' {
   declare var version: string;

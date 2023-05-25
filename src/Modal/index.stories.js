@@ -6,7 +6,7 @@ import {
   Modal,
 } from 'bzc-ui';
 
-export const Basic = (): React.Node => {
+export default (): React.Node => {
   const [open, setOpen] = React.useState(false);
 
   return (

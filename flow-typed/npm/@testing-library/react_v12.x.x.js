@@ -1,5 +1,5 @@
-// flow-typed signature: d6d7dd802cb30eba28942c63bfb55e6c
-// flow-typed version: 2eabcd3dac/@testing-library/react_v12.x.x/flow_>=v0.104.x
+// flow-typed signature: c0378392c0ff4fb5f5b7e242bff66b0c
+// flow-typed version: 86372d908e/@testing-library/react_v12.x.x/flow_>=v0.198.x
 
 declare module '@testing-library/react' {
   import type { ARIARole } from 'aria-query';
@@ -297,7 +297,7 @@ declare module '@testing-library/react' {
         | Array<HTMLElement | DocumentFragment>,
       maxLength?: number
     ) => void,
-    rerender: (ui: React$Element<*>) => void,
+    rerender: (ui: React$Element<any>) => void,
     ...
   };
 

@@ -1,5 +1,5 @@
-// flow-typed signature: e76c2e319a5dda15ae0b2c776e3f21a8
-// flow-typed version: 2eabcd3dac/aria-query_v5.x.x/flow_>=v0.104.x
+// flow-typed signature: 3d4a71f82af2bc854b077bfdb0f61e68
+// flow-typed version: 86372d908e/aria-query_v5.x.x/flow_>=v0.198.x
 
 declare module 'aria-query' {
   declare type MapLike<Key, Value> = {|
