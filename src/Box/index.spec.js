@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { lorem } from '@faker-js/faker';
 
 import Box from '.';
@@ -60,10 +60,13 @@ describe('<Box />', () => {
   test('onClick can be called with an async function', () => {
     render(
       <Box
+        data-testid="test"
         onClick={async () => {
-          // do something
+          expect(true).toBe(true);
         }}
       />,
     );
+
+    fireEvent.click(screen.getByTestId('test'));
   });
 });
