@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import {
   Box,
@@ -29,11 +30,12 @@ const Examples = ({
 }: Props): React.Node => {
   const theme = useTheme();
   const { setValue } = React.useContext(AppBarNotificationContext);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const stories = storyCache[component];
   const storiesList = Object.keys(stories ?? {});
 
-  const [story, setStory] = React.useState(storiesList[0]);
+  const story = searchParams.get('story') ?? storiesList[0];
 
   if (!stories) {
     return (
@@ -52,7 +54,9 @@ const Examples = ({
           value: o,
           children: splitStoryToSentence(o),
           onClick: () => {
-            setStory(storiesList[i]);
+            setSearchParams({
+              story: storiesList[i],
+            });
           },
           selected: story === o,
         }))}
