@@ -76,7 +76,7 @@ const Inline: React$AbstractComponent<InlineT, HTMLElement> = React.forwardRef<I
       {React.Children.map(children, (obj) => {
         if (!obj) return null;
 
-        const createItem = (child: mixed) => (
+        const createItem = (child: any) => (
           <Box
             {...itemProps}
             data-testid={compTestId('item')}

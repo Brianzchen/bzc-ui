@@ -70,7 +70,7 @@ const Stack: React$AbstractComponent<StackT, HTMLElement> = React.forwardRef(({
           return null;
         }
 
-        const createItem = (child: mixed) => {
+        const createItem = (child: any) => {
           const isFirstChild = !hasRenderedFirstChild;
           hasRenderedFirstChild = true;
 

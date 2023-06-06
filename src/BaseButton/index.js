@@ -25,6 +25,11 @@ export type BaseButtonT = {
    * when is a parent that can cause clipping of the focus effect
    */
   focusEffect?: 'inner' | 'outer',
+  /**
+   * When you want the button to be semantically a button but have the
+   * styling similar to that of a div
+   */
+  unstyled?: boolean,
   ...
 };
 
@@ -41,6 +46,7 @@ const BaseButton: React$AbstractComponent<BaseButtonT, HTMLElement> = React.forw
   setFocus,
   color,
   focusEffect = 'outer',
+  unstyled = false,
   ...otherProps
 }: BaseButtonT, ref) => {
   const internalRef = React.useRef<HTMLElement | null>(null);
@@ -56,9 +62,12 @@ const BaseButton: React$AbstractComponent<BaseButtonT, HTMLElement> = React.forw
     button: styler(style, theme, {
       position: 'relative',
       color: computeColor(color, theme),
-      fontSize: theme.fonts.button.px,
-      fontWeight: theme.fonts.button.style,
-      lineHeight: theme.fonts.button.leading,
+      fontSize: unstyled ? 'inherit' : theme.fonts.button.px,
+      fontWeight: unstyled ? 'inherit' : theme.fonts.button.style,
+      lineHeight: unstyled ? 'inherit' : theme.fonts.button.leading,
+      textAlign: unstyled ? 'left' : 'center',
+      display: unstyled ? 'block' : 'inline-block',
+      width: unstyled ? '100%' : 'initial',
       background: 'transparent',
       border: 'none',
       padding: 0,

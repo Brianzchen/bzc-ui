@@ -66,10 +66,12 @@ const Responsive: React$AbstractComponent<ResponsiveT, HTMLElement> = React.forw
     }
   });
 
+  const { mobile, tablet } = breakpoints;
+
   const internalBreakpoints = {
-    mobile: theme.mobileWidth,
-    tablet: theme.tabletWidth,
     ...breakpoints,
+    mobile: mobile ?? theme.mobileWidth,
+    tablet: tablet ?? theme.tabletWidth,
   };
   const breakpointMap = Object.keys(internalBreakpoints).map((o) => ({
     key: o,
