@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 
-import Box from '../Box';
-import type { BoxT } from '../Box';
+import Box, { type BoxT } from '../Box';
+import type { FormOnSubmitT } from '../types';
 
 import { Provider } from './FormContext';
 
@@ -12,15 +12,7 @@ export type FormT = {
    * function to call when form is submitted.
    * (event, values) => void
    */
-  onSubmit?: (
-    event: any,
-    values: {
-      [key: string]: ?{|
-        valid: false,
-        error: false,
-        value: '',
-      |},
-    }) => any,
+  onSubmit?: FormOnSubmitT,
   ...
 };
 

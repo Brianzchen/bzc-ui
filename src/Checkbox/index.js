@@ -20,7 +20,7 @@ export type CheckboxT = {
   ...BoxT,
   /**
    * unique identifier for the field, this is necessary
-   * when used with the starfall `Form` component
+   * when used with the bzc-ui `Form` component
    */
   name?: string,
   /** element to show next to checkbox */

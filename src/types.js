@@ -4,7 +4,7 @@ import type { FontFamily } from 'aphrodite';
 
 // Only types coming from this file should be exposed to consumers
 // Once build is complete it can be imported as
-// `import type { ColorFuncT } from 'starfall';`
+// `import type { ColorFuncT } from 'bzc-ui';`
 
 export type ColorFuncT = (shade?: number, opacity?: number) => string;
 
@@ -172,7 +172,7 @@ export type RefObjT = {|
 |} | any;
 
 export type StyleObjT = {
-  // Starfall internal --------
+  // bzc-ui internal --------
   ':sf-min(sm)'?: StyleObjT,
   ':sf-min(md)'?: StyleObjT,
   ':sf-max(sm)'?: StyleObjT,
@@ -940,3 +940,13 @@ export type StylerT = (
 ) => StyleObjT;
 
 export type StyleT = StyleObjT | ((theme: ThemeT, styler: StylerT) => StyleObjT);
+
+export type FormOnSubmitT = (
+  event: any,
+  values: {
+    [key: string]: ?{|
+      valid: false,
+      error: false,
+      value: '',
+    |},
+  }) => any;
