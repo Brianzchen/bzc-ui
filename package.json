@@ -1,6 +1,6 @@
 {
   "name": "bzc-ui",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Home to a collection of superstar atomic react components",
   "main": "lib/index.js",
   "repository": "https://github.com/Brianzchen/bzc-ui.git",
