@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import useComponentTestId from '../internal/hooks/useComponentTestId';
+import { containerStyles, animationBaseStyles } from '../internal/popupFadeInStyles';
 
 import Box from '../Box';
 import Overlay, { mobileLowerPadding } from '../Overlay';
@@ -239,17 +240,6 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
     },
   };
 
-  const containerKeyframe = {
-    '0%': {
-      transform: 'scale(0.8)',
-    },
-  };
-
-  const animationBaseStyles = {
-    animationDuration: '0.1s',
-    animationIterationCount: 1,
-  };
-
   const styles = {
     background: styler(backgroundStyle, theme, {
       display: 'flex',
@@ -284,8 +274,7 @@ const Modal: React$AbstractComponent<ModalT, HTMLElement> = React.forwardRef<Mod
       width: isLarge ? `${520 * theme.scale}px` : `${375 * theme.scale}px`,
       maxWidth: '100%',
       borderRadius: theme.corner(2),
-      animationName: [containerKeyframe],
-      ...animationBaseStyles,
+      ...containerStyles,
       [mediaMobile]: {
         ...styler(mobileStyle, theme, {
           ...isLarge
