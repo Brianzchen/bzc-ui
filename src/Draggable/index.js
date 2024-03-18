@@ -1,6 +1,8 @@
 // @flow
 import * as React from 'react';
 
+import useActiveRef from '../internal/hooks/useActiveRef';
+
 import Box, { type BoxT } from '../Box';
 import type { ThemeT, StylerT } from '../types';
 
@@ -40,8 +42,7 @@ const Draggable: React$AbstractComponent<DraggableT, HTMLElement> = React.forwar
   onMouseDown,
   ...otherProps
 }: DraggableT, ref) => {
-  const internalRef = React.useRef();
-  const activeRef = ref || internalRef;
+  const activeRef = useActiveRef(ref);
   const [dragging, setDragging] = React.useState(false);
   const [coord, setCoord] = React.useState<{| x: number, y: number |} | void>();
 

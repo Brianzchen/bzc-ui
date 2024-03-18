@@ -4,7 +4,7 @@ import Color from 'color';
 import type { ColorsT } from '../types';
 import hexToRgba from '../internal/hexToRgba';
 
-export default (colors: $ObjMapConst<ColorsT, string>): ColorsT => {
+export default (colors: { [_key in keyof ColorsT]: string }): ColorsT => {
   const colorFuncs = {};
   Object.keys(colors).forEach((key) => {
     // $FlowFixMe[prop-missing]

@@ -4,6 +4,7 @@ import * as React from 'react';
 import useDeprecationWarning from '../internal/hooks/useDeprecationWarning';
 import useInternallyFocused from '../internal/hooks/useInternallyFocused';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
+import useActiveRef from '../internal/hooks/useActiveRef';
 
 import Box from '../Box';
 import BaseInput from '../BaseInput';
@@ -88,8 +89,7 @@ const RadioButton: React$AbstractComponent<RadioButtonT, HTMLElement> = React.fo
   prefixTestId,
   ...otherProps
 }: RadioButtonT, ref) => {
-  const internalRef = React.useRef();
-  const activeRef = ref || internalRef;
+  const activeRef = useActiveRef(ref);
   const inputRef = React.useRef<?HTMLElement>();
   const theme = useTheme();
   const compTestId = useComponentTestId(prefixTestId ?? 'RadioButton');

@@ -1,8 +1,9 @@
 // @flow
-import React, { useState, useEffect, useRef } from 'react';
+import * as React from 'react';
 
 import hexToRgba from '../internal/hexToRgba';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
+import useActiveRef from '../internal/hooks/useActiveRef';
 
 import BaseButton, { type BaseButtonT } from '../BaseButton';
 import Box from '../Box';
@@ -74,16 +75,15 @@ const Button: React$AbstractComponent<ButtonT, HTMLElement> = React.forwardRef<B
   suffixIconStyle = {},
   ...otherProps
 }: ButtonT, ref) => {
-  const internalRef = useRef();
-  const activeRef = ref || internalRef;
+  const activeRef = useActiveRef(ref);
   const theme = useTheme();
   const compTestId = useComponentTestId('Button');
 
-  const [focused, setFocus] = useState(false);
+  const [focused, setFocus] = React.useState(false);
 
   const buttonDisabled: boolean = disabled || loading;
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (buttonDisabled) {
       setFocus(false);
     }

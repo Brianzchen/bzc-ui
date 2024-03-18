@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 
+import useActiveRef from '../internal/hooks/useActiveRef';
 import inputUnformat from '../internal/inputUnformat';
 import isOnlyNumbers from '../internal/isOnlyNumbers';
 
@@ -86,8 +87,7 @@ const BaseInput: React$AbstractComponent<BaseInputT, HTMLElement> = React.forwar
   onChange,
   ...otherProps
 }: BaseInputT, ref) => {
-  const internalRef = React.useRef();
-  const activeRef = ref || internalRef;
+  const activeRef = useActiveRef(ref);
   const [internalReadOnly, setReadOnly] = React.useState(true);
   const [cursorPos, setCursorPos] = React.useState(-1);
 

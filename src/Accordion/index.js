@@ -5,6 +5,7 @@ import Box from '../Box';
 import type { BoxT } from '../Box';
 import usePrevious from '../internal/hooks/usePrevious';
 import usePositioning from '../internal/hooks/usePositioning';
+import useActiveRef from '../internal/hooks/useActiveRef';
 import type { StyleT, ThemeT, StylerT } from '../types';
 
 type AccordionContextT = {|
@@ -47,8 +48,7 @@ const Accordion: React$AbstractComponent<AccordionT, HTMLElement> = React.forwar
   innerStyle = {},
   ...otherProps
 }: AccordionT, ref) => {
-  const containerRef = React.useRef<HTMLElement | null>(null);
-  const activeRef = ref || containerRef;
+  const activeRef = useActiveRef(ref);
 
   const accordionContext = React.useContext(AccordionContext);
 

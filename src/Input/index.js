@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import useDeprecationWarning from '../internal/hooks/useDeprecationWarning';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
+import useActiveRef from '../internal/hooks/useActiveRef';
 import inputUnformat from '../internal/inputUnformat';
 import padZero from '../internal/padZero';
 import toKebabCase from '../internal/toKebabCase';
@@ -195,8 +196,7 @@ const Input: React$AbstractComponent<InputT, HTMLElement> = React.forwardRef<Inp
   inputRef,
   ...otherProps
 }: InputT, ref) => {
-  const internalRef = React.useRef();
-  const activeRef = ref || internalRef;
+  const activeRef = useActiveRef(ref);
 
   const theme = useTheme();
   const compTestId = useComponentTestId(prefixTestId ?? 'Input');

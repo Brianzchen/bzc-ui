@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'bzc-ui';
@@ -10,7 +10,8 @@ import App from './App';
 const ele = document.getElementById('root');
 
 if (ele) {
-  ReactDOM.render(
+  const root = createRoot(ele);
+  root.render(
     <BrowserRouter>
       <Provider
         iconBase="mdi"
@@ -19,6 +20,5 @@ if (ele) {
         <App />
       </Provider>
     </BrowserRouter>,
-    ele,
   );
 }

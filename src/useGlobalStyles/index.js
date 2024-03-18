@@ -23,7 +23,7 @@ type StylesT = {|
  *
  * Also accepts a `condition` that if passed will only apply when `true`
  */
-const useGlobalStyles = (styles: StylesT = {}, condition?: boolean): void => {
+const useGlobalStyles = (styles?: StylesT = {}, condition: boolean | void = undefined): void => {
   const theme = useTheme();
 
   React.useEffect(() => {

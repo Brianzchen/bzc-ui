@@ -17,4 +17,4 @@ export default ({
   monoHighlight: '#e5e5e5',
   monoLow: '#f2f2f2',
   monoInverse: '#ffffff',
-}: $ObjMapConst<ColorsT, string>);
+}: { [_key in keyof ColorsT]: string });

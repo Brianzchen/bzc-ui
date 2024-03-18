@@ -1,5 +1,5 @@
 // @flow
-import React, { memo } from 'react';
+import * as React from 'react';
 
 import Typography from '../Typography';
 import useTheme from '../useTheme';
@@ -30,4 +30,4 @@ const DayHeader = ({ day }: Props) => {
   );
 };
 
-export default (memo<Props>(DayHeader): React$AbstractComponent<Props, mixed>);
+export default (React.memo<Props>(DayHeader): React$AbstractComponent<Props, mixed>);

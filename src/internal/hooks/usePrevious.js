@@ -1,13 +1,13 @@
 // @flow
-import { useRef, useEffect } from 'react';
+import * as React from 'react';
 
 export default function usePrevious<T>(value: T): T {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class
-  const ref = useRef<T>(value);
+  const ref = React.useRef<T>(value);
 
   // Store current value in ref
-  useEffect(() => {
+  React.useEffect(() => {
     ref.current = value;
   }, [value]); // Only re-run if value changes
 

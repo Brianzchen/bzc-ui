@@ -1,5 +1,5 @@
-// flow-typed signature: 1b7b4fe3a3d91a7d187d95bb852213e8
-// flow-typed version: 76eecf6c8e/aphrodite_v2.x.x/flow_>=v0.83.x
+// flow-typed signature: 0d34275f0cf46ea903b649b7a4f4d724
+// flow-typed version: a1e6b0f5b8/aphrodite_v2.x.x/flow_>=v0.83.x
 
 type CSSWideKeyword = 'initial' | 'inherit' | 'unset';
 
@@ -13,7 +13,7 @@ declare module 'aphrodite' {
       fontWeight?: string | number;
     |};
 
-  declare type StyleObject = {
+  declare type StyleObject = $ReadOnly<{
     '::-ms-clear'?: StyleObject,
     '::-ms-expand'?: StyleObject,
     '::-webkit-scrollbar'?: StyleObject,
@@ -768,7 +768,7 @@ declare module 'aphrodite' {
     zoom?: CSSWideKeyword | string | number,
     [key: string]: any,
     ...
-  };
+  }>;
 
   declare type SelectorCallback = (selector: string) => Array<string>;
 

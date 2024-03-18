@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import usePositioning from '../internal/hooks/usePositioning';
+import useActiveRef from '../internal/hooks/useActiveRef';
 
 import Box, { type BoxT } from '../Box';
 import useTheme from '../useTheme';
@@ -49,8 +50,7 @@ const Responsive: React$AbstractComponent<ResponsiveT, HTMLElement> = React.forw
   children,
   ...otherProps
 }: ResponsiveT, ref) => {
-  const internalRef = React.useRef();
-  const activeRef = ref ?? internalRef;
+  const activeRef = useActiveRef(ref);
   const theme = useTheme();
 
   const [width, setWidth] = React.useState<number | void>();

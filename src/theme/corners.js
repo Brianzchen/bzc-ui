@@ -6,4 +6,4 @@ export default ({
   [1]: '2px',
   [2]: '4px',
   [3]: '8px',
-}: $ObjMapConst<CornersMaybeT, string>);
+}: { [_key in keyof CornersMaybeT]: string });

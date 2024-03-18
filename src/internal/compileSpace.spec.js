@@ -11,7 +11,7 @@ describe('compileSpace', () => {
     '4': '16px',
     '5': 64,
   };
-  const spacing = (space: number) => keyValue[space];
+  const spacing = (space: number) => keyValue[`${space}`];
 
   it('returns number when passed', () => {
     const expected = datatype.number();

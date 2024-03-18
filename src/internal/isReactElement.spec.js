@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 
 import isReactElement from './isReactElement';
 
@@ -48,6 +48,7 @@ describe('isReactElement', () => {
     Comp.displayName = 'Icon';
 
     expect(isReactElement(<Comp />, 'Icon')).toBe(true);
+    // $FlowFixMe[prop-missing] cannot get property type of React.Node
     expect(isReactElement(<Comp />, 'Icon')).toBe(React.isValidElement(<Comp />) && <Comp />.type.displayName === 'Icon');
   });
 

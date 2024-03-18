@@ -1,5 +1,5 @@
 // @flow
-import { createContext } from 'react';
+import * as React from 'react';
 
 import type { ThemeT } from '../types';
 
@@ -41,7 +41,7 @@ theme.shadows = {
   card: shadows.card(theme),
 };
 
-const Context: React$Context<ThemeT> = createContext<ThemeT>(theme);
+const Context: React$Context<ThemeT> = React.createContext<ThemeT>(theme);
 
 export const {
   Provider,

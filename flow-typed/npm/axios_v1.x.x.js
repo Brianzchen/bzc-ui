@@ -1,5 +1,5 @@
-// flow-typed signature: eb96baf7cd9ad23be5a0d66726bb6cc3
-// flow-typed version: 6eda30e263/axios_v1.x.x/flow_>=v0.201.x
+// flow-typed signature: 0590c3e946ff77b6c062664dd17a4587
+// flow-typed version: 2b4321bd23/axios_v1.x.x/flow_>=v0.201.x
 
 declare module 'axios' {
   import type { Agent as HttpAgent } from 'http';
@@ -76,6 +76,7 @@ declare module 'axios' {
     httpsAgent?: HttpsAgent,
     maxContentLength?: number,
     maxRedirects?: number,
+    signal?: AbortSignal,
     socketPath?: string | null,
     params?: { [key: string]: mixed, ...},
     paramsSerializer?: (params: { [key: string]: mixed, ...}) => string,
@@ -122,6 +123,7 @@ declare module 'axios' {
       onRejected: ?(error: mixed) => mixed
     ): AxiosInterceptorIdent,
     eject(ident: AxiosInterceptorIdent): void,
+    clear(): void,
   |};
 
   declare type AxiosResponseInterceptor<T, R = T> = {|
@@ -130,6 +132,7 @@ declare module 'axios' {
       onRejected: ?(error: mixed) => mixed
     ): AxiosInterceptorIdent,
     eject(ident: AxiosInterceptorIdent): void,
+    clear(): void,
   |};
 
   declare type AxiosPromise<T, R = T> = Promise<AxiosXHR<T, R>>;

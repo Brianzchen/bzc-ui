@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import * as React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 
 import useTheme from '../useTheme';
@@ -51,7 +51,7 @@ describe('<Provider />', () => {
 
     it('triggers when color is updated', () => {
       const StateComp = () => {
-        const [isChanged, setChanged] = useState(false);
+        const [isChanged, setChanged] = React.useState(false);
 
         const colors = {
           primary: '123',
@@ -86,7 +86,7 @@ describe('<Provider />', () => {
 
     it('triggers when font is updated', () => {
       const StateComp = () => {
-        const [isChanged, setChanged] = useState(false);
+        const [isChanged, setChanged] = React.useState(false);
 
         const fonts = {
           heading1: {
@@ -125,7 +125,7 @@ describe('<Provider />', () => {
 
     it('triggers when spacing is updated', () => {
       const StateComp = () => {
-        const [isChanged, setChanged] = useState(false);
+        const [isChanged, setChanged] = React.useState(false);
 
         const spacing = {
           '1': 4,
@@ -160,7 +160,7 @@ describe('<Provider />', () => {
 
     it('triggers when tabletWidth is updated', () => {
       const StateComp = () => {
-        const [isChanged, setChanged] = useState(false);
+        const [isChanged, setChanged] = React.useState(false);
 
         const tabletWidth = 500;
 
@@ -193,7 +193,7 @@ describe('<Provider />', () => {
 
     it('triggers when mobileWidth is updated', () => {
       const StateComp = () => {
-        const [isChanged, setChanged] = useState(false);
+        const [isChanged, setChanged] = React.useState(false);
 
         const mobileWidth = 500;
 
@@ -226,7 +226,7 @@ describe('<Provider />', () => {
 
     it('does not trigger when random prop is updated', () => {
       const StateComp = () => {
-        const [isChanged, setChanged] = useState(false);
+        const [isChanged, setChanged] = React.useState(false);
 
         return (
           <>
@@ -258,7 +258,7 @@ describe('<Provider />', () => {
 
     it('does not trigger is parent causes Provider to rerender', () => {
       const StateComp = () => {
-        const [isChanged, setChanged] = useState(false);
+        const [isChanged, setChanged] = React.useState(false);
 
         return (
           <>

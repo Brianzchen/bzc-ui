@@ -4,6 +4,7 @@ import * as React from 'react';
 import { isIE } from '../internal/isIE';
 import removePx from '../internal/removePx';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
+import useActiveRef from '../internal/hooks/useActiveRef';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
@@ -59,8 +60,7 @@ const Tabs: React$AbstractComponent<TabsT, HTMLElement> = React.forwardRef(({
   const applyFullWidth = fullWidth && !isIE;
   const tabSpacing = applyFullWidth ? 2 : 4;
 
-  const internalRef = React.useRef<HTMLElement | null>(null);
-  const activeRef = ref || internalRef;
+  const activeRef = useActiveRef(ref);
   const tabContainerRef = React.useRef<?HTMLElement>();
 
   const theme = useTheme();

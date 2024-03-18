@@ -5,4 +5,4 @@ export default ({
   [1]: '1px',
   [2]: '2px',
   [3]: '4px',
-}: $ObjMapConst<LinesMaybeT, string>);
+}: { [_key in keyof LinesMaybeT]: string });

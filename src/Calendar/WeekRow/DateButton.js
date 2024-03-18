@@ -1,6 +1,5 @@
 // @flow
-import React from 'react';
-import type { Node } from 'react';
+import * as React from 'react';
 
 import useTheme from '../../useTheme';
 import BaseButton from '../../BaseButton';
@@ -21,7 +20,7 @@ const DateButton = ({
   date,
   onClick,
   buttonObj,
-}: Props): Node => {
+}: Props): React.Node => {
   const theme = useTheme();
 
   const {

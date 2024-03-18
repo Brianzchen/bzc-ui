@@ -4,6 +4,7 @@ import * as React from 'react';
 import formFieldHeight from '../internal/formFieldHeight';
 import formFieldBorderWidth from '../internal/formFieldBorderWidth';
 import useComponentTestId from '../internal/hooks/useComponentTestId';
+import useActiveRef from '../internal/hooks/useActiveRef';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
@@ -75,8 +76,7 @@ const FormFieldContainer: React$AbstractComponent<FormFieldContainerT, HTMLEleme
   optional = false,
   ...otherProps
 }: FormFieldContainerT, ref) => {
-  const internalRef = React.useRef();
-  const activeRef = ref || internalRef;
+  const activeRef = useActiveRef(ref);
   const compTestId = useComponentTestId(prefixTestId);
 
   const hasError = !!errorMessage || error;

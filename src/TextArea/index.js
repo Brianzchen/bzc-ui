@@ -16,8 +16,8 @@ import type { StyleT, RefObjT } from '../types';
 import Wrapped from './Wrapped';
 
 export type TextAreaT = {
+  ...$Exact<Omit<jsx$HTMLTextAreaElement, 'style'>>,
   ...$Exact<BoxT>,
-  ...$Exact<jsx$HTMLTextAreaElement>,
   /**
    * unique identifier for the field, this is necessary
    * when used with the bzc-ui `Form` component

@@ -1,5 +1,5 @@
 // @flow
-import { useContext } from 'react';
+import * as React from 'react';
 
 import ThemeContext from '../theme/themeContext';
 import type { ThemeT } from '../types';
@@ -7,4 +7,4 @@ import type { ThemeT } from '../types';
 /**
  * A React hook that returns the theme object into your component.
  */
-export default (): ThemeT => useContext(ThemeContext);
+export default (): ThemeT => React.useContext(ThemeContext);

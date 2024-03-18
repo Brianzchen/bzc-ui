@@ -1,6 +1,8 @@
 // @flow
 import * as React from 'react';
 
+import useActiveRef from '../internal/hooks/useActiveRef';
+
 type ClickAwayCallbackT = (event: MouseEvent | TouchEvent) => void;
 
 const on = (
@@ -67,7 +69,7 @@ const ClickAwayListener = ({
   onClickAway,
   exclusions = [],
 }: ClickAwayListenerT): React.Node => {
-  let activeRef = React.useRef();
+  let activeRef = useActiveRef();
 
   React.useEffect(() => {
     if (!onClickAway) {
@@ -103,6 +105,7 @@ const ClickAwayListener = ({
     };
   });
 
+  // $FlowFixMe[prop-missing]
   if (children.ref) {
     activeRef = children.ref;
     return children;

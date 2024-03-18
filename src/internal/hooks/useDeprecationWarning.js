@@ -1,8 +1,8 @@
 // @flow
-import { useEffect } from 'react';
+import * as React from 'react';
 
 export default function useDeprecationWarning(value: string, condition?: boolean): void {
-  useEffect(() => {
+  React.useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
       if (typeof condition === 'undefined'
           || condition) {

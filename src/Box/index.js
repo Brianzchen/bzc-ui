@@ -27,9 +27,9 @@ export type BoxT = {
   /** function that fires when the element is clicked if not disabled */
   onClick?: (event: SyntheticEvent<HTMLButtonElement>) => (void | Promise<void>),
   /** return the resulting computed style object of the element */
-  getStyle?: (computedStyle: {
+  getStyle?: (computedStyle: $ReadOnly<{
     [key: string]: any,
-  }) => void,
+  }>) => void,
    /**
    * takes a string, array of strings, or array tuple of numbers [number, number]
    * that define at what defined breakpoints hide

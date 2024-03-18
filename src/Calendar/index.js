@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from 'react';
+import * as React from 'react';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
@@ -62,13 +62,13 @@ const Calendar: React$AbstractComponent<CalendarT, HTMLElement> = React.forwardR
 }: CalendarT, ref) => {
   const yearsArray = sortYears(getYearsArray(minDate, maxDate));
 
-  const [currentYear, setCurrentYear] = useState(
+  const [currentYear, setCurrentYear] = React.useState(
     getTime(value).year
     || getTime(getCloserDate(minDate, maxDate)).year
     || new Date(Date.now()).getFullYear(),
   );
 
-  const [currentMonth, setCurrentMonth] = useState(
+  const [currentMonth, setCurrentMonth] = React.useState(
     getTime(value).month
     || getTime(getCloserDate(minDate, maxDate)).month
     || new Date(Date.now()).getMonth() + 1,

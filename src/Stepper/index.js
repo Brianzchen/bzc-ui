@@ -1,5 +1,5 @@
 // @flow
-import React, { Fragment } from 'react';
+import * as React from 'react';
 
 import Box from '../Box';
 import type { BoxT } from '../Box';
@@ -52,7 +52,7 @@ const Stepper: React$AbstractComponent<StepperT, HTMLElement> = React.forwardRef
         const currentStepStatus = getCurrentStep();
 
         return (
-          <Fragment
+          <React.Fragment
             key={step}
           >
             {step !== 1 && (
@@ -64,7 +64,7 @@ const Stepper: React$AbstractComponent<StepperT, HTMLElement> = React.forwardRef
               step={step}
               state={currentStepStatus}
             />
-          </Fragment>
+          </React.Fragment>
         );
       })}
     </Box>

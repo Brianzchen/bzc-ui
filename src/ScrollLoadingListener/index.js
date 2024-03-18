@@ -1,6 +1,8 @@
 // @flow
 import * as React from 'react';
 
+import useActiveRef from '../internal/hooks/useActiveRef';
+
 export type ScrollLoadingListenerT = {
   ...jsx$HTMLElement,
   /**
@@ -30,8 +32,7 @@ const ScrollLoadingListener: React$AbstractComponent<ScrollLoadingListenerT, HTM
   onLoad,
   ...otherProps
 }: ScrollLoadingListenerT, ref) => {
-  const internalRef = React.useRef<HTMLElement | null>(null);
-  const activeRef = ref || internalRef;
+  const activeRef = useActiveRef(ref);
 
   const [loading, setLoading] = React.useState(false);
 

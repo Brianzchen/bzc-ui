@@ -1,17 +1,13 @@
 const config = {
   presets: [
-    [
-      '@babel/preset-env',
-      {
-        targets: { browsers: ['last 2 versions', 'safari >= 7'] },
-      },
-    ],
+    '@babel/preset-env',
     '@babel/preset-react',
     '@babel/preset-flow',
   ],
   plugins: [
     '@babel/plugin-transform-modules-commonjs',
     'babel-plugin-transform-flow-enums',
+    'babel-plugin-syntax-hermes-parser',
   ],
 };
 
