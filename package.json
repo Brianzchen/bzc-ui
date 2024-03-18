@@ -9,12 +9,12 @@
   "scripts": {
     "clean": "rm -rf lib",
     "build:flow": "flow-copy-source --ignore '*/**/*.{stories,spec}.*' src lib",
-    "build": "NODE_ENV=production babel src --out-dir lib && yarn build:flow && cp src/types.js types.js",
-    "prepublishOnly": "yarn clean && yarn jest && yarn flow && yarn build",
+    "build": "NODE_ENV=production babel src --out-dir lib && pnpm build:flow && cp src/types.js types.js",
+    "prepublishOnly": "pnpm clean && pnpm jest && pnpm flow && pnpm build",
     "docgen": "react-docgen src --out=website/components.json --pretty --exclude='/.*[^(index\\.js$)]/' && node ./scripts/post-docgen.js",
-    "website:prep": "rm -rf website/dist && yarn docgen && node ./scripts/getStoriesList.js",
-    "website:build": "yarn website:prep && MODE=website NODE_ENV=production yarn webpack --config website/webpack.config.js",
-    "website:start": "yarn website:prep && yarn webpack serve --config website/webpack.config.js"
+    "website:prep": "rm -rf website/dist && pnpm docgen && node ./scripts/getStoriesList.js",
+    "website:build": "pnpm website:prep && MODE=website NODE_ENV=production pnpm webpack --config website/webpack.config.js",
+    "website:start": "pnpm website:prep && pnpm webpack serve --config website/webpack.config.js"
   },
   "dependencies": {
     "aphrodite": "^2.4.0",

@@ -18,4 +18,7 @@ npm i bzc-ui
 
 // with yarn
 yarn add bzc-ui
+
+// with pnpm
+pnpm add bzc-ui
 ```

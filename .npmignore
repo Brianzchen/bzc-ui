@@ -21,5 +21,6 @@ dangerfile.js
 Dockerfile*
 GOVERNANCE.md
 jest.config.js
+pnpm-lock.yaml
 yarn.lock
 yarn-error.log
