@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 import * as bzcUi from '.';
+import * as types from './types';
 
 describe('bzc-ui', () => {
   const exclusions = ['internal', 'theme'];
@@ -23,7 +24,7 @@ describe('bzc-ui', () => {
   });
 
   it('can import types', () => {
-    const color: bzcUi.types.StyleObjT = {
+    const color: types.StyleObjT = {
       ...null,
     };
 

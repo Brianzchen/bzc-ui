@@ -6,8 +6,9 @@ import {
   Inline,
   Stack,
   Typography,
-  types,
 } from '..';
+
+import * as types from '../types';
 
 export const Basic = (): React.Node => (
   <Typography>

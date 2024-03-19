@@ -27,6 +27,7 @@ module.exports = ({
     extensions: ['*', '.js'],
     alias: {
       'bzc-ui': path.resolve(__dirname, '..', 'src', 'index.js'),
+      'bzc-ui/types': path.resolve(__dirname, '..', 'src', 'types.js'),
       pkgJson: path.resolve(__dirname, '..', 'package.json'),
       utils: path.resolve(__dirname, 'src', 'utils', 'index.js'),
     },

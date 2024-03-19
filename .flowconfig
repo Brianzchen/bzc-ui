@@ -28,6 +28,7 @@ format.single_quotes=true
 exact_by_default=true
 include_warnings=true
 module.name_mapper='^bzc-ui$' -> '<PROJECT_ROOT>/src/index.js'
+module.name_mapper='^bzc-ui/types$' -> '<PROJECT_ROOT>/src/types.js'
 module.name_mapper='^pkgJson$' -> '<PROJECT_ROOT>/package.json'
 module.name_mapper='^utils$' -> '<PROJECT_ROOT>/website/src/utils'
 

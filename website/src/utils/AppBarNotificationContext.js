@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react';
 
-import { types } from 'bzc-ui';
+import type { NotificationVariantT } from 'bzc-ui/types';
 
 export type AppBarNotificationT = void | {|
-  variant: types.NotificationVariantT,
+  variant: NotificationVariantT,
   message: string,
 |};
 
