@@ -116,6 +116,7 @@ const Accordion: React$AbstractComponent<AccordionT, HTMLElement> = React.forwar
         },
     }),
     inner: (theme: ThemeT, styler: StylerT) => styler(innerStyle, theme, {
+      visibility: open ? 'visible' : 'hidden',
       overflow: 'auto',
     }),
   };
