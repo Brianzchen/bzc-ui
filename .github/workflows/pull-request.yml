@@ -28,7 +28,7 @@ jobs:
       with:
         version: 8
 
-    - run: pnpm
+    - run: pnpm install
     - run: node ./scripts/getStoriesList.js
     - run: pnpm eslint .
     - run: pnpm flow
